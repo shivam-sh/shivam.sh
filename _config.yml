@@ -1,0 +1,36 @@
+# site settings
+title: Shivam Sharma
+subtitle:
+email: shivam.sharm@icloud.com
+description: A responsive site template designed by HTML5 Up<br /> and released under the Creative Commons.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: # the base hostname & protocol for your site
+author: Shivam Sharma
+street_address: 
+city: 
+state: 
+zip_code: 
+country: 
+phone: 
+
+# homepage tiles
+tiles-source: pages # accepts "posts" or "pages"
+tiles-count: 6
+
+# social settings
+500px_url:
+facebook_url:
+github_url: https://github.com/shivam-sh
+gitlab_url: 
+googleplus_url: 
+instagram_url: https://www.instagram.com/shivam_sh_/
+linkedin_url: https://www.linkedin.com/in/shivam-sharma-a66105194/
+pinterest_url:
+slack_url:
+twitter_url: https://twitter.com/shivam_sh_
+
+# build settings
+markdown: kramdown
+
+sass:
+  style: compressed
