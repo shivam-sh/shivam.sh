@@ -1,7 +1,7 @@
 ---
 title: Blog
 layout: landing
-description: 'Lorem ipsum dolor sit amet nullam consequa<br />sed veroeros. tempus adipiscing nulla.'
+description: ''
 image: assets/images/pic03.jpg
 nav-menu: true
 ---
@@ -10,6 +10,7 @@ nav-menu: true
 <div id="main">
 
 <!-- One -->
+<!-- 
 <section id="one">
 	<div class="inner">
 		<header class="major">
@@ -18,6 +19,7 @@ nav-menu: true
 		<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
 	</div>
 </section>
+-->
 
 <!-- Two -->
 <section id="two" class="spotlights">
@@ -31,11 +33,20 @@ nav-menu: true
 		<div class="content">
 			<div class="inner">
 				<header class="major">
-					<h3>{{ post.title | escape }}</h3>
+					<h3 class="title">{{ post.title | escape }}</h3>
 				</header>
+				<div class ="post-info">
+					{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+					<div class="post-date">{{ post.date | date: date_format }}</div>
+					<ul class="categories">
+						{%- for tag in post.categories -%}
+							<li>{{ tag }}</li>
+						{%- endfor -%}
+					</ul>
+				</div>
 				<p>{{ post.excerpt }}</p>
 				<ul class="actions">
-					<li><a href="{{ post.url | relative_url }}" class="button">Learn more</a></li>
+					<li><a href="{{ post.url | relative_url }}" class="button">Explore</a></li>
 				</ul>
 			</div>
 		</div>

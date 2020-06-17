@@ -57,6 +57,43 @@
 					margin: 0 auto;
 					max-width: 100%;
 					width: _size(inner);
+					> .major {
+						margin-bottom: 0;
+						> .title {
+							border: none;
+						}
+					}
+
+					> .post-info {
+						display:flex;
+						flex-flow: row wrap;
+						justify-content: space-between;
+						padding-bottom: 0;
+
+						> .post-date {
+							justify-self: flex-start;
+							align-self: center;
+						}
+						> .categories {
+							list-style-type: none;
+							margin: 0;
+							padding: 0;
+							justify-self: center;
+							
+							li {
+								font-size: 12px;
+								float: right;
+								background-color: #383e5a;
+								padding: 5px 20px;
+								border-radius: 2px;
+								@media screen and (max-width: 768px){
+									margin-top: 5px;
+								}
+								margin-right: 10px;
+								text-decoration: none;
+							}
+						}
+					}
 				}
 			}
 
