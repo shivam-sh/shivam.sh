@@ -50,7 +50,7 @@
 				@include vendor('flex-direction', 'column');
 				@include vendor('justify-content', 'center');
 				@include vendor('align-items', 'center');
-				@include padding(2em, 3em);
+				@include padding(1em, 3em);
 				width: 70%;
 
 				> .inner {
@@ -73,11 +73,11 @@
 		@include breakpoint(xlarge) {
 			> section {
 				> .image {
-					width: 40%;
+					width: 30%;
 				}
 
 				> .content {
-					width: 60%;
+					width: 70%;
 				}
 			}
 		}
@@ -85,11 +85,11 @@
 		@include breakpoint(large) {
 			> section {
 				> .image {
-					width: 45%;
+					width: 35%;
 				}
 
 				> .content {
-					width: 55%;
+					width: 65%;
 				}
 			}
 		}
