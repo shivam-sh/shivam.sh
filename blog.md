@@ -10,16 +10,16 @@ nav-menu: true
 <div id="main">
 
 <!-- One -->
-
+<!--
 <section id="one">
 	<div class="inner">
 		<header class="major">
 			<h2>Welcome to My Blog</h2>
 		</header>
-		<p>I enjoy writing about  </p>
+		<p></p>
 	</div>
 </section>
-
+-->
 
 <!-- Two -->
 <section id="two" class="spotlights">
