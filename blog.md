@@ -44,7 +44,9 @@ nav-menu: true
 						{%- endfor -%}
 					</ul>
 				</div>
-				<p>{{ post.excerpt }}</p>
+
+				{{ post.excerpt }}
+				
 				<ul class="actions">
 					<li><a href="{{ post.url | relative_url }}" class="button">Explore</a></li>
 				</ul>
