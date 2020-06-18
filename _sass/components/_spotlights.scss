@@ -22,13 +22,12 @@
 				background-position: center center;
 				background-size: cover;
 				border-radius: 0;
-				display: block;
 				position: relative;
 				width: 30%;
+				align-self: center;
 
 				img {
 					border-radius: 0;
-					display: block;
 					width: 100%;
 				}
 
@@ -62,7 +61,7 @@
 						> .title {
 							border: none;
 							border-bottom-color: transparent;
-							margin-bottom: 0;
+							margin-bottom: 0.3em;
 							font-size: 1.5em;
 						}
 					}
@@ -87,7 +86,7 @@
 								justify-self: center;
 								font-size: 12px;
 								float: right;
-								background-color: #383e5a;
+								background-color: transparentize($color: #ffffff, $amount: 0.9);
 								padding: 5px 20px;
 								border-radius: 2px;
 								@media screen and (max-width: 768px){
@@ -114,11 +113,15 @@
 		@include breakpoint(xlarge) {
 			> section {
 				> .image {
-					width: 30%;
+					display: flex;
+					width: 25%;
+					img {
+						object-fit: cover;
+					}
 				}
 
 				> .content {
-					width: 70%;
+					width: 75%;
 				}
 			}
 		}
@@ -126,11 +129,15 @@
 		@include breakpoint(large) {
 			> section {
 				> .image {
-					width: 35%;
+					display: flex;
+					width: 30%;
+					img {
+						object-fit: cover;
+					}
 				}
 
 				> .content {
-					width: 65%;
+					width: 70%;
 				}
 			}
 		}
@@ -140,6 +147,7 @@
 				display: block;
 
 				> .image {
+					display: none;
 					width: 100%;
 				}
 

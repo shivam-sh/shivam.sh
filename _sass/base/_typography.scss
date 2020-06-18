@@ -75,6 +75,17 @@
 		}
 	}
 
+	.page-title {
+		&:after {
+			content: '';
+			background-color: _palette(fg-bold);
+			display: block;
+			height: 2px;
+			margin: 0.325em 0 0.5em 0;
+			width: 100%;
+		}
+	}
+
 	h1 {
 		font-size: 2.5em;
 	}

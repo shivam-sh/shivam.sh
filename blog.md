@@ -1,7 +1,7 @@
 ---
 title: Blog
 layout: landing
-description: ''
+description: 'Hi!'
 image: assets/images/pic03.jpg
 nav-menu: true
 ---
@@ -10,16 +10,16 @@ nav-menu: true
 <div id="main">
 
 <!-- One -->
-<!-- 
+
 <section id="one">
 	<div class="inner">
 		<header class="major">
-			<h2>Sed amet aliquam</h2>
+			<h2>Welcome to My Blog</h2>
 		</header>
-		<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
+		<p>I enjoy writing about  </p>
 	</div>
 </section>
--->
+
 
 <!-- Two -->
 <section id="two" class="spotlights">
@@ -27,7 +27,7 @@ nav-menu: true
 	<section>
 		
 		<a href="{{ post.url | relative_url }}" class="image">
-			<img src="{% link assets/images/pic08.jpg %}" alt="" data-position="center center" />
+			<img src="{{ site.baseurl }}/{{ post.image }}" alt="" data-position="center center" />
 		</a>
 		
 		<div class="content">
@@ -47,9 +47,11 @@ nav-menu: true
 
 				{{ post.excerpt }}
 				
+				<!--
 				<ul class="actions">
-					<li><a href="{{ post.url | relative_url }}" class="button">Explore</a></li>
+					<li><a href="{{ post.url | relative_url }}" class="button">Read More</a></li>
 				</ul>
+				-->
 			</div>
 		</div>
 	</section>
