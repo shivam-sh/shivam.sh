@@ -47,11 +47,9 @@ nav-menu: true
 
 				{{ post.excerpt }}
 				
-				<!--
 				<ul class="actions">
 					<li><a href="{{ post.url | relative_url }}" class="button">Read More</a></li>
 				</ul>
-				-->
 			</div>
 		</div>
 	</section>

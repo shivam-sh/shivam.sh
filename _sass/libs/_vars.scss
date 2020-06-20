@@ -28,7 +28,27 @@
 		letter-spacing-alt:	0.25em
 	);
 
-// Palette.
+// Light Palette.
+
+	$palette: (
+		bg:					rgb(226, 226, 224),
+		bg-alt:				rgb(216, 216, 214),
+		fg:					#000000,
+		fg-bold:			#000000,
+		fg-light:			rgba(38, 38, 41, 0.4),
+		border:				rgba(39, 39, 48, 0.2),
+		border-bg:			rgba(68, 68, 83, 0.07),
+		highlight:			rgb(47, 127, 240),
+		accent1:			rgb(164, 204, 218),
+		accent2:			rgb(164, 158, 196),
+		accent3:			rgb(233, 182, 176),
+		accent4:			rgb(229, 206, 182),
+		accent5:			rgb(182, 197, 230),
+		accent6:			rgb(163, 192, 177)
+	);
+
+// Dark Palette.
+/*
 	$palette: (
 		bg:					#242943,
 		bg-alt:				#2a2f4a,
@@ -45,3 +65,4 @@
 		accent5:			#8ea9e8,
 		accent6:			#87c5a4
 	);
+*/
