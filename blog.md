@@ -2,7 +2,7 @@
 title: Blog
 layout: landing
 description: 'Hi!'
-image: assets/images/pic03.jpg
+image: assets/images/blog.jpg
 nav-menu: true
 ---
 

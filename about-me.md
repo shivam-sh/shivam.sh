@@ -2,7 +2,7 @@
 layout: page
 title: About Me
 description: '[Under Construction]'
-image: assets/images/pic02.jpg
+image: assets/images/about-me.jpg
 nav-menu: true
 ---
 
