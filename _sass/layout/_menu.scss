@@ -12,10 +12,10 @@
 			'opacity #{_duration(menu)} ease',
 			'visibility #{_duration(menu)}'
 		));
-		@include vendor('align-items', 'center');
-		@include vendor('display', 'flex');
-		@include vendor('justify-content', 'center');
-		@include vendor('pointer-events', 'none');
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		pointer-events: none;
 		background: transparentize(_palette(bg), 0.1);
 		box-shadow: none;
 		height: 100%;
@@ -105,7 +105,6 @@
 			text-align: right;
 			text-indent: 8em;
 			top: 0;
-			vertical-align: middle;
 			white-space: nowrap;
 			width: 8em;
 

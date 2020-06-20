@@ -2,7 +2,7 @@
 title: Blog
 layout: landing
 description: 'Hi!'
-image: assets/images/pic03.jpg
+image: assets/images/blog.jpg
 nav-menu: true
 ---
 
@@ -47,11 +47,9 @@ nav-menu: true
 
 				{{ post.excerpt }}
 				
-				<!--
 				<ul class="actions">
 					<li><a href="{{ post.url | relative_url }}" class="button">Read More</a></li>
 				</ul>
-				-->
 			</div>
 		</div>
 	</section>

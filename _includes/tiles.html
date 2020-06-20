@@ -4,9 +4,9 @@
     {% assign tiles = site.html_pages | where_exp: "item", "item.show_tile != false" %}
 {% endif %}
 <section id="one" class="tiles">
-  <article>
+  <article style="background-image: url('/assets/images/github.jpg');" onclick="location='https://github.com/shivam-sh'">
     <span class="image">
-      <img src="/assets/images/pic09.jpg" alt="" />
+      <img src="/assets/images/github.jpg" alt="" />
     </span>
     <header class="major">
       <h3 class="page-title"><a href="https://github.com/shivam-sh" class="link">Github</a></h3>
@@ -15,7 +15,8 @@
   </article>
 
   {% for tile in tiles limit:site.tiles-count %}
-  <article>
+  <article style="background-image: url('{{ tile.image }}');" onclick="location='{{ tile.url  | relative_url }}'">
+    <a href="{{ tile.url  | relative_url }}">
     <span class="image">
       <img src="{{ tile.image }}" alt="" />
     </span>
@@ -24,5 +25,6 @@
       <p>{{ tile.description }}</p>
     </header>
   </article>
+</a>
   {% endfor %}
 </section>
