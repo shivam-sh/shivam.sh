@@ -14,20 +14,23 @@
 		}
 
 		> section {
-			@include vendor('display', 'flex');
-			@include vendor('flex-direction', 'row');
+			display: flex;
+			flex-direction: row;
+			max-width: 1600px;
+			margin: 0 auto;
+			
 			background-color: desaturate(lighten(_palette(bg-alt), 2), 1);
 
 			> .image {
-				background-position: center center;
+				display: flex;
 				background-size: cover;
+				object-fit: cover;
 				border-radius: 0;
 				position: relative;
-				width: 30%;
-				align-self: center;
+				width: 25%;
 
 				img {
-					border-radius: 0;
+					object-fit: cover;
 					width: 100%;
 				}
 
@@ -45,12 +48,12 @@
 			}
 
 			> .content {
-				@include vendor('display', 'flex');
-				@include vendor('flex-direction', 'column');
-				@include vendor('justify-content', 'center');
-				@include vendor('align-items', 'center');
-				@include padding(1em, 3em);
-				width: 70%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 2em 3em;
+				width: 75%;
 
 				> .inner {
 					margin: 0 auto;
@@ -86,7 +89,7 @@
 								justify-self: center;
 								font-size: 12px;
 								float: right;
-								background-color: transparentize($color: #ffffff, $amount: 0.9);
+								background-color: transparentize($color: #000000, $amount: 0.9);
 								padding: 5px 20px;
 								border-radius: 2px;
 								@media screen and (max-width: 768px){
@@ -99,6 +102,64 @@
 					}
 				}
 			}
+
+			> .alt-content {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 2em 3em;
+				width: 100%;
+
+				> .inner {
+					margin: 0 auto;
+					max-width: 100%;
+					width: _size(inner);
+					> .major {
+						margin-bottom: 0;
+						> .title {
+							border: none;
+							border-bottom-color: transparent;
+							margin-bottom: 0.3em;
+							font-size: 1.5em;
+						}
+					}
+
+					> .post-info {
+						display:flex;
+						flex-flow: row wrap;
+						justify-content: space-between;
+						padding-bottom: 1em;
+
+						> .post-date {
+							justify-self: flex-start;
+							align-self: center;
+						}
+						> .categories {
+							list-style-type: none;
+							margin: 0;
+							padding: 0;
+							justify-self: center;
+							
+							li {
+								justify-self: center;
+								font-size: 12px;
+								float: right;
+								background-color: transparentize($color: #000000, $amount: 0.9);
+								padding: 5px 20px;
+								border-radius: 2px;
+								@media screen and (max-width: 768px){
+									margin-top: 5px;
+								}
+								margin-right: 10px;
+								text-decoration: none;
+							}
+						}
+					}
+				}
+			}
+
+			
 
 			&:nth-child(2n) {
 				@include vendor('flex-direction', 'row-reverse');
@@ -123,6 +184,9 @@
 				> .content {
 					width: 75%;
 				}
+				> .alt-content {
+					width: 100%;
+				}
 			}
 		}
 
@@ -139,6 +203,9 @@
 				> .content {
 					width: 70%;
 				}
+				> .alt-content {
+					width: 100%;
+				}
 			}
 		}
 
@@ -152,7 +219,10 @@
 				}
 
 				> .content {
-					@include padding(4em, 3em);
+					padding: 4em 3em;
+					width: 100%;
+				}
+				> .alt-content {
 					width: 100%;
 				}
 			}
@@ -161,7 +231,10 @@
 		@include breakpoint(small) {
 			> section {
 				> .content {
-					@include padding(3em, 1.5em);
+					padding: 4em 3em;
+				}
+				> .alt-content {
+					width: 100%;
 				}
 			}
 		}

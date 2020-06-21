@@ -44,16 +44,20 @@
 			header {
 				position: relative;
 				z-index: 3;
+				color: #ffffff;
 			}
 
 			h3 {
 				font-size: 1.75em;
+				margin: 0;
+				color: #ffffff;
 
 				a {
 					&:hover {
 						color: inherit !important;
 					}
 				}
+
 			}
 
 			.link.primary {
@@ -89,6 +93,12 @@
 				top: 0;
 				width: 100%;
 				z-index: 1;
+			}
+
+			.page-title {
+				&::after {
+					background-color: #ffffff;
+				}
 			}
 
 			&:hover {
