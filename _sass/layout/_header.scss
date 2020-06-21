@@ -12,7 +12,7 @@
 	}
 
 	#header {
-		@include vendor('display', 'flex');
+		display: flex;
 		background-color: _palette(bg-alt);
 		box-shadow: 0 0 0.25em 0 rgba(0,0,0,0.15);
 		cursor: default;
@@ -63,7 +63,7 @@
 		}
 
 		nav {
-			@include vendor('display', 'flex');
+			display: flex;
 			@include vendor('justify-content', 'flex-end');
 			@include vendor('flex-grow', '1');
 			height: inherit;
