@@ -1,10 +1,10 @@
 # site settings
-title: Shivam Sharma
-subtitle:
+title: Shivam
+subtitle: Sharma
 email: shivam.sharm@icloud.com
-description: A responsive site template designed by HTML5 Up<br /> and released under the Creative Commons.
+description: I'm a student at the University of Waterloo <br/> exploring development and studying engineering
 baseurl: "" # the subpath of your site, e.g. /blog
-url: # the base hostname & protocol for your site
+url: https://shivam-sh.github.io # the base hostname & protocol for your site
 author: Shivam Sharma
 street_address: 
 city: 
@@ -24,7 +24,7 @@ github_url: https://github.com/shivam-sh
 gitlab_url: 
 googleplus_url: 
 instagram_url: https://www.instagram.com/shivam_sh_/
-linkedin_url: https://www.linkedin.com/in/shivam-sharma-a66105194/
+linkedin_url: https://www.linkedin.com/in/shivam-sh/
 pinterest_url:
 slack_url:
 twitter_url: https://twitter.com/shivam_sh_

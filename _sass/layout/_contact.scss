@@ -70,9 +70,6 @@
 				> .split {
 					> * {
 						@include padding(3em, 0, (0, 0, 0, 0));
-
-						&:before {
-						}
 					}
 
 					> :first-child {

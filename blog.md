@@ -1,7 +1,7 @@
 ---
 title: Blog
 layout: page
-description: 'Hi!'
+description: ''
 image: assets/images/blog.jpg
 nav-menu: true
 ---
@@ -13,9 +13,11 @@ nav-menu: true
 <section id="three">
 	<div class="inner">
 		<header class="major">
-			<h2>Massa libero</h2>
+			<h2>Blog</h2>
 		</header>
-		<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+		
+		<p>Welcome to my Blog! I write about any topics that interest me while usually being focused on technology and projects that I've worked on.</p>
+		
 	</div>
 </section> 
 

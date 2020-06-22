@@ -71,7 +71,7 @@
 
 			a {
 				border: 0;
-				display: block;
+				display: flex;
 				font-size: 0.8em;
 				height: inherit;
 				line-height: inherit;
@@ -92,7 +92,7 @@
 						background-repeat: no-repeat;
 						background-size: 24px 32px;
 						content: '';
-						display: block;
+						display: flex;
 						height: 100%;
 						position: absolute;
 						right: 1.5em;
