@@ -34,3 +34,9 @@ markdown: kramdown
 
 sass:
   style: compressed
+
+# post settings
+collections: 
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:title.html
