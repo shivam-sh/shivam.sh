@@ -46,7 +46,7 @@ nav-menu: true
 						</ul>
 					</div>
 
-					{{ post.excerpt }}
+					{{ post.description }}
 					
 					<ul class="actions">
 						<li><a href="{{ post.url | relative_url }}" class="button">Read More</a></li>
@@ -73,7 +73,7 @@ nav-menu: true
 						</ul>
 					</div>
 
-					{{ post.excerpt }}
+					{{ post.description }}
 					
 					<ul class="actions">
 						<li><a href="{{ post.url | relative_url }}" class="button">Read More</a></li>

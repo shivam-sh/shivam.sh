@@ -28,6 +28,7 @@
 				border-radius: 0;
 				position: relative;
 				width: 25%;
+				max-height: 400px;
 
 				img {
 					object-fit: cover;
@@ -99,6 +100,9 @@
 								text-decoration: none;
 							}
 						}
+					}
+					> .actions {
+						padding-top: 1.5em;
 					}
 				}
 			}
