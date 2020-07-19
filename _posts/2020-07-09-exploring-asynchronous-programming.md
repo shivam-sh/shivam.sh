@@ -3,8 +3,8 @@ layout: post
 title: Exploring Asynchronous Programming
 description: A reflection on my latest project. I explore server-side programming through Node.js thanks to a brief introduction while creating an identity verification bot.
 date: 2020-07-10
-image: assets/images/blog-posts/2020/exploring-async.jpg
-categories: Javascript NodeJS
+image: assets/blog/2020/exploring-async/header.jpg
+categories: Programming NodeJS
 ---
 ## Background
 
