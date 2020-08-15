@@ -1,0 +1,98 @@
+:root {
+    --bg: #1e1e1e;
+    --accent: #e1e1e1;
+    --text: #fff;
+    --link: #5588ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Base HTML Elements */
+
+body {
+    background-color: var(--bg);
+}
+
+h1 {
+    color: var(--text);
+}
+
+h2 {
+    color: var(--text);
+}
+
+h3 {
+    color: var(--text);
+}
+
+p {
+    color: var(--text);
+}
+
+a {
+    color: var(--link);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    height: 3.25em;
+    justify-content: space-between;
+    align-items: center
+}
+
+nav {
+    font-size: 15px;
+    padding: 0 1em 0 1em
+}
+
+nav > a {
+    color: var(--text);
+}
+
+nav > span {
+    color: var(--text);
+    padding: 0 1em 0 1em;
+}
+
+footer {
+    
+}
+
+/* Custom Made Elements */
+
+.wrapper {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+.content {
+    
+}
+
+.navLogo {
+    padding-top: 5px;
+    height: 2.5em;
+}
+
+
+/* Recolour the site based on system theme*/
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #e1e1e1;
+        --text: #000;
+    }
+    .navLogo {
+        filter: invert(100%);
+    }
+}
