@@ -19,6 +19,7 @@ struct ShivamSh: Website {
     var description = "A description of ShivamSh"
     var language: Language { .english }
     var imagePath: Path? { nil }
+    var favicon = Favicon(path: "/images/favicon.png")
 }
 
 // This will generate your website using the built-in Foundation theme:
