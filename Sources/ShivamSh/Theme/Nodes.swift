@@ -47,6 +47,12 @@ public extension Node where Context == HTML.BodyContext {
         ))
     }
     
+    static func shadow(_ nodes: Node...) -> Node {
+        .div(.class("shadow"), .group(
+            nodes
+        ))
+    }
+    
     static func content(_ nodes: Node...) -> Node {
         .div(.class("content"), .group(
             nodes
@@ -54,7 +60,7 @@ public extension Node where Context == HTML.BodyContext {
     }
     
     static func footer<T: Website>(for site: T) -> Node {
-        .group(.divider(),
+        .group(.shadow(),
             .footer(
                 .ul(
                     .class("icons"),
@@ -71,15 +77,25 @@ public extension Node where Context == HTML.BodyContext {
     }
     
     static func postList<T: Website>(for items: [Item<T>], on site: T) -> Node {
-        .forEach(items) { item in
-            .group(
-                .divider(),
-                .div(.class("post-showcase"),
-                     .h2(.text(item.title)),
-                    .p(.text(item.description))
-                )
-            )
+        let sorted = items.sorted {
+            ($0.date > $1.date)
         }
+        
+        return .group(
+            .forEach(sorted.enumerated()) { (index, item) in
+                .group(
+                    .if(true, .shadow()),
+                    .div(.class("post-showcase"),
+                       .img(.src(item.imagePath ?? "/header.jpg")),
+                       .a(.class("info"),
+                            .href(item.path),
+                            .h2(.text(item.title)),
+                            .p(.text(item.description))
+                       )
+                    )
+                )
+            }
+        )
     }
 }
 

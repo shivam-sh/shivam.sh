@@ -23,7 +23,7 @@ public struct TermHTMLFactory<Site: Website>: HTMLFactory {
                         )
                     )
                 ),
-                .divider(),
+                .shadow(),
                 .content(
                     
                 ),
@@ -41,8 +41,10 @@ public struct TermHTMLFactory<Site: Website>: HTMLFactory {
             
             .body(
                 .header(for: context),
-                .if( section.id.rawValue == "posts",
-                     .postList(for: section.items, on: context.site)),
+                .content(
+                    .contentBody(section.content.body)
+                    ),
+                .postList(for: section.items, on: context.site),
                 .footer(for: context.site)
             )
         )

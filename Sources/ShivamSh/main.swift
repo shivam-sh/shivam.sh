@@ -17,7 +17,7 @@ struct ShivamSh: Website {
 
     // Update these properties to configure your website:
     var url = URL(string: "https://shivamsh.me")!
-    var name = "Shivam Sh"
+    var name = "Shivam Sharma"
     var description = "A description of ShivamSh"
     var language: Language { .english }
     var imagePath: Path? { nil }
