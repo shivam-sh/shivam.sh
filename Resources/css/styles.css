@@ -1,9 +1,9 @@
 :root {
-    --bg: #1e1e1e;
+    --bg: #262626;
     --bg-alt: #111111;
     --primary: #e1e1e1;
     --secondary: #bbbbbb;
-    --tertiary: #2A2A2A;
+    --tertiary: #888888;
     --text: #fff;
     --link: #5588ff;
 }
@@ -13,7 +13,7 @@
     padding: 0;
     box-sizing: border-box;
     
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
 }
@@ -48,7 +48,12 @@ p {
 }
 
 a {
-    color: var(--link);
+    color: var(--text);
+}
+
+a:hover {
+    color: var(--tertiary);
+    font-size-adjust: 1.5;
 }
 
 header {
@@ -67,16 +72,16 @@ nav {
 }
 
 nav > a {
-    color: var(--text);
     text-decoration: none;
 }
 
 footer {
     display: flex;
     flex-direction: column;
-    margin: 1em auto 1em auto;
+    margin: auto;
+    margin-top: -1em;
     max-width: 1600px;
-    padding: 1em 2em 0 2em;
+    padding: .5em 2em 0 2em;
 }
 
 footer > p {
@@ -98,6 +103,26 @@ footer > p {
     
     text-decoration: none;
     box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+.divider {
+    height: 1em;
+    width: 100%;
+    
+    margin-top: 1em;
+    margin-bottom: 1em;
+    
+    box-shadow: 0px -.6em .6em rgba(0, 0, 0, 0.2);
+}
+
+.post-showcase {
+    min-height: 150px;
+    max-width: 1600px;
+    
+    margin: auto;
+    padding: 1em 2em 1em 2em;
+    
+    display: flex;
 }
 
 /* CUSTOM SECTIONS */
@@ -156,6 +181,7 @@ footer > p {
 .content {
     max-width: 1600px;
     margin: auto;
+    padding: 0 2em 0 2em;
 }
 
 .flex {
@@ -187,7 +213,7 @@ footer > p {
         --bg: #e1e1e1;
         --primary: #1e1e1e;
         --secondary: #555555;
-        --tertiary: #D5D5D5;
+        --tertiary: #888888;
         --text: #000;
     }
     .navLogo {

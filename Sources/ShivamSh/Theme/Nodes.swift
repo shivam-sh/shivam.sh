@@ -40,15 +40,9 @@ public extension Node where Context == HTML.BodyContext {
             .group(nodes)
         )
     }
-    
-    static func flex(_ nodes: Node...) -> Node {
-        .div(.class("flex"), .group(
-            nodes
-        ))
-    }
-    
-    static func block(_ nodes: Node...) -> Node {
-        .div(.class("block"), .group(
+        
+    static func divider(_ nodes: Node...) -> Node {
+        .div(.class("divider"), .group(
             nodes
         ))
     }
@@ -60,14 +54,32 @@ public extension Node where Context == HTML.BodyContext {
     }
     
     static func footer<T: Website>(for site: T) -> Node {
-        .footer(
-            .ul(
-                .class("icons"),
-                .li(.a(.class("fab fa-github"),.href("https://github.com/shivam-sh"))),
-                .li(.a(.class("fab fa-linkedin-in"),.href("https://linkedin.com/shivam-sh")))
-            ),
-            .p("© Shivam Sharma")
+        .group(.divider(),
+            .footer(
+                .ul(
+                    .class("icons"),
+                    .li(.a(.class("fab fa-github"),
+                           .href("https://github.com/shivam-sh")
+                    )),
+                    .li(.a(.class("fab fa-linkedin-in"),
+                           .href("https://linkedin.com/shivam-sh")
+                    ))
+                ),
+                .p("© Shivam Sharma")
+            )
         )
+    }
+    
+    static func postList<T: Website>(for items: [Item<T>], on site: T) -> Node {
+        .forEach(items) { item in
+            .group(
+                .divider(),
+                .div(.class("post-showcase"),
+                     .h2(.text(item.title)),
+                    .p(.text(item.description))
+                )
+            )
+        }
     }
 }
 
@@ -75,7 +87,7 @@ public extension Node where Context == HTML.DocumentContext {
     static func head<T: Website>(
         for location: Location,
         on site: T,
-        titleSeparator: String = " | ",
+        titleSeparator: String = " • ",
         stylesheetPaths: [Path] = ["css/styles.css"],
         rssFeedPath: Path? = .defaultForRSSFeed,
         rssFeedTitle: String? = nil
