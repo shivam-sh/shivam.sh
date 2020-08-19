@@ -24,9 +24,6 @@ public struct TermHTMLFactory<Site: Website>: HTMLFactory {
                     )
                 ),
                 .shadow(),
-                .content(
-                    
-                ),
                 .footer(for: context.site)
             )
         )

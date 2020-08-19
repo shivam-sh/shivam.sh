@@ -86,11 +86,24 @@ public extension Node where Context == HTML.BodyContext {
                 .group(
                     .if(true, .shadow()),
                     .div(.class("post-showcase"),
-                       .img(.src(item.imagePath ?? "/header.jpg")),
-                       .a(.class("info"),
-                            .href(item.path),
+                         .div(.class("image"),
+                              .style("background-image: url(../\(item.imagePath ?? "/images/favicon.png"));")
+                         ),
+                         .div(.class("info"),
                             .h2(.text(item.title)),
-                            .p(.text(item.description))
+                            .div(
+                                .p(.class("date"),.text(dateToString(date: item.date))),
+                                .ul(.class("tags"),
+                                    .forEach(item.tags) { tag in
+                                        .li(.text(tag.string))
+                                    }
+                                )
+                            ),
+                            .p(.text(item.description)),
+                            .div(.a(.class("button"),
+                               .href(item.path),
+                               .text("Read More")
+                            ))
                        )
                     )
                 )

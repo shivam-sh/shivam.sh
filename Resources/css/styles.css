@@ -37,13 +37,16 @@ h1 {
 
 h2 {
     color: var(--text);
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: 600;
     padding: .5em 0;
 }
 
 h3 {
     color: var(--text);
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: .5em 0;
 }
 
 p {
@@ -60,6 +63,10 @@ a {
 a:hover {
     color: var(--tertiary);
     font-size-adjust: 1.5;
+}
+
+li {
+    color: var(--text);
 }
 
 header {
@@ -102,13 +109,17 @@ footer > p {
 
 .button {
     align-self: right;
-    padding: 1em 2em;
+    padding: .9em 1.5em;
     
     border-color: var(--primary);
     color: var(--primary);
     border-width: 2px;
     
+    letter-spacing: .025em;
+    text-transform: uppercase;
     text-decoration: none;
+    font-size: .9em;
+    font-weight: 600;
     box-shadow: inset 0 0 0 2px var(--primary);
 }
 
@@ -143,31 +154,42 @@ footer > p {
     padding: 0;
     
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.post-showcase > img {
+.post-showcase:nth-child(4n + 2) {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.post-showcase > .image {
     display: flex;
     background-size: cover;
     object-fit: cover;
-    width: 25%;
-    max-height: 400px;
+    width: 30%;
+    height: 375px;
+}
+
+.image > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .post-showcase > .info {
-    padding: 2em 4em;
+    padding: 1em 4em;
     
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 70%;
     justify-content: center;
     
     text-decoration: none;
 }
 
 .post-showcase > .info > h2 {
-    margin-bottom: 0.3em;
     font-size: 1.3em;
 }
 
@@ -175,10 +197,11 @@ footer > p {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    padding-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .post-showcase > .info > div > .date {
+    color: var(--tertiary);
     justify-self: flex-start;
     align-self: center;
 }
@@ -187,14 +210,17 @@ footer > p {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    justify-self: center;
 }
 
 .post-showcase > .info > div > .tags > li {
-    
+    color: var(--tertiary);
+    padding: 0 1em;
+    float: right;
 }
 
 .post-showcase > .info > p {
-
+    margin-bottom: 1em;
 }
 
 /* CUSTOM SECTIONS */
@@ -216,6 +242,8 @@ footer > p {
     max-width: 1000px;
     margin: auto;
     padding: 15em 3em;
+    
+    height: calc(100vh - 10.5em);
     
     display: flex;
     flex-direction: column;
@@ -244,14 +272,13 @@ footer > p {
 
 .banner > div > .button {
     margin-top: 1em;
-    margin-right: 200px;;
-    font-size: .9em;
+    margin-right: 200px;
 }
 
 /* Sections for content */
 
 .content {
-    max-width: 900px;
+    max-width: 850px;
     margin: auto;
     padding: 1em 2em 4em 2em;
 }
