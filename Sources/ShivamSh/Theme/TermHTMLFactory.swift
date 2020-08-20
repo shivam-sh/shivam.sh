@@ -16,9 +16,9 @@ public struct TermHTMLFactory<Site: Website>: HTMLFactory {
                     .div(
                         .p("I'm a student at the University of Waterloo exploring development and studying engineering"),
                         .a(.class("button"),
-                           .p("Learn More &nbsp;&nbsp;&nbsp;&nbsp;",
-                              .i(.class("fas fa-chevron-right"))
+                           .text("Learn More &nbsp;&nbsp;&nbsp;&nbsp;"
                            ),
+                           .i(.class("fas fa-chevron-right")),
                            .href("/about")
                         )
                     )

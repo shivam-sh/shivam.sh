@@ -12,6 +12,8 @@
     padding: 0;
     box-sizing: border-box;
     
+    transition: .2s;
+    
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
@@ -137,6 +139,7 @@ nav {
 
 nav > a {
     text-decoration: none;
+    font-weight: 500;
 }
 
 footer {
@@ -159,7 +162,7 @@ footer > p {
 
 .button {
     padding: .9em 1.5em;
-    margin: .2em;
+    margin-right: .2em;
     
     border-color: var(--primary);
     color: var(--primary);
@@ -174,8 +177,12 @@ footer > p {
 }
 
 .button:hover {
-    color: var(--text);
+    color: var(--link);
     box-shadow: inset 0 0 0 2px var(--link);
+}
+
+.button > p:hover {
+    color: var(--link);
 }
 
 .shadow {
@@ -247,6 +254,7 @@ footer > p {
 
 .post-showcase > .info > h2 {
     font-size: 1.3em;
+    margin-bottom: .5em;
 }
 
 .post-showcase > .info > div {
@@ -259,6 +267,7 @@ footer > p {
     color: var(--secondary);
     justify-self: flex-start;
     align-self: center;
+    margin-bottom: .5em;
 }
 
 .post-showcase > .info > div > .tags {
@@ -272,6 +281,11 @@ footer > p {
     color: var(--secondary);
     padding: 0 1em;
     float: right;
+    margin-bottom: .5em;
+}
+
+.post-showcase > .info > p {
+    margin-bottom: .8em;
 }
 
 /* CUSTOM SECTIONS */
@@ -294,7 +308,7 @@ footer > p {
     margin: auto;
     padding: 15em 3em;
     
-    min-height: calc(100vh - 10.5em);
+    min-height: calc(100vh - 12em);
     
     display: flex;
     flex-direction: column;
