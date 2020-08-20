@@ -87,7 +87,7 @@ public extension Node where Context == HTML.BodyContext {
                     .if(true, .shadow()),
                     .div(.class("post-showcase"),
                          .div(.class("image"),
-                              .style("background-image: url(../\(item.imagePath ?? "/images/favicon.png"));")
+                              .img(.src(item.imagePath ?? "/images/favicon.png"))
                          ),
                          .div(.class("info"),
                             .h2(.text(item.title)),

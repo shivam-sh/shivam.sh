@@ -5,14 +5,14 @@
     --tertiary: #303030;
     --text: #fff;
     --link: #5588ff;
+    
+    font-size: 17px;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-    transition: .2s;
     
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
@@ -231,8 +231,9 @@ footer > p {
     margin: -1em 0;
     background-size: cover;
     object-fit: cover;
-    width: 25%;
+    width: 35%;
     height: 350px;
+    transition: .2s;
 }
 
 .image > img {
@@ -246,7 +247,7 @@ footer > p {
     
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 65%;
     justify-content: center;
     
     text-decoration: none;
@@ -390,13 +391,36 @@ footer > p {
     :root {
         font-size: 17px;
     }
+    .post-showcase > .image {
+        width: 30%;
+    }
+    .post-showcase > .info {
+        width: 70%;
+    }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1400px) {
     :root {
         font-size: 17px;
     }
+    .post-showcase > .image {
+        width: 30%;
+    }
+    .post-showcase > .info {
+        width: 70%;
+    }
 }
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1200px) {
+    :root {
+        font-size: 17px;
+    }
+    .post-showcase > .image {
+        width: 25%;
+    }
+    .post-showcase > .info {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 960px) {
     :root {
         font-size: 16px;
     }
@@ -409,7 +433,7 @@ footer > p {
 }
 @media screen and (max-width: 480px) {
     :root {
-        font-size: 15px;
+        font-size: 16px;
     }
     .post-showcase > .image {
         width: 0%;
@@ -420,7 +444,7 @@ footer > p {
 }
 @media screen and (max-width: 360px) {
     :root {
-        font-size: 15px;
+        font-size: 16px;
     }
     .post-showcase > .image {
         width: 0%;

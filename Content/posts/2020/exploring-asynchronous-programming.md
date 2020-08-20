@@ -1,6 +1,6 @@
 ---
 title: Exploring Asynchronous Programming
-tags: Programming, NodeJS
+tags: NodeJS
 date: 2020-07-9 0:00
 description: A reflection on my latest project. I explore server-side programming through Node.js thanks to a brief introduction while working on a bot.
 image: images/posts/2020/async.jpg

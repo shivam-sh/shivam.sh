@@ -3,8 +3,7 @@ title: Orbit
 tags: Showcase, p5.js
 date: 2020-07-18 00:00
 description: This project showcase diplays a quick physics-based graphical simulation of orbiting bodies with p5.js
-image: images/posts/2020/orbit.jpeg
-script: https://shivam-sh.github.io/p5-experiments/p5/p5.js, https://shivam-sh.github.io/p5-experiments/sketches/orbit/sketch.js, https://shivam-sh.github.io/p5-experiments/sketches/orbit/orbiter.js, https://shivam-sh.github.io/p5-experiments/sketches/orbit/attractor.js
+image: images/projects/p5/orbit.jpeg
 ---
 
 # Orbit

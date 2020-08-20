@@ -1,10 +1,9 @@
 ---
 title: Turning Algorithms into Code
-tags: Tutorial, JavaScript
+tags: JavaScript
 date: 2020-07-27 00:00
 description: How do you go from an algorithm to working code? This tutorial outlines a procedure that breaks this problem into manageable steps. 
 image: images/posts/2020/astar.png
-script: https://shivam-sh.github.io/p5-experiments/p5/p5.js, https://shivam-sh.github.io/p5-experiments/sketches/a*/sketch.js, https://shivam-sh.github.io/p5-experiments/sketches/a*/node.js
 ---
 # Turning Algorithms into Code
 <div id="canvas" style="height: 500px; margin-bottom: 1em;"></div>
