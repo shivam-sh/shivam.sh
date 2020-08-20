@@ -26,8 +26,6 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       env:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_branch: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./Output
         cname: www.shivamsh.me
-        enable_jekyll: false
