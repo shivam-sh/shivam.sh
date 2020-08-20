@@ -1,5 +1,8 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
 .DS_Store
+/build
+/.build
+/.swiftpm
+/*.xcodeproj
+.publish
+Output/
+Package.resolved
