@@ -71,6 +71,9 @@ public struct TermHTMLFactory<Site: Website>: HTMLFactory {
 
             .body(
                 .header(for: context),
+                .content(
+                    .contentBody(page.body)
+                ),
                 .footer(for: context.site)
             )
         )

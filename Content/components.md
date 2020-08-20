@@ -1,9 +1,7 @@
 ---
 layout: page
-title: About Me
+title: Components
 description: '[Under Construction]'
-image: assets/images/about-me.jpg
-nav-menu: true
 ---
 
 <!-- Main -->

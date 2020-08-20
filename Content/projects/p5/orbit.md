@@ -1,17 +1,17 @@
 ---
-layout: post
 title: Orbit
-description: This project showcase diplays a quick physics-based graphical simulation of orbiting bodies with p5.js
-date: 2020-07-18 00:00
-image: images/posts/2020/orbit.jpeg
 tags: Showcase, p5.js
+date: 2020-07-18 00:00
+description: This project showcase diplays a quick physics-based graphical simulation of orbiting bodies with p5.js
+image: images/posts/2020/orbit.jpeg
+script: https://shivam-sh.github.io/p5-experiments/p5/p5.js, https://shivam-sh.github.io/p5-experiments/sketches/orbit/sketch.js, https://shivam-sh.github.io/p5-experiments/sketches/orbit/orbiter.js, https://shivam-sh.github.io/p5-experiments/sketches/orbit/attractor.js
 ---
 
 # Orbit
 
-<div id="sketch" style="height: 600px"></div>
-<a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/orbit" class="button special" style="margin: 1em 0 0 0">View Source</a>
-<a href="https://shivam-sh.github.io/p5-experiments/subpages/orbit.html" class="button" style="margin: 1em 0 0 0">Fullscreen</a>
+<div id="sketch" style="height: 600px; margin-bottom: 1em;"></div>
+<p><a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/orbit" class="button special" style="margin: 1em 0 0 0">View Source</a>
+<a href="https://shivam-sh.github.io/p5-experiments/subpages/orbit.html" class="button" style="margin: 1em 0 0 0">Fullscreen</a></p>
 
 Orbit is a physics-based simulation of.. well... orbits!
 
@@ -26,3 +26,8 @@ This is a relatively simple program yet it can be improved upon in many ways. I 
 I may even implement a simple version of this into another program as a loading indicator as the semi-chaotic system makes for a very satisfying animation.
 
 Shivam Sh
+
+<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/p5/p5.js"></script>
+<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/orbit/sketch.js"></script>
+<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/orbit/orbiter.js"></script>
+<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/orbit/attractor.js"></script>

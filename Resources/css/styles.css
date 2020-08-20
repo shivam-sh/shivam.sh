@@ -1,9 +1,8 @@
 :root {
     --bg: #262626;
-    --bg-alt: #111111;
     --primary: #e1e1e1;
     --secondary: #bbbbbb;
-    --tertiary: #888888;
+    --tertiary: #303030;
     --text: #fff;
     --link: #5588ff;
 }
@@ -22,7 +21,7 @@
 
 body {
     background-color: var(--bg);
-    min-width: 320px;
+    min-width: 360px;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -33,6 +32,7 @@ h1 {
     font-size: 1.8em;
     font-weight: 600;
     margin-bottom: 1.5em;
+    letter-spacing: .05em;
 }
 
 h2 {
@@ -40,17 +40,20 @@ h2 {
     font-size: 1.6em;
     font-weight: 600;
     margin-bottom: 1.5em;
+    letter-spacing: .05em;
 }
 
 h3 {
     color: var(--text);
     font-size: 1.4em;
     font-weight: 600;
+    letter-spacing: .05em;
     margin-bottom: 1.25em;
 }
 
 h4 {
     color: var(--text);
+    letter-spacing: .05em;
     font-size: 1.2em;
     font-weight: 600;
     margin-bottom: 1em;
@@ -61,12 +64,14 @@ h5 {
     font-size: 1em;
     font-weight: 600;
     margin-bottom: 1em;
+    letter-spacing: .05em;
 }
 
 h6 {
     color: var(--text);
     font-size: .8em;
     font-weight: 600;
+    letter-spacing: .05em;
     margin-bottom: 1em;
 }
 
@@ -77,6 +82,7 @@ blockquote {
 pre code {
     display: block;
     padding: 1em 1.5em;
+    margin: 1em 0;
     overflow-x: auto;
 }
 
@@ -152,8 +158,8 @@ footer > p {
 /* COMPONENTS */
 
 .button {
-    align-self: right;
     padding: .9em 1.5em;
+    margin: .2em;
     
     border-color: var(--primary);
     color: var(--primary);
@@ -165,6 +171,11 @@ footer > p {
     font-size: .8em;
     font-weight: 600;
     box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+.button:hover {
+    color: var(--text);
+    box-shadow: inset 0 0 0 2px var(--link);
 }
 
 .shadow {
@@ -194,7 +205,7 @@ footer > p {
     min-height: 150px;
     max-width: 1600px;
     
-    margin: 0 auto;
+    margin: 1em auto;
     padding: 0;
     
     display: flex;
@@ -210,6 +221,7 @@ footer > p {
 
 .post-showcase > .image {
     display: flex;
+    margin: -1em 0;
     background-size: cover;
     object-fit: cover;
     width: 25%;
@@ -262,9 +274,6 @@ footer > p {
     float: right;
 }
 
-.post-showcase > .info > p {
-}
-
 /* CUSTOM SECTIONS */
 
 /* Header */
@@ -285,7 +294,7 @@ footer > p {
     margin: auto;
     padding: 15em 3em;
     
-    height: calc(100vh - 10.5em);
+    min-height: calc(100vh - 10.5em);
     
     display: flex;
     flex-direction: column;
@@ -293,8 +302,9 @@ footer > p {
 
 .banner > h1 {
     padding: 0;
+    margin: .5em 0;
     font-size: 2.8em;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .banner > div {
@@ -307,14 +317,13 @@ footer > p {
 
 .banner > div > p {
     max-width: 40em;
-    margin-top: 1em;
     font-size: .75em;
     letter-spacing: 2px;
 }
 
 .banner > div > .button {
-    margin-top: 1em;
-    margin-right: 200px;
+    height: 45px;
+    margin-right: 20%;
 }
 
 /* Sections for content */
@@ -355,7 +364,7 @@ footer > p {
         --primary: #1e1e1e;
         --secondary: #555555;
         --tertiary: #d7d7d7;
-        --text: #000;
+        --text: #000000;
     }
     .navLogo {
         filter: invert(100%);
@@ -365,26 +374,44 @@ footer > p {
 /* Resize contnet based on screen size */
 @media screen and (max-width: 1600px) {
     :root {
-        font-size: 16px;
+        font-size: 17px;
     }
 }
 @media screen and (max-width: 980px) {
     :root {
-        font-size: 16px;
+        font-size: 17px;
     }
 }
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 760px) {
     :root {
         font-size: 16px;
+    }
+    .post-showcase > .image {
+        width: 0%;
+    }
+    .post-showcase > .info {
+        width: 100%;
     }
 }
 @media screen and (max-width: 480px) {
     :root {
-        font-size: 16px;
+        font-size: 15px;
+    }
+    .post-showcase > .image {
+        width: 0%;
+    }
+    .post-showcase > .info {
+        width: 100%;
     }
 }
 @media screen and (max-width: 360px) {
     :root {
-        font-size: 16px;
+        font-size: 15px;
+    }
+    .post-showcase > .image {
+        width: 0%;
+    }
+    .post-showcase > .info {
+        width: 100%;
     }
 }

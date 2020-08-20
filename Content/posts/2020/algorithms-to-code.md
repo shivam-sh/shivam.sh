@@ -1,15 +1,15 @@
 ---
-layout: post
 title: Turning Algorithms into Code
-description: How do you go from an algorithm to working code? This tutorial outlines a procedure that breaks this problem into manageable steps. 
-date: 2020-07-27 00:00
-image: images/posts/2020/astar.png
 tags: Tutorial, JavaScript
+date: 2020-07-27 00:00
+description: How do you go from an algorithm to working code? This tutorial outlines a procedure that breaks this problem into manageable steps. 
+image: images/posts/2020/astar.png
+script: https://shivam-sh.github.io/p5-experiments/p5/p5.js, https://shivam-sh.github.io/p5-experiments/sketches/a*/sketch.js, https://shivam-sh.github.io/p5-experiments/sketches/a*/node.js
 ---
 # Turning Algorithms into Code
-<div id="canvas" style="height: 500px"></div>
-<a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*" class="button special" style="margin: 1em 0 0 0">View Source</a>
-<a href="https://shivam-sh.github.io/p5-experiments/subpages/astar.html" class="button" style="margin: 1em 0 0 0">Fullscreen</a>
+<div id="canvas" style="height: 500px; margin-bottom: 1em;"></div>
+<p><a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*" class="button special">View Source</a>
+<a href="https://shivam-sh.github.io/p5-experiments/subpages/astar.html" class="button">Fullscreen</a></p>
 
 Algorithms are the fundamental building blocks of the code that we see around us. They take complicated problems and find solutions made of simple steps.
 
@@ -75,7 +75,7 @@ Each step below has been linked to GitHub commit so you can follow along and see
 ### Part 1: Data Structures
 Now that the basics are outlined we can go ahead and make some template code. This represents the data and makes sure each of the parts we outlined is here.
 
-<a href="https://github.com/shivam-sh/p5-experiments/tree/50094f368e283345af86ab85cd959ab439d721ac/sketches/a*" class="button special small">View Commit</a>
+<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/50094f368e283345af86ab85cd959ab439d721ac/sketches/a*" class="button special small">View Commit</a></p>
 
 #### sketch.js
 ```
@@ -153,7 +153,7 @@ The canvas is set up as soon as possible as it'll allow for easier debugging.
 ### Initialize the Algorithm
 Most algorithms need to work on top of a data set that is organized in a specific way. Try to make sure that everything is ready for the algorithm to run.
 
-<a href="https://github.com/shivam-sh/p5-experiments/tree/d4256c4227565dfca06b1cca61da87c6b0954b8a/sketches/a*" class="button special small">View Commit</a>
+<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/d4256c4227565dfca06b1cca61da87c6b0954b8a/sketches/a*" class="button special small">View Commit</a></p>
 
 #### sketch.js
 ```
@@ -227,7 +227,7 @@ Another concern may be that the connections between the nodes aren't initialized
 ### Implementing the Main Loop
 Next up is the main loop of the algorithm. It helps to follow the steps the algorithm takes and translate them into code sequentially. 
 
-<a href="https://github.com/shivam-sh/p5-experiments/tree/46b6fe6d4abeb1d540d14ac881b77e0ea680174c/sketches/a*" class="button special small">View Commit</a>
+<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/46b6fe6d4abeb1d540d14ac881b77e0ea680174c/sketches/a*" class="button special small">View Commit</a></p>
 
 #### sketch.js
 ```
@@ -309,8 +309,8 @@ Again, some of the methods being called don't exist yet. This makes sure that th
 ### Making Your Code Functional
 Now it's time to build the functions that have been called in the rest of the code. The functions can be added pretty quickly. The inputs, return values, and functionality is already outlined through the calls.
 
-<a href="https://github.com/shivam-sh/p5-experiments/tree/17b721e99086714d20765d7c5d97c1111123164a/sketches/a*" class="button special small">View Commit</a>
-
+<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/17b721e99086714d20765d7c5d97c1111123164a/sketches/a*" class="button special small">View Commit</a></p>
+&nbsp;
 #### node.js
 ```
 ...
@@ -413,7 +413,7 @@ This is usually a lot of tweaking values and objects to get everything running a
 
 This step doesn't have any instructions or guidelines but that's the best part!
 
-<a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*" class="button special small">View Code</a>
+<p><a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*" class="button special small">View Code</a></p>
 
 ## Conclusion
 Throughout this post, we (hopefully) successfully translated an algorithm into code.
@@ -423,3 +423,7 @@ Go ahead and use this process to code something that interests you! The process 
 Reach out to me and let me know what you've made by following these steps!
 
 Shivam Sh
+
+<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/p5/p5.js"></script>
+<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/a*/sketch.js"></script>
+<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/a*/node.js"></script>
