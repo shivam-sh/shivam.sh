@@ -6,6 +6,7 @@ date: 2020-07-27 00:00
 image: images/posts/2020/astar.png
 tags: Tutorial, JavaScript
 ---
+# Turning Algorithms into Code
 <div id="canvas" style="height: 500px"></div>
 <a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*" class="button special" style="margin: 1em 0 0 0">View Source</a>
 <a href="https://shivam-sh.github.io/p5-experiments/subpages/astar.html" class="button" style="margin: 1em 0 0 0">Fullscreen</a>

@@ -6,6 +6,7 @@ date: 2020-07-9 0:00
 image: images/posts/2020/async.jpg
 tags: Programming, NodeJS
 ---
+# Exploring Asynchronous Programming
 ## Background
 
 Recently, I've been managing a Discord server for the incoming wave of Systems Design Engineering students at Waterloo. The Discord is being used as a communication platform as well as a virtual meeting place to help us get to know each other.

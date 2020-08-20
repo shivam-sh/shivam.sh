@@ -30,38 +30,82 @@ body {
 
 h1 {
     color: var(--primary);
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: 600;
-    padding: 1em 0;
+    margin-bottom: 1.5em;
 }
 
 h2 {
     color: var(--text);
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 600;
-    padding: .5em 0;
+    margin-bottom: 1.5em;
 }
 
 h3 {
     color: var(--text);
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 1.25em;
+}
+
+h4 {
+    color: var(--text);
     font-size: 1.2em;
     font-weight: 600;
-    padding: .5em 0;
+    margin-bottom: 1em;
+}
+
+h5 {
+    color: var(--text);
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+h6 {
+    color: var(--text);
+    font-size: .8em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+blockquote {
+    color: var(--text);
+}
+
+pre code {
+    display: block;
+    padding: 1em 1.5em;
+    overflow-x: auto;
+}
+
+code {
+    padding: .3em .4em;
+    margin: .5em 0;
+    
+    font-family: courier new, monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    overflow-wrap: normal;
+    
+    color: var(--text);
+    background-color: var(--tertiary);
 }
 
 p {
     color: var(--text);
-    font-size: 1em;
-    letter-spacing: .025em;
+
+    margin-bottom: 2em;
+    letter-spacing: .05em;
 }
 
 a {
     color: var(--text);
-    font-size: 1em;
 }
 
 a:hover {
-    color: var(--tertiary);
+    color: var(--link);
     font-size-adjust: 1.5;
 }
 
@@ -115,10 +159,10 @@ footer > p {
     color: var(--primary);
     border-width: 2px;
     
-    letter-spacing: .025em;
+    letter-spacing: .1em;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: .9em;
+    font-size: .8em;
     font-weight: 600;
     box-shadow: inset 0 0 0 2px var(--primary);
 }
@@ -168,8 +212,8 @@ footer > p {
     display: flex;
     background-size: cover;
     object-fit: cover;
-    width: 30%;
-    height: 375px;
+    width: 25%;
+    height: 350px;
 }
 
 .image > img {
@@ -183,7 +227,7 @@ footer > p {
     
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 75%;
     justify-content: center;
     
     text-decoration: none;
@@ -197,11 +241,10 @@ footer > p {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin-bottom: 1em;
 }
 
 .post-showcase > .info > div > .date {
-    color: var(--tertiary);
+    color: var(--secondary);
     justify-self: flex-start;
     align-self: center;
 }
@@ -214,13 +257,12 @@ footer > p {
 }
 
 .post-showcase > .info > div > .tags > li {
-    color: var(--tertiary);
+    color: var(--secondary);
     padding: 0 1em;
     float: right;
 }
 
 .post-showcase > .info > p {
-    margin-bottom: 1em;
 }
 
 /* CUSTOM SECTIONS */
@@ -312,7 +354,7 @@ footer > p {
         --bg: #e1e1e1;
         --primary: #1e1e1e;
         --secondary: #555555;
-        --tertiary: #888888;
+        --tertiary: #d7d7d7;
         --text: #000;
     }
     .navLogo {
@@ -323,26 +365,26 @@ footer > p {
 /* Resize contnet based on screen size */
 @media screen and (max-width: 1600px) {
     :root {
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 980px) {
     :root {
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 736px) {
     :root {
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 480px) {
     :root {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 360px) {
     :root {
-        font-size: 12px;
+        font-size: 16px;
     }
 }

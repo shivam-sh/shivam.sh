@@ -145,7 +145,7 @@ public extension Node where Context == HTML.DocumentContext {
             .forEach(stylesheetPaths, { .stylesheet($0) }),
             .viewport(.accordingToDevice),
             .unwrap(site.favicon, { .favicon($0) }),
-            .link(.href("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Comfortaa&family=Open+Sans&family=Quicksand&family=Recursive&family=Roboto+Mono&family=Share+Tech+Mono&family=Source+Sans+Pro&display=swap"),.rel(HTMLLinkRelationship(rawValue: "stylesheet")!)),
+            .link(.href("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap"),.rel(HTMLLinkRelationship(rawValue: "stylesheet")!)),
             /*
             .link(.href("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap")),
             .link(.href("https://fonts.googleapis.com/css2?family=Quicksand&display=swap")),
