@@ -6,3 +6,5 @@
 .publish
 Output/
 Package.resolved
+.vscode/
+
