@@ -102,7 +102,7 @@ public extension Node where Context == HTML.BodyContext {
                             .p(.text(item.description)),
                             .div(.a(.class("button"),
                                 .href(item.path),
-                                .text("Read More")
+                                .text("Learn More")
                             ))
                        )
                     )

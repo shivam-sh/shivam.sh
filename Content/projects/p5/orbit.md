@@ -9,9 +9,10 @@ link: assets/orbit/index.html
 
 # Orbit
 
-<div id="sketch" style="height: 600px; margin-bottom: 1em;"></div>
-<p><a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/orbit" class="button special" style="margin: 1em 0 0 0">View Source</a>
-<a href="https://shivam-sh.github.io/p5-experiments/subpages/orbit.html" class="button" style="margin: 1em 0 0 0">Fullscreen</a></p>
+<div id="sketch" style="height: 500px; margin-bottom: 1em;"></div>
+
+<p><a href="https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/orbit" class="button special" style="margin: 1em 0 0 0">View Source</a>
+<a href="../../../assets/orbit/index.html" class="button" style="margin: 1em 0 0 0">Fullscreen</a></p>
 
 Orbit is a physics-based simulation of.. well... orbits!
 
@@ -27,7 +28,7 @@ I may even implement a simple version of this into another program as a loading 
 
 Shivam Sh
 
-<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/p5/p5.js"></script>
-<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/orbit/sketch.js"></script>
-<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/orbit/orbiter.js"></script>
-<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/orbit/attractor.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+<script type="text/javascript" src="../../../assets/orbit/sketch.js"></script>
+<script type="text/javascript" src="../../../assets/orbit/orbiter.js"></script>
+<script type="text/javascript" src="../../../assets/orbit/attractor.js"></script>

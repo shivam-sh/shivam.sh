@@ -7,7 +7,7 @@
  */
 
 // Options
-var numOrbiting = 10;
+var numOrbiting = 5;
 
 function setup() {
 	// Get the "sketch" element from the webpage and set it as the output
