@@ -14,12 +14,12 @@ image: images/projects/p5/astar.png
 
 A* is a simple graphical implementation of the a* search algorithm.
 
-This program generates a randomized set of tiles finds the quickest path to the end.
-Unlike other implementations of the algorithm this one doesn't rely on a previously generated network of linked nodes. Due to the simplified tile system the program can generate the connections between nodes during runtime.
+This program generates a randomized set of tiles and finds the quickest path to the end.
+Unlike other implementations of the algorithm, this one doesn't rely on a previously generated network of linked nodes. Due to the simplified tile system, the program can index the connections between nodes during runtime.
 
-The algorithm behaves like a modified version of Edsger Djikstra's algorithm. Djikstra's algorithm tries to find the shortest path to any given node by searching in all directions, this often results in a "tree" that determines the shortest path to any given node from the source. 
+The algorithm behaves like a modified version of Edsger Djikstra's algorithm. Djikstra's algorithm tries to find the shortest path to any given node by searching in all directions, creating a "tree" that lists the quickest route to any given node from the source. 
 
-The difference between the two approaches is that the a* algorithm uses a heuristic to determine which nodes are worth visiting in order to improve performance. The a* algorithm takes into account the theoretical quickest path to the end. By doing so it knows to search the paths that lead closer to the end first. This lets the algorithm know when it is going down a path that is less efficient than expected so it knows to look somewhere else instead.
+The difference between the two approaches is that the a* algorithm uses a heuristic to determine which nodes are worth visiting to improve performance. The algorithm takes into account the theoretical quickest path to the end. Thanks to this heuristic, the algorithm knows to search the nodes that lead closer to the end first. Thanks to this approach, the algorithm knows when it has found an optimal route, as well as when it should keep searching.
 
 Shivam Sh
 

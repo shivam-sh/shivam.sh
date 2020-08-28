@@ -4,7 +4,6 @@ tags: p5.js, simulation
 date: 2020-05-08 00:00
 description: This project showcase diplays a quick physics-based graphical simulation of orbiting bodies with p5.js
 image: images/projects/p5/orbit.jpeg
-link: assets/orbit/index.html
 ---
 
 # Orbit
