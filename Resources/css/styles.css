@@ -108,6 +108,10 @@ p {
     letter-spacing: .05em;
 }
 
+strong {
+    font-weight: 600;
+}
+
 a {
     color: var(--text);
 }
