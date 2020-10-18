@@ -26,5 +26,5 @@ My next plan is to increase user interaction by reconstructing the camera. Curre
 Shivam Sh
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
-<script type="text/javascript" src="https://shivam-sh.github.io/Terra/sketch.js"></script>
-<script type="text/javascript" src="https://shivam-sh.github.io/Terra/terrain.js"></script>
+<script type="text/javascript" src="../../../assets/terra/sketch.js"></script>
+<script type="text/javascript" src="../../../assets/terra/terrain.js"></script>
