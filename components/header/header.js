@@ -20,11 +20,11 @@ export default function Header() {
           <a className={styles.navButton}>Projects</a>
         </Link>
 
-        <p className={styles.divider}>/</p>
+        {/* <p className={styles.divider}>/</p>
 
         <Link href="/about">
           <a className={styles.navButton}>About</a>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

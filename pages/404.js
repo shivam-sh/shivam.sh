@@ -16,20 +16,11 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.welcome}>
           <h1 className={styles.title}>
-            Hey There<span className={styles.accent}>,</span>
-            <br />
-            I’m Shivam
+            404
           </h1>
 
           <p className={styles.description}>
-            <span className={styles.line}>
-              I’m a UWaterloo student in
-            </span>
-            <span className={styles.line}>Systems Design Engineering</span>
-            <span className={styles.line}>
-              I spend a lot of time on side projects
-            </span>
-            <span className={styles.line}>and sometimes I post them here</span>
+            Page not found
           </p>
         </div>
       </main>

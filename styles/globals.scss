@@ -70,11 +70,14 @@ caption {
 
 a {
   text-decoration: none;
+  color: var(--text);
+  transition: 0.2s;
 }
 
-a :hover {
+a:hover {
   text-decoration: none;
-  color: var(--link);
+  opacity: 60%;
+  transition: 0.2s;
 }
 
 @media (max-width: 650px) {
