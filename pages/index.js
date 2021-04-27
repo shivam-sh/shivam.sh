@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import Prompt from '../components/prompt/prompt';
 import Header from '../components/header/header';
+import Prompt from '../components/prompt/prompt';
+
 import styles from '../styles/Home.module.scss';
 
 export default function Home() {
@@ -21,23 +22,27 @@ export default function Home() {
             I’m Shivam
           </h1>
 
-          <p className={styles.description}>
+          <caption className={styles.description}>
             <span className={styles.line}>
-              I’m a UWaterloo student in
+              I’m a Systems Design Engineering
             </span>
-            <span className={styles.line}>Systems Design Engineering</span>
             <span className={styles.line}>
-              I spend a lot of time on side projects
+              student at the University of Waterloo
             </span>
-            <span className={styles.line}>and sometimes I post them here</span>
-          </p>
+            <span className={styles.line}>
+              I like working on a variety of projects
+            </span>
+            <span className={styles.line}>
+              and sometimes I post about them here
+            </span>
+          </caption>
         </div>
       </main>
 
       <div className={styles.typing}>
         <p>
           <span className={styles.bash}>{'> '}</span>
-          <Prompt/>
+          <Prompt />
         </p>
       </div>
     </div>

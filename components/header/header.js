@@ -11,13 +11,13 @@ export default function Header() {
 
       <div className={styles.nav}>
         <Link href="/blog">
-          <a className={styles.navButton}>Blog</a>
+          <a className={styles.navButton}>blog</a>
         </Link>
 
         <p className={styles.divider}>/</p>
 
         <Link href="/projects">
-          <a className={styles.navButton}>Projects</a>
+          <a className={styles.navButton}>projects</a>
         </Link>
 
         {/* <p className={styles.divider}>/</p>
