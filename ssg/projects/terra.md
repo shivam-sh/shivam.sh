@@ -1,9 +1,8 @@
 ---
-title: Turning Algorithms into Code
-date: 2020-07-27
-description: How do you go from an algorithm to working code? This tutorial outlines a procedure that breaks this problem into manageable steps.
-image: images/posts/2020/astar.png
-tags: JavaScript
+title: Terra
+date: 2020-07-31
+description: An interactive 3D terrain generator explorable world built using p5.js and WebGL
+tags: p5.js, graphics
 ---
 
 # Terra

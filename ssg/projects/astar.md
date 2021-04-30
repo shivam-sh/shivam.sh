@@ -2,8 +2,7 @@
 title: A*
 tags: p5.js, algorithms
 date: 2020-07-18
-description: The A* pathfinding algorithm searching dynmically through a grid of tiles
-image: images/projects/p5/astar.png
+description: The A* pathfinding algorithm searching dynamically through a grid of tiles
 ---
 #  A*
 

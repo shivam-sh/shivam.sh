@@ -114,7 +114,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  opacity: 60%;
+  opacity: 70%;
   transition: 0.2s;
 }
 
@@ -144,26 +144,6 @@ code {
 
 .accent {
   color: var(--accent);
-}
-
-.text-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  
-  margin: auto;
-  padding: 0 2rem 2rem 2rem;
-  max-width: 750px;
-}
-
-.media-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  margin: auto;
-  padding: 0 2rem 2rem 2rem;
-  max-width: 1200px;
 }
 
 .canvas {

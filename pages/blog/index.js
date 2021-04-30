@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import Link from 'next/link';
-
 import Header from '../../components/header';
+import Link from 'next/link';
 import styles from '../../styles/Blog.module.scss';
 
 import { format } from 'date-fns';
@@ -19,7 +18,7 @@ const Blog = ({ metadata }) => {
 
       <Header />
 
-      <div className="text-content">
+      <div className={styles.posts}>
         <h2>Blog</h2>
 
         {JSON.parse(metadata).map((meta) => {
@@ -29,7 +28,7 @@ const Blog = ({ metadata }) => {
             <Link href={meta.url} key={meta.title}>
               <div className={styles.postPreview}>
                 <div className={styles.title}>
-                  <h4 className="accent">// </h4>
+                  <h4 className="accent">// {' '}{' '}</h4>
                   <h4>{meta.title}</h4>
                 </div>
 
