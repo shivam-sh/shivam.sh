@@ -8,7 +8,6 @@ const commands = [
   'cd',
   'docker ps -a',
   'git checkout develop',
-  'git clone git@github.com:shivam-sh/shivam-sh.github.io.git',
   'git rebase -i HEAD~20',
   'git reset --soft HEAD~1',
   'make do',

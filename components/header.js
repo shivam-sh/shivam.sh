@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import SiteLogo from '../siteLogo';
-import styles from './header.module.scss';
+import SiteLogo from './siteLogo';
+import styles from '../styles/components/header.module.scss';
 
 export default function Header() {
   return (
@@ -11,13 +11,13 @@ export default function Header() {
 
       <div className={styles.nav}>
         <Link href="/blog">
-          <a className={styles.navButton}>blog</a>
+          <a className={styles.navButton}>Blog</a>
         </Link>
 
         <p className={styles.divider}>/</p>
 
         <Link href="/projects">
-          <a className={styles.navButton}>projects</a>
+          <a className={styles.navButton}>Projects</a>
         </Link>
 
         {/* <p className={styles.divider}>/</p>

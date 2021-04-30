@@ -1,14 +1,14 @@
 ---
 title: Goose Bot
 tags: NodeJS, server-side
-date: 2020-07-01 00:00
+date: 2020-07-01
 description: An identity verification system built to bring increased security to Discord servers
 image: images/projects/NodeJS/goose-bot.jpeg
 ---
 # Goose Bot
 ## Discord Verification System
 
-<img class="image" style="max-width: 700px;" src="../../../assets/goose-bot/notes.jpeg"></img>
+<img class="image" src="../../../assets/goose-bot/notes.jpeg"></img>
 
 Goose Bot is a bot designed to provide an email-based identity verification service for Discord servers.
 

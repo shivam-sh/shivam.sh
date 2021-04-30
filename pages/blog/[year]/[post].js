@@ -1,31 +1,21 @@
-import Head from 'next/head';
-import Header from '../../../components/header/header';
-
 import fs from 'fs';
-import marked from 'marked';
 import matter from 'gray-matter';
-import path from 'path';
+import marked from 'marked'
+import { join } from 'path';
+import BlogPost from '../../../components/layouts/blogPost';
 
-const Project = ({ data, content }) => {
-  return (
-    <>
-      <Head>
-        <title>{data.title}</title>
-      </Head>
-
-      <Header />
-
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </>
-  );
+const Post = ({ post }) => {
+  const markdown = JSON.parse(post);
+  return <BlogPost meta={markdown.data} htmlString={marked(markdown.content)} />
 };
 
 export const getStaticPaths = async () => {
-  const years = fs.readdirSync('ssg/posts');
+  const filePath = join('ssg', 'posts');
+  const years = fs.readdirSync(filePath);
   const posts = [];
 
   years.forEach((year) => {
-    const files = fs.readdirSync('ssg/posts/' + year);
+    const files = fs.readdirSync(join(filePath, year));
     posts.push(
       ...files.map((file) => ({
         name: file.replace('.md', ''),
@@ -49,18 +39,15 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { post, year } }) => {
   const rawMarkdown = fs
-    .readFileSync(path.join('ssg', 'posts', year, post + '.md'))
+    .readFileSync(join('ssg', 'posts', year, post + '.md'))
     .toString();
-
-  const parsedMarkdown = matter(rawMarkdown);
-  const html = marked(parsedMarkdown.content);
+  const markdown = matter(rawMarkdown);
 
   return {
     props: {
-      data: parsedMarkdown.data,
-      content: html,
+      post: JSON.stringify(markdown),
     },
   };
 };
 
-export default Project;
+export default Post;

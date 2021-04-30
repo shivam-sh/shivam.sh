@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Header from '../components/header/header';
-import Prompt from '../components/prompt/prompt';
 
+import Header from '../components/header';
+import Prompt from '../components/prompt';
 import styles from '../styles/Home.module.scss';
 
-export default function Home() {
+const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +17,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.welcome}>
           <h1 className={styles.title}>
-            Hey There<span className={styles.accent}>,</span>
+            Hey There<span className='accent'>,</span>
             <br />
             I’m Shivam
           </h1>
@@ -48,3 +48,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

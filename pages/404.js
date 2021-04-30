@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import Prompt from '../components/prompt/prompt';
-import Header from '../components/header/header';
+
+import Prompt from '../components/prompt';
+import Header from '../components/header';
 import styles from '../styles/Home.module.scss';
 
 export default function Home() {

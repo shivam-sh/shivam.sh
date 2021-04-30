@@ -38,34 +38,72 @@ h1 {
   font-weight: 600;
   font-size: 2.6rem;
   line-height: 4.05rem;
+  
+  display: block;
+  margin-block-start: 2rem;
+  margin-block-end: 1.5rem;
 }
 
 h2 {
   font-weight: 600;
   font-size: 2.05rem;
   line-height: 3.25rem;
+  
+  display: block;
+  margin-block-start: 2rem;
+  margin-block-end: 1.5rem;
 }
 
 h3 {
   font-weight: 600;
   font-size: 1.6rem;
   line-height: 2.6rem;
+
+  display: block;
+  margin-block-start: 2rem;
+  margin-block-end: 1.5rem;
 }
 
 h4 {
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 2.05rem;
+
+  display: block;
+  margin-block-start: 2rem;
+  margin-block-end: 1.5rem;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4rem;
+
+  display: block;
+  margin-block-start: 1rem;
+  margin-block-end: 0rem;
+}
+
+h6 {
+  display: block;
+  margin-block-start: 1rem;
+  margin-block-end: 0rem;
 }
 
 p {
   font-size: 1rem;
   line-height: 1.7rem;
+  
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 1.5rem;
 }
 
 caption {
   font-size: 0.8rem;
   line-height: 1.4rem;
+
+  text-align: left;
 }
 
 a {
@@ -80,9 +118,77 @@ a:hover {
   transition: 0.2s;
 }
 
+pre {
+  font-family: 'Ubuntu Mono', monospace;
+  background-color: #31343f;
+  border-radius: 0.5rem;
+
+  overflow-x: auto;
+
+  font-size: 16px;
+  line-height: 28px;
+
+  code {
+    display: inline-block; 
+    padding: 1rem;
+  }
+}
+
+code {
+  font-family: 'Ubuntu Mono', monospace;
+  background-color: #31343f;
+  border-radius: 0.3rem;
+  padding: .2rem .3rem;
+  margin: 0 .2rem;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  margin: auto;
+  padding: 0 2rem 2rem 2rem;
+  max-width: 750px;
+}
+
+.media-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: auto;
+  padding: 0 2rem 2rem 2rem;
+  max-width: 1200px;
+}
+
+.canvas {
+  height: 460px;
+  margin-bottom: 1rem;
+  canvas {
+    border-radius: 0.5rem;
+  }
+}
+
+.button {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  font-weight: bold;
+  color: var(--bg);
+  background-color: var(--text);
+
+  margin-right: 0.5rem;
+  padding:  0.5rem 0.8rem;
+  border-radius: .5rem;
+}
+
 @media (max-width: 650px) {
   :root {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 30px;
   }
 }
