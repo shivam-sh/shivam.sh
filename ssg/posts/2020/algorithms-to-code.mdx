@@ -2,16 +2,32 @@
 title: Turning Algorithms into Code
 date: 2020-07-27
 description: How do you go from an algorithm to working code? This tutorial outlines a procedure that breaks this problem into manageable steps.
+scripts:
+  - https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js
+  - https://shivam-sh.github.io/p5-experiments/sketches/a*/sketch.js
+  - https://shivam-sh.github.io/p5-experiments/sketches/a*/node.js
 image: images/posts/2020/astar.png
 tags: JavaScript
 ---
 
 # Turning Algorithms into Code
 
-<div id="canvas" class="canvas"></div>
+<!-- <div id="canvas" class="canvas"></div> -->
 
-<p><a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*" class="button">View Source</a>
-<a href="https://shivam-sh.github.io/p5-experiments/subpages/astar.html" class="button">Fullscreen</a></p>
+<p>
+  <a
+    href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*"
+    class="button"
+  >
+    View Source
+  </a>
+  <a
+    href="https://shivam-sh.github.io/p5-experiments/subpages/astar.html"
+    class="button"
+  >
+    Fullscreen
+  </a>
+</p>
 
 Algorithms are the fundamental building blocks of the code that we see around us. They take complicated problems and find solutions made of simple steps.
 
@@ -46,7 +62,7 @@ Before programming, it can be very helpful to draw or take a note of how the cod
 
 When writing the code we can refer to the diagram/notes to make the process smoother.
 
-### Notes
+#### Notes
 
 ```javascript
 /*   Node
@@ -84,9 +100,16 @@ Each step below has been linked to GitHub commit so you can follow along and see
 
 Now that the basics are outlined we can go ahead and make some template code. This represents the data and makes sure each of the parts we outlined is here.
 
-<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/50094f368e283345af86ab85cd959ab439d721ac/sketches/a*" class="button">View Commit</a></p>
+<p>
+  <a
+    href="https://github.com/shivam-sh/p5-experiments/tree/50094f368e283345af86ab85cd959ab439d721ac/sketches/a*"
+    class="button"
+  >
+    View Commit
+  </a>
+</p>
 
-#### sketch.js
+#### sketch.js
 
 ```javascript
 // Values for graphical output
@@ -120,7 +143,7 @@ function setup() {
 function draw() {}
 ```
 
-#### node.js
+#### node.js
 
 ```javascript
 const states = {
@@ -161,25 +184,29 @@ Each list of nodes is declared as an array. Another data structure would work as
 
 The canvas is set up as soon as possible as it'll allow for easier debugging.
 
-### Initialize the Algorithm
+#### Initialize the Algorithm
 
 Most algorithms need to work on top of a data set that is organized in a specific way. Try to make sure that everything is ready for the algorithm to run.
 
-<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/d4256c4227565dfca06b1cca61da87c6b0954b8a/sketches/a*" class="button">View Commit</a></p>
+<p>
+  <a
+    href="https://github.com/shivam-sh/p5-experiments/tree/d4256c4227565dfca06b1cca61da87c6b0954b8a/sketches/a*"
+    class="button"
+  >
+    View Commit
+  </a>
+</p>
 
-#### sketch.js
+#### sketch.js
 
 ```javascript
 // Grid Options
 let percentFilled = 30;
 let nodeHeight = 30;
 let nodeWidth = 30;
-
-... …
-
+...
 function setup() {
 	...
-
 	// Fill the grid with nodes based on the % that should be open
 	for (let x = 0; x < columns; x++) {
 		for (let y = 0; y < rows; y++) {
@@ -210,7 +237,10 @@ function setup() {
 	finish.setState(states.FINISH);
 
 	start.g = 0;
-	start.h = dist(start.column * nodeWidth, start.row * nodeHeight, finish.column * nodeWidth, finish.row * nodeHeight);
+	start.h = dist(start.column * nodeWidth, 
+		start.row * nodeHeight, 
+		finish.column * nodeWidth, 
+		finish.row * nodeHeight);
 	start.f = start.g + start.h;
 
 	// Add the start node to the queue
@@ -241,13 +271,19 @@ Another concern may be that the connections between the nodes aren't initialized
 
 Next up is the main loop of the algorithm. It helps to follow the steps the algorithm takes and translate them into code sequentially.
 
-<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/46b6fe6d4abeb1d540d14ac881b77e0ea680174c/sketches/a*" class="button">View Commit</a></p>
+<p>
+  <a
+    href="https://github.com/shivam-sh/p5-experiments/tree/46b6fe6d4abeb1d540d14ac881b77e0ea680174c/sketches/a*"
+    class="button"
+  >
+    View Commit
+  </a>
+</p>
 
-#### sketch.js
+#### sketch.js
 
 ```javascript
 ...
-
 function draw() {
 	if (queue.length > 0) {
 		// Run main search loop
@@ -325,9 +361,16 @@ Again, some of the methods being called don't exist yet. This makes sure that th
 
 Now it's time to build the functions that have been called in the rest of the code. The functions can be added pretty quickly. The inputs, return values, and functionality is already outlined through the calls.
 
-<p><a href= "https://github.com/shivam-sh/p5-experiments/tree/17b721e99086714d20765d7c5d97c1111123164a/sketches/a*" class="button">View Commit</a></p>
+<p>
+  <a
+    href="https://github.com/shivam-sh/p5-experiments/tree/17b721e99086714d20765d7c5d97c1111123164a/sketches/a*"
+    class="button"
+  >
+    View Commit
+  </a>
+</p>
 
-#### node.js
+#### node.js
 
 ```javascript
 ...
@@ -345,51 +388,7 @@ class MapNode {
 			) {
 				this.connected.push(grid[this.column - 1][this.row]);
 			}
-			if (
-				this.row != 0 &&
-				(grid[this.column][this.row - 1].state == states.OPEN ||
-					grid[this.column][this.row - 1].state == states.FINISH)
-			) {
-				this.connected.push(grid[this.column][this.row - 1]);
-			}
-			if (
-				this.column != grid.length - 1 &&
-				(grid[this.column + 1][this.row].state == states.OPEN ||
-					grid[this.column + 1][this.row].state == states.FINISH)
-			) {
-				this.connected.push(grid[this.column + 1][this.row]);
-			}
-			if (
-				this.row != grid[0].length - 1 &&
-				(grid[this.column][this.row + 1].state == states.OPEN ||
-					grid[this.column][this.row + 1].state == states.FINISH)
-			) {
-				this.connected.push(grid[this.column][this.row + 1]);
-			}
-			if (
-				this.row != 0 &&
-				this.column != 0 &&
-				(grid[this.column - 1][this.row - 1].state == states.OPEN ||
-					grid[this.column - 1][this.row - 1].state == states.FINISH)
-			) {
-				this.connected.push(grid[this.column - 1][this.row - 1]);
-			}
-			if (
-				this.row != 0 &&
-				this.column != grid.length - 1 &&
-				(grid[this.column + 1][this.row - 1].state == states.OPEN ||
-					grid[this.column + 1][this.row - 1].state == states.FINISH)
-			) {
-				this.connected.push(grid[this.column + 1][this.row - 1]);
-			}
-			if (
-				this.row != grid[0].length - 1 &&
-				this.column != 0 &&
-				(grid[this.column - 1][this.row + 1].state == states.OPEN ||
-					grid[this.column - 1][this.row + 1].state == states.FINISH)
-			) {
-				this.connected.push(grid[this.column - 1][this.row + 1]);
-			}
+			...
 			if (
 				this.row != grid[0].length - 1 &&
 				this.column != grid.length - 1 &&
@@ -431,7 +430,14 @@ This is usually a lot of tweaking values and objects to get everything running a
 
 This step doesn't have any instructions or guidelines but that's the best part!
 
-<p><a href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*" class="button">View Code</a></p>
+<p>
+  <a
+    href="https://github.com/shivam-sh/p5-experiments/tree/master/sketches/a*"
+    class="button"
+  >
+    View Code
+  </a>
+</p>
 
 ## Conclusion
 
@@ -442,7 +448,3 @@ Go ahead and use this process to code something that interests you! The process 
 Reach out to me and let me know what you've made by following these steps!
 
 Shivam Sh
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
-<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/a*/sketch.js"></script>
-<script type="text/javascript" src="https://shivam-sh.github.io/p5-experiments/sketches/a*/node.js"></script>

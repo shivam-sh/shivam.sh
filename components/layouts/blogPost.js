@@ -3,7 +3,7 @@ import Header from '../header';
 
 import styles from '../../styles/layouts/blogPost.module.scss';
 
-const BlogPost = ({ meta, content, htmlString }) => (
+const BlogPost = ({ meta, content }) => (
   <>
     <Head>
       <title>{meta.title}</title>
@@ -11,8 +11,7 @@ const BlogPost = ({ meta, content, htmlString }) => (
 
     <Header />
 
-		<div className={styles.blogPost} dangerouslySetInnerHTML={{ __html: htmlString }} >{content}</div>
+    <div className={styles.blogPost}>{content}</div>
   </>
 );
-
 export default BlogPost;

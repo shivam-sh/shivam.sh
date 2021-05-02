@@ -67,7 +67,7 @@ export const getStaticProps = async () => {
       .toString())
       .data
 
-    meta.url = 'blog/' + file.replace('.md', "")
+    meta.url = 'blog/' + file.replace('.mdx', '')
     return meta
   })
 

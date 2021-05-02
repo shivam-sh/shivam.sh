@@ -1,12 +1,17 @@
-import fs from 'fs';
-import matter from 'gray-matter';
-import marked from 'marked'
-import { join } from 'path';
 import BlogPost from '../../../components/layouts/blogPost';
 
-const Post = ({ post }) => {
-  const markdown = JSON.parse(post);
-  return <BlogPost meta={markdown.data} htmlString={marked(markdown.content)} />
+import fs from 'fs';
+import { join } from 'path';
+
+import matter from 'gray-matter';
+import hydrate from "next-mdx-remote/hydrate";
+import renderToString from "next-mdx-remote/render-to-string";
+
+const Post = ({ source, frontMatter }) => {
+  const data = JSON.parse(frontMatter)
+  const content = hydrate(source)
+
+  return <BlogPost meta={data} content={content} />
 };
 
 export const getStaticPaths = async () => {
@@ -18,7 +23,7 @@ export const getStaticPaths = async () => {
     const files = fs.readdirSync(join(filePath, year));
     posts.push(
       ...files.map((file) => ({
-        name: file.replace('.md', ''),
+        name: file.replace('.mdx', ''),
         year: year,
       }))
     );
@@ -38,16 +43,14 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params: { post, year } }) => {
-  const rawMarkdown = fs
-    .readFileSync(join('ssg', 'posts', year, post + '.md'))
+  const source = fs
+    .readFileSync(join('ssg', 'posts', year, post + '.mdx'))
     .toString();
-  const markdown = matter(rawMarkdown);
 
-  return {
-    props: {
-      post: JSON.stringify(markdown),
-    },
-  };
+  const { content, data } = matter(source)
+  const mdxSource = await renderToString(content, {/* components, scope: data */ })
+  
+  return { props: { source: mdxSource, frontMatter: JSON.stringify(data) } }
 };
 
 export default Post;
