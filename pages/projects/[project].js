@@ -6,6 +6,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
+import highlight from 'remark-highlight.js';
 
 const Project = ({ source, frontMatter }) => {
   const data = JSON.parse(frontMatter)
@@ -38,7 +39,11 @@ export const getStaticProps = async ({ params: { project } }) => {
     .toString();
 
   const { content, data } = matter(source)
-  const mdxSource = await renderToString(content, {/* components, scope: data */ })
+  const mdxSource = await renderToString(content, {
+    mdxOptions: {
+      remarkPlugins: [highlight],
+    }
+  })
 
   return { props: { source: mdxSource, frontMatter: JSON.stringify(data) } }
 };
