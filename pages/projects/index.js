@@ -3,11 +3,9 @@ import Header from '../../components/header';
 import Link from 'next/link';
 import styles from '../../styles/Projects.module.scss';
 
-import fs from 'fs';
-import matter from 'gray-matter';
-import { join } from 'path';
+import metadata from '../../ssg/projects';
 
-const Projects = ({ metadata }) => {
+const Projects = () => {
   return (
     <>
       <Head>
@@ -20,7 +18,7 @@ const Projects = ({ metadata }) => {
       <div className={styles.projects}>
         <h2>Projects</h2>
 
-        {JSON.parse(metadata).map((meta) => (
+        {metadata.map((meta) => (
           <Link href={meta.url} key={meta.title}>
             <a>
               <div className={styles.projectPreview}>
@@ -39,26 +37,6 @@ const Projects = ({ metadata }) => {
       </div>
     </>
   );
-};
-
-export const getStaticProps = async () => {
-  const filePath = join('ssg', 'projects');
-  const files = fs.readdirSync(filePath);
-  const metadata = files.map((file) => {
-    const meta = matter(fs
-      .readFileSync(join(filePath, file))
-      .toString()).data
-
-    meta.url = 'projects/' + file.replace('.mdx', '')
-
-    return meta;
-  });
-
-  return {
-    props: {
-      metadata: JSON.stringify(metadata),
-    },
-  };
 };
 
 export default Projects;

@@ -1,20 +1,19 @@
----
-title: A*
-date: 2020-07-18
-description: The A* pathfinding algorithm searching dynamically through a grid of tiles
-scripts:
-  - https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js
-  - https://shivam-sh.github.io/p5-experiments/sketches/a*/sketch.js
-  - https://shivam-sh.github.io/p5-experiments/sketches/a*/node.js
-tags: p5.js, algorithms
----
+import BlogPost from '../../../components/layouts/blogPost';
+
+export const meta = {
+  title: 'A*',
+};
 
 # A\*
 
-<div id="canvas" class="canvas"></div>
-
-<p><a href="https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/a*" class="button special" style="margin: 1em 0 0 0">View Source</a>
-<a href="../../../assets/a*/index.html" class="button" style="margin: 1em 0 0 0">Fullscreen</a></p>
+<p>
+  <a href="https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/a*" class="button">
+    View Source
+  </a>
+  <a href="https://shivam-sh.github.io/assets/a*/" class="button">
+    Fullscreen
+  </a>
+</p>
 
 A* is a simple graphical implementation of the a* search algorithm.
 
@@ -26,3 +25,5 @@ The algorithm behaves like a modified version of Edsger Djikstra's algorithm. Dj
 The difference between the two approaches is that the a\* algorithm uses a heuristic to determine which nodes are worth visiting to improve performance. The algorithm takes into account the theoretical quickest path to the end. Thanks to this heuristic, the algorithm knows to search the nodes that lead closer to the end first. Thanks to this approach, the algorithm knows when it has found an optimal route, as well as when it should keep searching.
 
 Shivam Sh
+
+export default ({children}) => <BlogPost meta={meta} content={children}/>

@@ -1,9 +1,9 @@
----
-title: Goose Bot
-date: 2020-07-01
-description: An identity verification system built to bring increased security to Discord servers
-tags: NodeJS, server-side
----
+import BlogPost from '../../../components/layouts/blogPost'
+
+export const meta = {
+  title: "Goose Bot"
+}
+
 # Goose Bot
 ## Discord Verification System
 
@@ -28,3 +28,5 @@ One of the most unexpectedly enjoyable parts of working on this program was ensu
 I kept everything organized by creating a visual depiction of the data models. I referred back to these whenever adding new features, or managing unexpected states within the code. My notes were relatively simple for this project, but their existence as a guide to refer to was incredibly helpful when designing and implementing features.
 
 Shivam Sh
+
+export default ({children}) => <BlogPost meta={meta} content={children}/>

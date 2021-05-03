@@ -1,18 +1,10 @@
----
-title: Orbit
-date: 2020-05-08
-description: This project showcase diplays a quick physics-based graphical simulation of orbiting bodies with p5.js
-scripts:
-  - https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js
-  - https://shivam-sh.github.io/p5-experiments/sketches/orbit/sketch.js
-  - https://shivam-sh.github.io/p5-experiments/sketches/orbit/orbiter.js
-  - https://shivam-sh.github.io/p5-experiments/sketches/orbit/attractor.js
-tags: p5.js, simulation
----
+import BlogPost from '../../../components/layouts/blogPost'
+
+export const meta = {
+  title: "Orbit"
+}
 
 # Orbit
-
-<div id="sketch" class="canvas"></div>
 <p><a href="https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/orbit" class="button">View Source</a>
 <a href="../../../assets/orbit/index.html" class="button">Fullscreen</a></p>
 
@@ -29,3 +21,5 @@ This is a relatively simple program yet it can be improved upon in many ways. I 
 I may even implement a simple version of this into another program as a loading indicator as the semi-chaotic system makes for a very satisfying animation.
 
 Shivam Sh
+
+export default ({children}) => <BlogPost meta={meta} content={children}/>
