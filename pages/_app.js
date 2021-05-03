@@ -1,8 +1,8 @@
-import '../styles/globals.scss'
-import '../styles/hljs.scss'
+import '../styles/globals.scss';
+import '../styles/hljs.scss';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

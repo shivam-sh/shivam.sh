@@ -1,18 +1,17 @@
-import BlogPost from '../../../components/layouts/blogPost'
+import BlogPost from '../../../components/layouts/blogPost';
 
 export const meta = {
-  title: "Terra"
-}
+  title: 'Terra',
+};
 
 # Terra
-<p>
-  <a href="https://github.com/shivam-sh/Terra" class="button">
-    View Source
-  </a>
-  <a href="https://shivam-sh.github.io/Terra" class="button">
-    Fullscreen
-  </a>
-</p>
+
+<div className="button">
+
+[View Source](https://github.com/shivam-sh/Terra)
+[Fullscreen](https://shivam-sh.github.io/Terra)
+
+</div>
 
 Terra is a terrain generator built using WebGL and p5.js.
 
@@ -27,4 +26,4 @@ My next plan is to increase user interaction by reconstructing the camera. Curre
 
 Shivam Sh
 
-export default ({children}) => <BlogPost meta={meta} content={children}/>
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

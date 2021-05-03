@@ -28,7 +28,7 @@ const Blog = ({ metadata }) => {
             <Link href={meta.url} key={meta.title}>
               <div className={styles.postPreview}>
                 <div className={styles.title}>
-                  <h4 className="accent">// {' '}{' '}</h4>
+                  <h4 className="accent">//{'   '}</h4>
                   <h4>{meta.title}</h4>
                 </div>
 
@@ -62,14 +62,11 @@ export const getStaticProps = async () => {
   });
 
   const metadata = postFiles.map((file) => {
-    const meta = matter(fs
-      .readFileSync(join(filePath, file))
-      .toString())
-      .data
+    const meta = matter(fs.readFileSync(join(filePath, file)).toString()).data;
 
-    meta.url = 'blog/' + file.replace('.mdx', '')
-    return meta
-  })
+    meta.url = 'blog/' + file.replace('.mdx', '');
+    return meta;
+  });
 
   return {
     props: {

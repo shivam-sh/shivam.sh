@@ -23,8 +23,14 @@ const Projects = () => {
             <a>
               <div className={styles.projectPreview}>
                 <div className={styles.graphic}>
-                  <img className={styles.accent} src={meta.url + '/accent.png'} />
-                  <img className={styles.preview} src={meta.url + '/preview.png'} />
+                  <img
+                    className={styles.accent}
+                    src={meta.url + '/accent.png'}
+                  />
+                  <img
+                    className={styles.preview}
+                    src={meta.url + '/preview.png'}
+                  />
                 </div>
                 <div className={styles.description}>
                   <h2>{meta.title}</h2>

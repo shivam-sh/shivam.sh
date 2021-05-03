@@ -16,20 +16,16 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.welcome}>
-          <h1 className={styles.title}>
-            404
-          </h1>
+          <h1 className={styles.title}>404</h1>
 
-          <p className={styles.description}>
-            Page not found
-          </p>
+          <p className={styles.description}>Page not found</p>
         </div>
       </main>
 
       <div className={styles.typing}>
         <p>
           <span className={styles.bash}>{'> '}</span>
-          <Prompt/>
+          <Prompt />
         </p>
       </div>
     </div>

@@ -17,7 +17,7 @@ const Home = () => {
       <main className={styles.main}>
         <div className={styles.welcome}>
           <h1 className={styles.title}>
-            Hey There<span className='accent'>,</span>
+            Hey There<span className="accent">,</span>
             <br />
             I’m Shivam
           </h1>
@@ -47,6 +47,6 @@ const Home = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

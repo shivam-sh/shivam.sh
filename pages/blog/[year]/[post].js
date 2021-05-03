@@ -4,16 +4,15 @@ import fs from 'fs';
 import { join } from 'path';
 
 import matter from 'gray-matter';
-import hydrate from "next-mdx-remote/hydrate";
-import renderToString from "next-mdx-remote/render-to-string";
+import hydrate from 'next-mdx-remote/hydrate';
+import renderToString from 'next-mdx-remote/render-to-string';
 import highlight from 'remark-highlight.js';
 
-
 const Post = ({ source, frontMatter }) => {
-  const data = JSON.parse(frontMatter)
-  const content = hydrate(source)
+  const data = JSON.parse(frontMatter);
+  const content = hydrate(source);
 
-  return <BlogPost meta={data} content={content} />
+  return <BlogPost meta={data}>{content}</BlogPost>;
 };
 
 export const getStaticPaths = async () => {
@@ -49,14 +48,14 @@ export const getStaticProps = async ({ params: { post, year } }) => {
     .readFileSync(join('ssg', 'posts', year, post + '.mdx'))
     .toString();
 
-  const { content, data } = matter(source)
+  const { content, data } = matter(source);
   const mdxSource = await renderToString(content, {
     mdxOptions: {
       remarkPlugins: [highlight],
-    }
-  })
+    },
+  });
 
-  return { props: { source: mdxSource, frontMatter: JSON.stringify(data) } }
+  return { props: { source: mdxSource, frontMatter: JSON.stringify(data) } };
 };
 
 export default Post;

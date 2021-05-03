@@ -110,12 +110,11 @@ a {
   text-decoration: none;
   color: var(--text);
   transition: 0.2s;
-}
 
-a:hover {
-  text-decoration: none;
-  opacity: 70%;
-  transition: 0.2s;
+  &:hover {
+    text-decoration: none;
+    opacity: 70%;
+  }
 }
 
 pre {
@@ -154,17 +153,17 @@ code {
   }
 }
 
-.button {
-  font-size: 0.8rem;
-  line-height: 1.4rem;
-  font-weight: bold;
-  color: var(--bg);
-  background-color: var(--text);
+.button p a {
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+    font-weight: bold;
+    color: var(--bg);
+    background-color: var(--text);
 
-  margin-right: 0.5rem;
-  padding:  0.5rem 0.8rem;
-  border-radius: .5rem;
-}
+    margin-right: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+  }
 
 @media (max-width: 650px) {
   :root {

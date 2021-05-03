@@ -6,14 +6,12 @@ export const meta = {
 
 # A\*
 
-<p>
-  <a href="https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/a*" class="button">
-    View Source
-  </a>
-  <a href="https://shivam-sh.github.io/assets/a*/" class="button">
-    Fullscreen
-  </a>
-</p>
+<div className="button">
+
+[View Source](https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/a*)
+[Fullscreen](https://shivam-sh.github.io/assets/a*/)
+
+</div>
 
 A* is a simple graphical implementation of the a* search algorithm.
 
@@ -26,4 +24,4 @@ The difference between the two approaches is that the a\* algorithm uses a heuri
 
 Shivam Sh
 
-export default ({children}) => <BlogPost meta={meta} content={children}/>
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

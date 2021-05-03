@@ -1,12 +1,17 @@
-import BlogPost from '../../../components/layouts/blogPost'
+import BlogPost from '../../../components/layouts/blogPost';
 
 export const meta = {
-  title: "Orbit"
-}
+  title: 'Orbit',
+};
 
-# Orbit
-<p><a href="https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/orbit" class="button">View Source</a>
-<a href="../../../assets/orbit/index.html" class="button">Fullscreen</a></p>
+# orbit
+
+<div className="button">
+
+[View Source](https://github.com/shivam-sh/shivam-sh.github.io/tree/master/Resources/assets/orbit)
+[Fullscreen](../../../assets/orbit/index.html)
+
+</div>
 
 Orbit is a physics-based simulation of.. well... orbits!
 
@@ -22,4 +27,4 @@ I may even implement a simple version of this into another program as a loading 
 
 Shivam Sh
 
-export default ({children}) => <BlogPost meta={meta} content={children}/>
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

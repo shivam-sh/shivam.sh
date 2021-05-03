@@ -1,13 +1,12 @@
-import BlogPost from '../../../components/layouts/blogPost'
+import BlogPost from '../../../components/layouts/blogPost';
 
 export const meta = {
-  title: "Goose Bot"
-}
+  title: 'Goose Bot',
+};
 
 # Goose Bot
-## Discord Verification System
 
-<img class="image" src="../../../assets/goose-bot/notes.jpeg"></img>
+## Discord Verification System
 
 Goose Bot is a bot designed to provide an email-based identity verification service for Discord servers.
 
@@ -17,9 +16,8 @@ The bot hooks into the UW Open API and verifies the student status of people loo
 
 By linking a user's Waterloo ID to their Discord, we can be sure that the server remains secure by limiting access to those who are part of the program or let in by server admins.
 
-
 This project was a welcome new experience for me. Before its creation, I had limited experience in creating servers. My experience with NodeJS had been solely in running small servers for local networking needs.
-I had to figure out how I should respond to requests in an asynchronous manner while reliably updating a database. 
+I had to figure out how I should respond to requests in an asynchronous manner while reliably updating a database.
 
 This project was very research heavy as I explored new concepts to improve the reliability and functionality of the code that I wrote.
 
@@ -29,4 +27,4 @@ I kept everything organized by creating a visual depiction of the data models. I
 
 Shivam Sh
 
-export default ({children}) => <BlogPost meta={meta} content={children}/>
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import Typed from "typed.js";
+import React, { useEffect } from 'react';
+import Typed from 'typed.js';
 
 const commands = [
   'welcome',
@@ -24,7 +24,7 @@ const commands = [
 ];
 
 const Typing = () => {
-  const strings = [].concat(...shuffle(commands))
+  const strings = [].concat(...shuffle(commands));
 
   useEffect(() => {
     const typed = new Typed('#prompt', {
@@ -40,17 +40,18 @@ const Typing = () => {
     };
   }, []);
 
-  return <span id='prompt'></span>;
+  return <span id="prompt"></span>;
 };
 
 export default Typing;
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;

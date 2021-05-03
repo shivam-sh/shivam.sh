@@ -3,15 +3,19 @@ import Header from '../header';
 
 import styles from '../../styles/layouts/blogPost.module.scss';
 
-const BlogPost = ({ meta, content }) => (
-  <>
-    <Head>
-      <title>{meta.title}</title>
-    </Head>
+const BlogPost = (props) => {
+  const { meta } = props;
 
-    <Header />
+  return (
+    <>
+      <Head>
+        <title>{meta.title}</title>
+      </Head>
 
-    <div className={styles.blogPost}>{content}</div>
-  </>
-);
+      <Header />
+
+      <div className={styles.blogPost}>{props.children}</div>
+    </>
+  );
+};
 export default BlogPost;
