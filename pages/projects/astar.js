@@ -1,9 +1,9 @@
-import BlogPost from '../../../components/layouts/blogPost';
-import MDXParse from './../../../components/mdxParse'
+import BlogPost from '../../components/layouts/blogPost';
+import MDXParse from '../../components/mdxParse'
 
 import dynamic from 'next/dynamic';
 import hydrate from 'next-mdx-remote/hydrate';
-import sketch from './sketch';
+import sketch from '../../ssg/projects/astar/sketch';
 const P5Wrapper = dynamic(import('react-p5-wrapper'), {
   ssr: false,
 });
@@ -22,5 +22,5 @@ const AStar = ({source, frontMatter}) => {
 export default AStar;
 
 export const getStaticProps = async () => {
-  return { props: await MDXParse('pages/projects/astar/content.mdx') };
+  return { props: await MDXParse('ssg/projects/astar/content.mdx') };
 };

@@ -3,7 +3,7 @@ import Header from '../../components/header';
 import Link from 'next/link';
 import styles from '../../styles/Projects.module.scss';
 
-import metadata from '../../ssg/projects';
+import metadata from '../../ssg/projects.js';
 
 const Projects = () => {
   return (

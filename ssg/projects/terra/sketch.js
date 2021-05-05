@@ -26,9 +26,6 @@ const Sketch = (p) => {
     // Initialize the terrain cache
     initCache(pos, tSpan, tDepth, tScale);
 
-    // Tilt the camera downwards
-    camera.tilt(p.PI / 6);
-
     p.windowResized();
   };
 
@@ -56,6 +53,8 @@ const Sketch = (p) => {
     else {
       p.resizeCanvas(p.windowWidth - 72, 460);
     }
+
+    camera.tilt(p.PI / 6);
   }
 
   let terrainCache;
