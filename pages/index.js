@@ -9,7 +9,7 @@ const Home = () => {
     <div className={styles.container}>
       <Head>
         <title>Shivam Sh</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
       </Head>
 
       <Header />
