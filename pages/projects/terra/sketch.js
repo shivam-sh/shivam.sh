@@ -28,6 +28,8 @@ const Sketch = (p) => {
 
     // Tilt the camera downwards
     camera.tilt(p.PI / 6);
+
+    p.windowResized();
   };
 
   p.draw = () => {
@@ -48,8 +50,12 @@ const Sketch = (p) => {
   };
 
   p.windowResized = () => {
-    // p.resizeCanvas(p.windowWidth, p.windowHeight);
-    console.log(p.windowWidth, p.windowHeight);
+    if (p.windowWidth > 800) {
+      p.resizeCanvas(700, 460);
+    }
+    else {
+      p.resizeCanvas(p.windowWidth - 72, 460);
+    }
   }
 
   let terrainCache;
