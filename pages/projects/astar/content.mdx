@@ -1,10 +1,6 @@
-import BlogPost from '../../../components/layouts/blogPost';
-
-export const meta = {
-  title: 'A*',
-};
-
-# A\*
+---
+title: A*
+---
 
 <div className="button">
 
@@ -23,5 +19,3 @@ The algorithm behaves like a modified version of Edsger Djikstra's algorithm. Dj
 The difference between the two approaches is that the a\* algorithm uses a heuristic to determine which nodes are worth visiting to improve performance. The algorithm takes into account the theoretical quickest path to the end. Thanks to this heuristic, the algorithm knows to search the nodes that lead closer to the end first. Thanks to this approach, the algorithm knows when it has found an optimal route, as well as when it should keep searching.
 
 Shivam Sh
-
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
