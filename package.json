@@ -11,17 +11,17 @@
     "@loadable/component": "^5.14.1",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@next/mdx": "^10.2.0",
+    "@next/mdx": "^11.1.2",
     "date-fns": "^2.21.1",
     "gray-matter": "^4.0.3",
     "next": "^11.1.1",
-    "next-mdx-remote": "^2.1.4",
+    "next-mdx-remote": "^3.0.4",
     "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-p5-wrapper": "^2.4.0",
-    "remark-highlight.js": "^6.0.0",
-    "sass": "^1.32.7",
+    "remark-highlight.js": "^7.0.1",
+    "sass": "^1.39.0",
     "typed.js": "^2.0.12"
   }
 }
