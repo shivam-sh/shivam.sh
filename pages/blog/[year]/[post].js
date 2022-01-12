@@ -2,14 +2,15 @@ import BlogPost from '../../../components/layouts/blogPost';
 import MDXParse from '../../../components/mdxParse'
 
 import fs from 'fs';
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
 import { join } from 'path';
 
 const Post = ({ source, frontMatter }) => {
   const data = JSON.parse(frontMatter);
-  const content = hydrate(source);
 
-  return <BlogPost meta={data}>{content}</BlogPost>;
+  return <BlogPost meta={data}>
+    <MDXRemote {...source} />
+  </BlogPost>;
 };
 export default Post;
 

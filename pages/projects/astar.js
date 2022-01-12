@@ -2,7 +2,7 @@ import BlogPost from '../../components/layouts/blogPost';
 import MDXParse from '../../components/mdxParse'
 
 import dynamic from 'next/dynamic';
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
 import sketch from '../../ssg/projects/astar/sketch';
 const P5Wrapper = dynamic(import('react-p5-wrapper'), {
   ssr: false,
@@ -10,13 +10,12 @@ const P5Wrapper = dynamic(import('react-p5-wrapper'), {
 
 const AStar = ({source, frontMatter}) => {
   const data = JSON.parse(frontMatter);
-  const content = hydrate(source);
 
   return (
   <BlogPost meta={data}>
-    <h1>A*</h1>
-    <P5Wrapper sketch={sketch}/>
-    {content}
+      <h1>A*</h1>
+      <P5Wrapper sketch={sketch} fullscreen={false}/>
+    <MDXRemote {...source} />
   </BlogPost>
 )};
 export default AStar;

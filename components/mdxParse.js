@@ -1,6 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { serialize } from 'next-mdx-remote/serialize';
 import highlight from 'remark-highlight.js';
 
 const Parse = async (filename) => {
@@ -9,7 +9,7 @@ const Parse = async (filename) => {
     .toString();
 
   const { content, data } = matter(source);
-  const mdxSource = await renderToString(content, {
+  const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [highlight],
     },

@@ -72,7 +72,7 @@ Await can be used to call any function labeled with async, or in other words, an
 ### Mix & Match
 Promises and async/await work the same way behind the scenes. The shared frameworks that back up promises and async/await mean that the two can be used together. The `await` keyword can be used when calling any promises, and the `.then()` and `.catch()` code blocks can be used when you call any functions initialized with async since they are actually just promises!
 
-```
+``` javascript
 async function doSomething() {
   // Carries out a task that takes time then returns something
 
