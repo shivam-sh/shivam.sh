@@ -16,11 +16,11 @@ const Home = () => {
 
       <main className={styles.main}>
         <div className={styles.welcome}>
-          <h1 className={styles.title}>
+          <h2 className={styles.title}>
             Hey There<span className="accent">,</span>
             <br />
             I’m Shivam
-          </h1>
+          </h2>
 
           <caption className={styles.description}>
             <span className={styles.line}>

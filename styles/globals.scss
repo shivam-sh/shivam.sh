@@ -1,9 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+@font-face {
+  font-family: 'TeX Gyre Heroes';
+  src: url(fonts/TeX-Gyre-Heros/texgyreheros-regular.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Heroes';
+  src: url(fonts/TeX-Gyre-Heros/texgyreheros-bold.otf) format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Heroes';
+  src: url(fonts/TeX-Gyre-Heros/texgyreheros-italic.otf) format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Heroes';
+  src: url(fonts/TeX-Gyre-Heros/texgyreheros-bolditalic.otf) format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+
 :root {
-  --bg: #292c35;
-  --text: #fff;
-  --accent: #62ecbc;
+  --bg: #232323;
+  --text: #FAFAFA;
+  --accent: #FE523C;
 
   --red: #ff5965;
   --yellow: #ffea64;
@@ -12,12 +41,22 @@
   --blue: #7299ff;
   --purple: #a571ff;
 
-  font-family: 'Ubuntu', sans-serif;
+  /* Increase or decrease the number 
+to change the vertical spacing globally*/
+  
+/* Base Vertical Spacing */
+--space: 1.6;
+
+/* Vertical Spacing - multiplier */
+    --vspace: calc(var(--space) * 1rem);
+    --vspace-0: calc(3 * var(--space) * 1rem);
+    --vspace-1: calc(2 * var(--space) * 1rem);
+    --vspace-2: calc(1.5 * var(--space) * 1rem);
+    --vspace-3: calc(0.5 * var(--space) * 1rem);
+
+  font-family: 'TeX Gyre Heroes', sans-serif;
   font-style: normal;
   font-weight: normal;
-
-  font-size: 20px;
-  line-height: 34px;
 
   background-color: var(--bg);
 }
@@ -26,77 +65,47 @@
   box-sizing: border-box;
 }
 
-html,
+html {font-size: 16px;}
+
 body {
+  font-size: 1.1667em;
+  // max-width: calc(25 * var(--vspace));
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 
   color: var(--text);
 }
 
+p {
+  margin: var(--vspace) 0; 
+  line-height: var(--vspace);
+}
+
 h1 {
-  font-weight: 600;
-  font-size: 2.6rem;
-  line-height: 4.05rem;
-  
-  display: block;
-  margin-block-start: 2rem;
-  margin-block-end: 1.5rem;
+  margin: var(--vspace-1) 0 var(--vspace-1) 0;
+  line-height: calc(7.0417/var(--space)* var(--vspace));
 }
 
 h2 {
-  font-weight: 600;
-  font-size: 2.05rem;
-  line-height: 3.25rem;
-  
-  display: block;
-  margin-block-start: 2rem;
-  margin-block-end: 1.5rem;
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
+  line-height: 1em;
 }
 
 h3 {
-  font-weight: 600;
-  font-size: 1.6rem;
-  line-height: 2.6rem;
-
-  display: block;
-  margin-block-start: 2rem;
-  margin-block-end: 1.5rem;
+  margin: var(--vspace-1) 0 var(--vspace-3) 0;
+  line-height: 1em;
 }
 
-h4 {
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 2.05rem;
-
-  display: block;
-  margin-block-start: 2rem;
-  margin-block-end: 1.5rem;
-}
-
-h5 {
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.4rem;
-
-  display: block;
-  margin-block-start: 1rem;
-  margin-block-end: 0rem;
-}
-
-h6 {
-  display: block;
-  margin-block-start: 1rem;
-  margin-block-end: 0rem;
+h4, h5, h6 {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
+  line-height: var(--vspace);
 }
 
 p {
-  font-size: 1rem;
-  line-height: 1.7rem;
+  margin: var(--vspace) 0; 
+  line-height: var(--vspace);;
   
   display: block;
-  margin-block-start: 0;
-  margin-block-end: 1.5rem;
 }
 
 caption {
@@ -115,6 +124,76 @@ a {
     text-decoration: none;
     opacity: 70%;
   }
+}
+
+.bigtitle, h1 {
+  font-size: 7.0417em;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.title, h2 {
+  font-size: 3.5208em; 
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.subheading1, h3 {
+  font-size: 2.3333em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+blockquote {
+  font-size: 1.3333em;        
+  font-style: italic; 
+  line-height: calc(1.3333*var(--vspace));
+  margin: var(--vspace-2) var(--vspace-2);
+}
+
+.subheading2, h4 {
+  font-size: 1.7708em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.subheading3, h5 {
+  font-size: 1.5417em; 
+  font-weight: bold;
+  text-transform: uppercase; 
+  letter-spacing: .15em;
+}
+
+.subheading4, h6 {
+  font-size: 1.3333em;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "le-monde-livre-classic-byol",serif !important;
+  letter-spacing: 0px!important;
+}
+
+.caption_ts {
+  font-size: 1.0208em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.endnote_ts {font-size: 1.0208em;}
+
+.footnote_ts {
+margin: var(--vspace-0) 0 var(--vspace-2) 0;
+font-size: 0.8958em;  
+border-top: 1px solid #ccc;
+line-height: 2em;
+}
+
+sup { 
+  font-size: 0.8958rem;
+  margin: .5em; 
+  text-transform: none;
+  font-style: italic;
+  font-weight: normal;
 }
 
 pre {
