@@ -28,11 +28,12 @@
   font-style: italic;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
   --bg: #232323;
   --text: #FAFAFA;
-  --accent: #FE523C;
+  --accent: #6DEDEF;
 
   --red: #ff5965;
   --yellow: #ffea64;
@@ -54,7 +55,7 @@ to change the vertical spacing globally*/
     --vspace-2: calc(1.5 * var(--space) * 1rem);
     --vspace-3: calc(0.5 * var(--space) * 1rem);
 
-  font-family: 'TeX Gyre Heroes', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
 
@@ -127,25 +128,27 @@ a {
 }
 
 .bigtitle, h1 {
+  font-family: 'TeX Gyre Heroes', sans-serif;
   font-size: 7.0417em;
   font-weight: bold;
   word-break: break-word;
 }
 
 .title, h2 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 3.5208em; 
   font-weight: bold;
   word-break: break-word;
 }
 
 .subheading1, h3 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.3333em;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .1em;
 }
 
 blockquote {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.3333em;        
   font-style: italic; 
   line-height: calc(1.3333*var(--vspace));
@@ -153,12 +156,14 @@ blockquote {
 }
 
 .subheading2, h4 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.7708em;
   font-weight: bold;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .subheading3, h5 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5417em; 
   font-weight: bold;
   text-transform: uppercase; 
@@ -166,11 +171,10 @@ blockquote {
 }
 
 .subheading4, h6 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.3333em;
   font-weight: bold;
   font-style: italic;
-  font-family: "le-monde-livre-classic-byol",serif !important;
-  letter-spacing: 0px!important;
 }
 
 .caption_ts {
@@ -196,10 +200,17 @@ sup {
   font-weight: normal;
 }
 
+sub { 
+  font-size: 0.8958rem;
+  margin: .5em; 
+  text-transform: none;
+  font-style: italic;
+  font-weight: normal;
+}
+
 pre {
   font-family: 'Ubuntu Mono', monospace;
-  background-color: #31343f;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
 
   overflow-x: auto;
 
@@ -214,7 +225,6 @@ pre {
 
 code {
   font-family: 'Ubuntu Mono', monospace;
-  background-color: #31343f;
   border-radius: 0.3rem;
   padding: .2rem .3rem;
   margin: 0 .2rem;
