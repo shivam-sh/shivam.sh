@@ -22,7 +22,7 @@ const Home = () => {
             I’m Shivam
           </h2>
 
-          <caption className={styles.description}>
+          <h6 className={styles.description}>
             <span className={styles.line}>
               I’m a Systems Design Engineering
             </span>
@@ -35,7 +35,7 @@ const Home = () => {
             <span className={styles.line}>
               and sometimes I post about them here
             </span>
-          </caption>
+          </h6>
         </div>
       </main>
 
