@@ -17,7 +17,7 @@ const AStar = ({source, frontMatter}) => {
 
   return (
   <BlogPost meta={data}>
-    <h1>A*</h1>
+    <h2>A*</h2>
     <ReactP5Wrapper sketch={sketch} fullscreen={false}/>
     <MDXRemote {...source} />
   </BlogPost>

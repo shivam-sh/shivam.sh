@@ -18,7 +18,7 @@ const Orbit = ({ source, frontMatter }) => {
 
   return (
   <BlogPost meta={data}>
-      <h1>Orbit</h1>
+      <h2>Orbit</h2>
       <ReactP5Wrapper sketch={sketch}/>
       <MDXRemote {...source} />
   </BlogPost>

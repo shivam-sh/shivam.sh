@@ -5,7 +5,7 @@ description: How do you go from an algorithm to working code? This tutorial outl
 tags: JavaScript
 ---
 
-# Turning Algorithms into Code
+## Turning Algorithms into Code
 
 ![astar](/projects/astar/preview.png)
 
@@ -22,13 +22,13 @@ A few people have asked about how they can algorithms into code, so this post wi
 
 This example will be recreating the A\* pathfinding algorithm in JavaScript. This language will allow the results to be embedded right into the web. The same ideas should work perfectly fine with any other language and algorithm.
 
-## Algorithms Aren't as Scary as They Look
+### Algorithms Aren't as Scary as They Look
 
 One of the most important things to realize is that algorithms are a combination of many simple steps and components. They can seem complicated with confusing parts but they're not that bad.
 
 The steps in this post will show a way to turn an algorithm into working code but bugs and issues will almost always pop up. The goal of the post is to define steps to follow if someone doesn't know where to start.
 
-## Understanding the Problem
+### Understanding the Problem
 
 The first step when recreating any algorithm is researching the algorithm to understand what information it needs.
 
@@ -39,7 +39,7 @@ It can be especially useful to find illustrations and animations depicting the a
 Algorithms often work with components like nodes and vectors but these just represent ways of storing data in an organized way.
 You can use libraries that create and manage these components for you, but for this example will show you how to create these as well.
 
-## Representing the Problem in Code
+### Representing the Problem in Code
 
 A\*, like other pathfinding algorithms, represents locations with edges and nodes. This means each major location is represented by a node, and the connections between the nodes are called edges.
 
@@ -49,7 +49,7 @@ Before programming, it can be very helpful to draw or take a note of how the cod
 
 When writing the code we can refer to the diagram/notes to make the process smoother.
 
-#### Notes
+##### Notes
 
 ```javascript
 /*   Node
@@ -79,11 +79,11 @@ When writing the code we can refer to the diagram/notes to make the process smoo
  * A list of nodes that have already been fully explored
 ```
 
-## Programming
+### Programming
 
 Each step below has been linked to GitHub commit so you can follow along and see how the code evolved to reach completion.
 
-### Part 1: Data Structures
+#### Part 1: Data Structures
 
 Now that the basics are outlined we can go ahead and make some template code. This represents the data and makes sure each of the parts we outlined is here.
 
@@ -96,7 +96,7 @@ Now that the basics are outlined we can go ahead and make some template code. Th
   </a>
 </p>
 
-#### sketch.js
+##### sketch.js
 
 ```javascript
 // Values for graphical output
@@ -130,7 +130,7 @@ function setup() {
 function draw() {}
 ```
 
-#### node.js
+##### node.js
 
 ```javascript
 const states = {
@@ -184,7 +184,7 @@ Most algorithms need to work on top of a data set that is organized in a specifi
   </a>
 </p>
 
-#### sketch.js
+##### sketch.js
 
 ```javascript
 // Grid Options
@@ -254,7 +254,7 @@ You may have noticed that I'm calling functions in this loop such as `.setState(
 
 Another concern may be that the connections between the nodes aren't initialized. This network is organized as a grid and is optimizing accordingly. The node network will be dynamically generated as the algorithm searches. This will also allow for the visuals to be customized down the line to better show the algorithm at work.
 
-### Implementing the Main Loop
+#### Implementing the Main Loop
 
 Next up is the main loop of the algorithm. It helps to follow the steps the algorithm takes and translate them into code sequentially.
 
@@ -267,7 +267,7 @@ Next up is the main loop of the algorithm. It helps to follow the steps the algo
   </a>
 </p>
 
-#### sketch.js
+##### sketch.js
 
 ```javascript
 ...
@@ -344,7 +344,7 @@ By focusing in on one area it's easier to be mindful of what is happening, and t
 
 Again, some of the methods being called don't exist yet. This makes sure that the main loop isn't doing too much. It's easy to go ahead and implement everything into this loop, but doing so makes for messier code that becomes more difficult to maintain.
 
-### Making Your Code Functional
+#### Making Your Code Functional
 
 Now it's time to build the functions that have been called in the rest of the code. The functions can be added pretty quickly. The inputs, return values, and functionality is already outlined through the calls.
 
@@ -357,7 +357,7 @@ Now it's time to build the functions that have been called in the rest of the co
   </a>
 </p>
 
-#### node.js
+##### node.js
 
 ```javascript
 ...
@@ -409,7 +409,7 @@ This step can take a long time as the bugs that were unnoticed in the previous s
 
 This step can be frustrating due to all the debugging that can be involved, but it's also the one that finally gets your code to a working state.
 
-## Optimization/Finishing Touches
+### Optimization/Finishing Touches
 
 The last step of the process (usually also my favourite) is the finishing touches.
 
@@ -426,7 +426,7 @@ This step doesn't have any instructions or guidelines but that's the best part!
   </a>
 </p>
 
-## Conclusion
+### Conclusion
 
 Throughout this post, we (hopefully) successfully translated an algorithm into code.
 

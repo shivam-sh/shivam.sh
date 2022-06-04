@@ -17,7 +17,7 @@ const Terra = ({source, frontMatter}) => {
 
   return (
   <BlogPost meta={data}>
-    <h1>Terra</h1>
+    <h2>Terra</h2>
     <ReactP5Wrapper sketch={sketch}/>
     <MDXRemote {...source} />
   </BlogPost>

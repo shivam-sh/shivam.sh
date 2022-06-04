@@ -5,8 +5,8 @@ description: A reflection on my latest project. I explore server-side programmin
 tags: NodeJS
 ---
 
-# Exploring Asynchronous Programming
-## Background
+## Exploring Asynchronous Programming
+### Background
 
 Recently, I've been managing a Discord server for the incoming wave of Systems Design Engineering students at Waterloo. The Discord is being used as a communication platform as well as a virtual meeting place to help us get to know each other.
 There was only one problem. There were already over 200 members in the server yet there were only around 100 people coming into the program this year.
@@ -18,7 +18,7 @@ This would be my first real server-side project as well as one of my first times
 
 For information about the code and how it works click on [this GitHub link.](https://github.com/shivam-sh/goose-bot) The code is completely open-source on my GitHub so feel free to check it out.
 
-## Newly Explored
+### Newly Explored
 
 An unprecedented consequence I faced with Node.js was the asynchronous execution of code. This means that multiple parts of the code can be running at the same time rather than the chain of events that occurs during synchronous programs.
 
@@ -26,7 +26,7 @@ This shift in the way code is executed ended up meaning that I'd use a day just 
 
 I found two main ways in which this balance between synchronous and asynchronous operations are kept. Either through promises, or through async/await.
 
-### Promises
+#### Promises
 ``` javascript
 new Promise((resolve, reject) => {
   // Run a certain task that takes time 
@@ -46,7 +46,7 @@ Promises are the first way in which synchronicity is managed. They either return
 Promises either complete, or return an error. This means it is relatively easy to manage the next steps in the operation. One can either continue on with the operation, or catch the error and manage it. The .then() and .catch() blocks capture these two possibilities and take in what is returned in either case. This makes for a fairly intuitive way of managing tasks that have to be executed in order in an otherwise asynchronous program.
 
 
-### Async/Await
+#### Async/Await
 ``` javascript
 async function() {
 
@@ -69,7 +69,7 @@ This is necessary in order to allow the `await` keyword to be used. Await tells 
 
 Await can be used to call any function labeled with async, or in other words, any promise.
 
-### Mix & Match
+#### Mix & Match
 Promises and async/await work the same way behind the scenes. The shared frameworks that back up promises and async/await mean that the two can be used together. The `await` keyword can be used when calling any promises, and the `.then()` and `.catch()` code blocks can be used when you call any functions initialized with async since they are actually just promises!
 
 ``` javascript
@@ -129,7 +129,7 @@ async function runAsync() {
 }
 ```
 
-## Wrap-Up
+### Wrap-Up
 
 Exploring some asynchronous programming thanks to my work on a identity-verification bot allowed me to develop a far better understanding of how information is dealt with on the web and on servers.
 This is definitely a topic I'm looking forward to digging deeper on so keep an eye out for future projects and blog posts that'll expand on the basics in this post.
