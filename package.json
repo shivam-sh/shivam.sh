@@ -1,6 +1,6 @@
 {
-  "name": "shivam-sh.github.io",
-  "version": "0.1.0",
+  "name": "shivam.sh",
+  "version": "0.2.0-alpha",
   "private": true,
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
@@ -9,20 +9,17 @@
     "build-dev": "next build && next start"
   },
   "dependencies": {
-    "@loadable/component": "^5.14.1",
-    "@mdx-js/loader": "^2.1.2",
-    "@mdx-js/react": "^2.1.2",
-    "@next/mdx": "^12.2.0",
-    "date-fns": "^2.21.1",
-    "gray-matter": "^4.0.3",
     "next": "^12.2.0",
-    "next-mdx-remote": "^4.0.3",
-    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-p5-wrapper": "^3.3.0",
-    "remark-highlight.js": "^7.0.1",
-    "sass": "^1.53.0",
-    "typed.js": "^2.0.12"
+    "react-is": "^18.2.0",
+    "sass": "^1.53.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "@types/react": "latest",
+    "bun-framework-next": "^12.1.5",
+    "react-refresh": "0.10.0",
+    "typescript": "latest"
   }
 }
