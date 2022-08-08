@@ -4,6 +4,7 @@
 
 :root {
   --bg: #EEEEEE;
+  --bg-alt: #E5E5E5;
   --text: #333333;
   --accent: #FE523C;
 
@@ -15,9 +16,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #292c35;
+    --bg: #292C35;
+    --bg-alt: #31343f;
     --text: #eee;
-    --accent: #6dedef;
+    --accent: #40A3FF;
   }
 }
 
@@ -96,7 +98,7 @@ pre {
 code {
   // line-height: 26px;
   font-family: 'Ubuntu Mono', monospace;
-  background-color: #333;
+  background-color: var(--bg-alt);
   border-radius: 0.3rem;
   padding: .2rem .3rem;
   margin: 0 .2rem;
@@ -121,7 +123,7 @@ a {
   .content {
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    padding: 0px;
+    padding: 6rem 3rem 6rem 1rem;
 
     display: flex;
     flex-direction: column;

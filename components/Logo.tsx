@@ -13,7 +13,7 @@ const Logo: React.FC = ({ }) => {
   useEffect(updateColours, []);
 
   let foregroundColor = isDark ? '#EEE' : '#232323';
-  let accentColor = isDark ? '#62ECBC' : '#FE3F26';
+  let accentColor = isDark ? '#40A3FF' : '#FE3F26';
 
   let shadowOffset = isDark ? 1 : 0;
   let shadowSize = isDark ? 1 : 0;
