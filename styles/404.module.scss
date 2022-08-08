@@ -1,11 +1,11 @@
 .container {
   min-height: 99vh;
-  height: 100vh;
-  padding: 0 0;
+  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 
   .content {
     padding: 0px;
@@ -28,13 +28,12 @@
 
       .title {
         margin: 0;
-
-        span {
-          color: var(--accent);
-        }
       }
 
       .description {
+        font-style: normal;
+        // font-style: bold;
+        font-weight: 600;
         quotes: none;
       }
     }
