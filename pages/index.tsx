@@ -15,10 +15,10 @@ const Home = ({ }) => {
 
       <div className={styles.content}>
         <div className={styles.intro}>
-          <h1 className={styles.title}>
+          <h2 className={styles.title}>
             Hey There<span className="accent">,</span> <br />
             I'm Shivam
-          </h1>
+          </h2>
 
           <q className={styles.description}>
             I’m a Systems Design Engineering <br/>

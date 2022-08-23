@@ -28,6 +28,8 @@
 
       .title {
         margin: 0;
+        line-height: 1.4;
+        font-family: 'Inter', sans-serif;
 
         span {
           color: var(--accent);
@@ -36,6 +38,9 @@
 
       .description {
         quotes: none;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.7;
       }
     }
   }
