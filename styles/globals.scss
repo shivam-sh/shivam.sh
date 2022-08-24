@@ -3,13 +3,22 @@
 @import url('https://rsms.me/inter/inter.css');
 
 :root {
-  --bg: #232323;
-  --text: #eee;
-  --accent: #6dedef;
+  --bg: #EEEEEE;
+  --text: #333333;
+  --accent: #FE523C;
+
 
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #292c35;
+    --text: #eee;
+    --accent: #6dedef;
+  }
 }
 
 * {

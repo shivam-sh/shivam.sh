@@ -26,11 +26,11 @@
 
         a {
             text-decoration: none;
-            color: #eee;
+            color: var(--text);
             transition: all 0.3s ease-in-out;
 
             &:hover {
-                color: #bbb;
+                opacity: 70%;
             }
 
             h6 {
