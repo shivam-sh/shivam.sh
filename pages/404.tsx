@@ -1,19 +1,19 @@
-import Navbar from 'components/Navbar';
+import Navbar, { NavbarLink } from 'components/Navbar';
 import Head from "next/head";
 import styles from "../styles/404.module.scss";
 
 const Home = ({ }) => {
   return (
-    <div className={styles.container}>
+    <div className={'container'}>
       <Head>
         <title>Shivam Sh</title>
         <meta name="description" content="Page not found" />
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </Head>
 
-      <Navbar/>
+      <Navbar currentPage={NavbarLink.None} />
 
-      <div className={styles.content}>
+      <div className={'content'}>
         <div className={styles.intro}>
           <h2 className={styles.title}>
             404
