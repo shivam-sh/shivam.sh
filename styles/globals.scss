@@ -3,13 +3,22 @@
 @import url('https://rsms.me/inter/inter.css');
 
 :root {
-  --bg: #232323;
-  --text: #eee;
-  --accent: #6dedef;
+  --bg: #EEEEEE;
+  --text: #333333;
+  --accent: #FE523C;
+
 
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #292c35;
+    --text: #eee;
+    --accent: #6dedef;
+  }
 }
 
 * {
@@ -100,4 +109,27 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.container {
+  padding: 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  .content {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: scroll;
+    flex: 1;
+
+  }
 }

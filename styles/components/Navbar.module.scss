@@ -1,39 +1,49 @@
 .navbar {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-
+    align-items: flex-start;
+    padding: 1.5rem 2rem 0.5rem 2rem;
+    
     a {
         margin: 0;
         padding: 0;
+        max-height: 2.375rem;
     }
 
     .links {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         padding: 0 0;
         gap: 2rem;
 
+        .selected {
+            span {
+                display: contents;
+                color: var(--accent);
+            }
+        }
+
         a {
             text-decoration: none;
-            color: #eee;
+            color: var(--text);
             transition: all 0.3s ease-in-out;
 
+            span {
+                display: none;
+            }
+
             &:hover {
-                color: #bbb;
+                opacity: 70%;
             }
 
             h6 {
+                font-size: 1.125rem;
                 font-family: 'Inter', sans-serif;
                 margin: 0;
             }
