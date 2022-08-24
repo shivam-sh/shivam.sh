@@ -11,18 +11,11 @@
 
   .title {
     margin: 0;
-    line-height: 1.4;
-    font-family: 'Inter', sans-serif;
-
-    span {
-      color: var(--accent);
-    }
   }
 
   .description {
+    font-style: normal;
+    font-weight: 600;
     quotes: none;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.7;
   }
 }

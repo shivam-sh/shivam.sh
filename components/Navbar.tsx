@@ -1,17 +1,49 @@
-import styles from "../styles/components/Navbar.module.scss";
+import Link from 'next/link'
 import Logo from './Logo';
+import styles from '../styles/components/Navbar.module.scss';
 
-const Navbar = ({ }) => {
+export enum NavbarLink {
+    Home = '/',
+    Blog = '/blog',
+    Projects = '/projects',
+    About = '/about',
+    None = ''
+}
+
+export interface NavbarProps {
+    currentPage: NavbarLink;
+}
+
+const Navbar = ({ currentPage }: NavbarProps) => {
     return (
         <div className={styles.navbar}>
-            <a href="/">
-                <Logo/>
-            </a>
+            <Link href='/'>
+                <a>
+                    <Logo />
+                </a>
+            </Link>
 
             <div className={styles.links}>
-                <a href="/projects"><h6>projects</h6></a>
-                <a href="/blog"><h6>blog</h6></a>
-                <a href="/about"><h6>about</h6></a>
+                <Link href={NavbarLink.Home}>
+                    <a className={currentPage === NavbarLink.Home ? styles.selected : ''}>
+                        <h6><span>❯ </span>home</h6>
+                    </a>
+                </Link>
+                <Link href='/blog'>
+                    <a className={currentPage === NavbarLink.Blog ? styles.selected : ''}>
+                        <h6><span>❯ </span>blog</h6>
+                    </a>
+                </Link>
+                <Link href='/projects'>
+                    <a className={currentPage === NavbarLink.Projects ? styles.selected : ''}>
+                        <h6><span>❯ </span>projects</h6>
+                    </a>
+                </Link>
+                <Link href='/about'>
+                    <a className={currentPage === NavbarLink.About ? styles.selected : ''}>
+                        <h6><span>❯ </span>about</h6>
+                    </a>
+                </Link>
             </div>
         </div>
     );

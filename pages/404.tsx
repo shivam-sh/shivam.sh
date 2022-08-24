@@ -1,30 +1,26 @@
 import Navbar, { NavbarLink } from 'components/Navbar';
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+import styles from "../styles/404.module.scss";
 
 const Home = ({ }) => {
   return (
     <div className={'container'}>
       <Head>
         <title>Shivam Sh</title>
-        <meta name="description" content="Shivam Sharma's personal site" />
+        <meta name="description" content="Page not found" />
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </Head>
 
-      <Navbar currentPage={NavbarLink.Home} />
+      <Navbar currentPage={NavbarLink.None} />
 
       <div className={'content'}>
         <div className={styles.intro}>
           <h2 className={styles.title}>
-            Hey There<span className="accent">,</span> <br />
-            I'm Shivam
+            404
           </h2>
 
           <q className={styles.description}>
-            I’m a Systems Design Engineering <br/>
-            student at the University of Waterloo <br />
-            I like exploring a variety of technology <br />
-            and sometimes I post about it here
+            Page not found
           </q>
         </div>
       </div>
