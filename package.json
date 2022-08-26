@@ -3,17 +3,29 @@
   "version": "0.2.0-alpha",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
-    "build": "next build",
-    "start": "next start",
-    "build-dev": "next build && next start"
+    "build": "yarn prep && next build",
+    "build-dev": "yarn build && next start",
+    "dev": "yarn prep && next dev -H 0.0.0.0",
+    "prep": "rm -r public/assets; cp -r ssg/assets public/assets; rm -r public/assets; cp -r ssg/assets public/assets;",
+    "start": "next start"
   },
   "dependencies": {
+    "date-fns": "^2.29.2",
+    "gray-matter": "^4.0.3",
     "next": "^12.2.0",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sass": "^1.53.0"
+    "rehype-highlight": "^5.0.2",
+    "rehype-stringify": "^9.0.3",
+    "remark-behead": "^3.1.0",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "remark-stringify": "^10.0.2",
+    "sass": "^1.53.0",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",

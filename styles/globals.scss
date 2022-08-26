@@ -99,7 +99,7 @@ code {
   // line-height: 26px;
   font-family: 'Ubuntu Mono', monospace;
   background-color: var(--bg-alt);
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   padding: .2rem .3rem;
   margin: 0 .2rem;
 }
@@ -111,6 +111,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.accent {
+  color: var(--accent);
 }
 
 .container {
@@ -132,6 +136,5 @@ a {
 
     overflow-y: scroll;
     flex: 1;
-
   }
 }
