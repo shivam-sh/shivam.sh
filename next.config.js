@@ -1,4 +1,10 @@
-module.exports = {
+// @ts-check
+
+/**
+ * @type {import('next').NextConfig}
+ **/
+
+const nextConfig = {
   reactStrictMode: true,
   typescript: {
     // !! WARN !!
@@ -8,3 +14,5 @@ module.exports = {
     ignoreBuildErrors: false,
   },
 };
+
+module.exports = nextConfig;

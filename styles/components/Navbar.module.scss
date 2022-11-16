@@ -1,0 +1,112 @@
+.navbar {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 0.5rem 0.5rem 1.5rem;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    
+    a {
+        margin: 0;
+        padding: 0;
+        max-height: 2.375rem;
+    }
+
+    .logo {  
+        svg {
+            display: block;
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: var(--bg);
+        border-radius: 0.5rem;
+        padding: 0 0;
+        gap: 2rem;
+        bottom: 2rem;
+        position: fixed;
+
+        .selected {
+            span {
+                display: contents;
+                color: var(--accent);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease-in-out;
+
+            h6 {
+                display: none;
+            }
+
+            &:hover {
+                opacity: 70%;
+            }
+
+            h6 {
+                font-size: 1.125rem;
+                font-family: 'Inter', sans-serif;
+                margin: 0;
+            }
+        }
+    }
+}
+
+// medium to large desktop
+@media (min-width: 52rem) {
+    .navbar {
+        padding: 1.5rem 2rem 0.5rem 2rem;
+
+        .logo {
+            svg {
+                display: inline-block;
+            }
+        }
+        
+        .links > a {
+            span > svg {
+                display: none;
+            }
+            h6 {
+                display: contents;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// small phone screen
+// screen width smaller than 768px
+@media (max-width: 30rem) {
+    .navbar {
+        flex-direction: row;
+        padding-left: 1rem;
+        margin-right: 1.25rem;
+
+        .logo {
+            position: fixed;
+            top: 1rem;
+        }
+
+        .links {
+            padding-left: -1rem;
+        }
+    }
+}
