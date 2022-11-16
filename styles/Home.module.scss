@@ -1,8 +1,8 @@
 .intro {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
 
   flex: none;
@@ -25,4 +25,26 @@
     font-weight: 500;
     line-height: 1.7;
   }
+}
+
+// screen width > 768px
+@media (min-width: 52rem) {
+  .intro {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+
+// small screems
+@media (max-width: 39rem) {
+  .intro {
+    .title {
+      // font-size: 2.5rem;
+    }
+    .description {
+      // font-size: 0.75rem;
+      font-weight: 600;
+    }
+  } 
 }

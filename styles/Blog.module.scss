@@ -17,6 +17,7 @@
     border-radius: 16px;
     transition-duration: 0.3s;
     gap: 1rem;
+    max-width: 100%;
 
     cursor: pointer;
 
@@ -25,7 +26,7 @@
     }
 
     .title {
-      flex: none;
+      // flex: none;
       margin: 0.5rem 0 0.5rem 0rem;
       text-indent: -2rem;
     }
@@ -42,4 +43,20 @@
       font-size: 1rem;
     }
   }
+}
+
+// medium desktop and larger
+@media (max-width: 39rem) {
+  .posts > .post {
+    padding: 1.5rem 2rem 1.5rem 2rem;
+
+    .title {
+      text-indent: 0;
+    }
+
+    .description {
+      // display: none;
+      font-size: 1rem;
+    }
+  } 
 }

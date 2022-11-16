@@ -1,3 +1,4 @@
+import { BoxIcon, FileTextIcon, HomeIcon } from './Icons';
 import Link from 'next/link'
 import Logo from './Logo';
 import styles from '../styles/components/Navbar.module.scss';
@@ -19,31 +20,34 @@ const Navbar = ({ currentPage }: NavbarProps) => {
         <div className={styles.navbar}>
             <Link href='/'>
                 <a>
-                    <Logo />
+                    <Logo className={styles.logo}/>
                 </a>
             </Link>
 
             <div className={styles.links}>
                 <Link href={NavbarLink.Home}>
                     <a className={currentPage === NavbarLink.Home ? styles.selected : ''}>
+                        <span><HomeIcon /></span>
                         <h6><span>❯ </span>home</h6>
                     </a>
                 </Link>
                 <Link href='/blog'>
                     <a className={currentPage === NavbarLink.Blog ? styles.selected : ''}>
+                        <span><FileTextIcon /></span>
                         <h6><span>❯ </span>blog</h6>
                     </a>
                 </Link>
                 <Link href='/projects'>
                     <a className={currentPage === NavbarLink.Projects ? styles.selected : ''}>
+                        <span><BoxIcon /></span>
                         <h6><span>❯ </span>projects</h6>
                     </a>
                 </Link>
-                <Link href='/about'>
+                {/* <Link href='/about'>
                     <a className={currentPage === NavbarLink.About ? styles.selected : ''}>
                         <h6><span>❯ </span>about</h6>
                     </a>
-                </Link>
+                </Link> */}
             </div>
         </div>
     );
