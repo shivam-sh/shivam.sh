@@ -138,3 +138,12 @@ a {
     flex: 1;
   }
 }
+
+@media (max-width: 39rem) {
+  .container {
+
+    .content {
+      padding: 3rem 1rem 6rem 0.5rem;
+    }
+  }
+}

@@ -6,7 +6,6 @@
   gap: 2rem;
 
   max-width: 600px;
-  max-width: 100%;
   font-weight: 425;
   margin-bottom: -2rem;
 
@@ -47,7 +46,7 @@
 
   pre {
     overflow: auto;
-    overflow-x: scroll;
+    white-space: pre-wrap;
     word-wrap: break-word;
     max-width: 100%;
     width: 100%;

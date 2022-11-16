@@ -23,8 +23,8 @@ const Home = ({ }) => {
           <q className={styles.description}>
             I’m a Systems Design Engineering <br/>
             student at the University of Waterloo <br />
-            I like exploring a variety of technology <br />
-            and sometimes I post about it here
+            I like exploring a variety of technologies <br />
+            and sometimes I post about them here
           </q>
         </div>
       </div>
