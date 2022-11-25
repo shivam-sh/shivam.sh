@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import { join } from 'path';
 import matter from 'gray-matter';
 import Navbar, { NavbarLink } from 'components/Navbar';
@@ -17,6 +18,10 @@ const Post = ({ source, frontMatter }) => {
 
   return (
     <div className={'container'}>
+      <Head>
+        <title>{data.title}</title>
+      </Head>
+
       <Navbar currentPage={NavbarLink.Blog} />
       <div className={'content'}>
         <div
