@@ -1,11 +1,11 @@
 ---
 title: Turning Algorithms into Code
-date: 2020-07-27T0:00:00-5:00
-description: How do you go from an algorithm to working code? This tutorial outlines a procedure that breaks this problem into manageable steps.
+date: 2020-07-27T0:00:00
+description: How do you go from an algorithm to working code? This post outlines a procedure to break this problem into manageable steps.
 showInTimeline: true
 ---
 
-![a-star](/assets/blog/2020/a-star.png)
+![a-star](https://shivam.sh/assets/blog/2020/a-star.png)
 
 # Turning Algorithms into Code
 
