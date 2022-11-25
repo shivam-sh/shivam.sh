@@ -1,20 +1,21 @@
-import { format } from 'date-fns';
-import fs from 'fs';
-import { GetStaticProps } from 'next';
-import { join } from 'path';
-import Link from 'next/link';
-import matter from 'gray-matter';
-import Navbar, { NavbarLink } from 'components/Navbar';
-import styles from '../../styles/Blog.module.scss';
+import { format } from "date-fns";
+import fs from "fs";
+import { GetStaticProps } from "next";
+import { join } from "path";
+import Link from "next/link";
+import matter from "gray-matter";
+import Navbar, { NavbarLink } from "components/Navbar";
+import styles from "../../styles/Blog.module.scss";
+import generateRssFeed from "feed/rss";
 
 const Blog = ({ metaString }) => {
   const metadata = JSON.parse(metaString);
 
   return (
-    <div className={'container'}>
+    <div className={"container"}>
       <Navbar currentPage={NavbarLink.Blog} />
 
-      <div className={'content'}>
+      <div className={"content"}>
         <div className={styles.posts}>
           <h3>Blog</h3>
 
@@ -30,7 +31,7 @@ const Blog = ({ metaString }) => {
                   </h5>
                   <q className={styles.description}>{data.description}</q>
                   <caption className={`${styles.info} footnote`}>
-                    [{format(date, 'dd-MM-yyyy')}]
+                    [{format(date, "dd-MM-yyyy")}]
                   </caption>
                 </div>
               </Link>
@@ -45,7 +46,7 @@ const Blog = ({ metaString }) => {
 export default Blog;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postsDir = join('ssg', 'blog');
+  const postsDir = join("ssg", "blog");
   const years = fs
     .readdirSync(postsDir)
     .filter((file) => fs.statSync(join(postsDir, file)).isDirectory());
@@ -65,10 +66,12 @@ export const getStaticProps: GetStaticProps = async () => {
     if (data.showInTimeline) {
       metadata.push({
         ...data,
-        url: file.replace(/ssg\/blog/, '').replace(/\.md$/, ''),
+        url: file.replace(/ssg\/blog/, "").replace(/\.md$/, ""),
       });
     }
   });
+
+  generateRssFeed(metadata);
 
   return {
     props: {
