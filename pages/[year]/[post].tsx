@@ -1,13 +1,14 @@
 import fs from 'fs';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import { join } from 'path';
 import matter from 'gray-matter';
 import Navbar, { NavbarLink } from 'components/Navbar';
 import remarkBehead from 'remark-behead';
 import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import styles from '../../styles/BlogPost.module.scss';
 import { unified } from 'unified';
@@ -17,6 +18,10 @@ const Post = ({ source, frontMatter }) => {
 
   return (
     <div className={'container'}>
+      <Head>
+        <title>{data.title}</title>
+      </Head>
+
       <Navbar currentPage={NavbarLink.Blog} />
       <div className={'content'}>
         <div

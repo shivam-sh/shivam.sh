@@ -1,6 +1,6 @@
 ---
 title: Exploring Asynchronous Programming
-date: 2020-07-09T0:00:00-5
+date: 2020-07-09T0:00:00
 description: A reflection on my latest project. I explore server-side programming through Node.js thanks to a brief introduction while working on a bot.
 showInTimeline: true
 ---
