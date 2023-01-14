@@ -3,7 +3,7 @@ import fs from 'fs';
 import { join } from 'path';
 import Link from 'next/link';
 import matter from 'gray-matter';
-import styles from '../../styles/Blog.module.scss';
+import styles from 'styles/Blog.module.scss';
 import generateRssFeed from 'feed/rss';
 
 const Blog = async () => {

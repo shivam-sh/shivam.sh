@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { join } from 'path';
 import Link from 'next/link';
 import matter from 'gray-matter';
-import styles from '../../styles/Projects.module.scss';
+import styles from 'styles/Projects.module.scss';
 
 const Projects = async () => {
   const metadata = await getProjectsMetadata();
