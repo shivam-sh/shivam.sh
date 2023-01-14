@@ -1,8 +1,8 @@
 import 'styles/globals.scss';
 import 'styles/highlight.scss';
-import Navbar from './Navbar';
+import Navbar from './navbar';
 
-function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
@@ -14,7 +14,5 @@ function RootLayout({ children }) {
     </html>
   );
 }
-
-export default RootLayout;
 
 export const dynamicParams = false;
