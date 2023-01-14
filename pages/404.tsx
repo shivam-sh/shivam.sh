@@ -1,6 +1,6 @@
-import Navbar, { NavbarLink } from 'app/Navbar';
+import Navbar from 'app/Navbar';
 import Head from "next/head";
-import styles from "../styles/404.module.scss";
+import styles from "styles/404.module.scss";
 
 const Home = ({ }) => {
   return (

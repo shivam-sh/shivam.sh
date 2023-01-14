@@ -1,9 +1,9 @@
 'use client';
 
-import { BoxIcon, FileTextIcon, HomeIcon } from '../components/Icons';
+import { BoxIcon, FileTextIcon, HomeIcon } from 'components/Icons';
 import Link from 'next/link';
-import Logo from '../components/Logo';
-import styles from '../styles/components/Navbar.module.scss';
+import Logo from 'components/Logo';
+import styles from 'styles/components/Navbar.module.scss';
 import { usePathname } from 'next/navigation';
 
 export enum NavbarLink {

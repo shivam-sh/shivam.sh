@@ -1,5 +1,5 @@
-import '../styles/globals.scss';
-import '../styles/highlight.scss';
+import 'styles/globals.scss';
+import 'styles/highlight.scss';
 import Navbar from './Navbar';
 
 function RootLayout({ children }) {
