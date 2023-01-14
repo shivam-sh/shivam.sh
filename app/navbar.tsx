@@ -17,15 +17,14 @@ export interface NavbarProps {
   currentPage: NavbarLink;
 }
 
-const Navbar = () => {
+export default function Navbar() {
   const pathname = usePathname();
   const currentPage = pathname.split('/')[1];
   let currentLink: NavbarLink;
 
   if (currentPage.length === 4 && !isNaN(parseInt(currentPage))) {
     currentLink = NavbarLink.Blog;
-  }
-  else currentLink = currentPage as NavbarLink;
+  } else currentLink = currentPage as NavbarLink;
 
   return (
     <div className={styles.navbar}>
@@ -75,6 +74,4 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
-
-export default Navbar;
+}

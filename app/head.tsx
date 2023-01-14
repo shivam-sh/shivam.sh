@@ -1,4 +1,4 @@
-const Head = ({}) => {
+export default function Head() {
   return (
     <>
       <title>Shivam Sh</title>
@@ -8,4 +8,3 @@ const Head = ({}) => {
     </>
   );
 };
-export default Head;

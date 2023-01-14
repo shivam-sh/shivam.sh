@@ -10,7 +10,7 @@ import rehypeStringify from 'rehype-stringify';
 import styles from 'styles/Project.module.scss';
 import { unified } from 'unified';
 
-const Project = async ({ params }) => {
+export default async function Project({ params }) {
   const source = await generatePageSource(params);
 
   return (
@@ -19,10 +19,9 @@ const Project = async ({ params }) => {
       dangerouslySetInnerHTML={{ __html: source }}
     />
   );
-};
-export default Project;
+}
 
-export const generateStaticParams = async () => {
+export async function generateStaticParams() {
   const postsDir = join('ssg', 'projects');
   const projects = fs.readdirSync(postsDir);
 
@@ -37,9 +36,9 @@ export const generateStaticParams = async () => {
   return posts.map((file) => ({
     project: file.replace(/-auto/, '').replace(/\.md$/, ''),
   }));
-};
+}
 
-const generatePageSource = async ({ project }) => {
+async function generatePageSource({ project }) {
   const fileContent = fs.readFileSync(
     join('ssg', 'projects', `${project}-auto.md`)
   );
@@ -55,4 +54,4 @@ const generatePageSource = async ({ project }) => {
     .process(content);
 
   return String(markdown);
-};
+}
