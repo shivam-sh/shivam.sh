@@ -1,4 +1,4 @@
-import Navbar, { NavbarLink } from 'components/Navbar';
+import Navbar, { NavbarLink } from 'app/Navbar';
 import Head from "next/head";
 import styles from "../styles/404.module.scss";
 
@@ -11,7 +11,7 @@ const Home = ({ }) => {
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </Head>
 
-      <Navbar currentPage={NavbarLink.None} />
+      <Navbar />
 
       <div className={'content'}>
         <div className={styles.intro}>
