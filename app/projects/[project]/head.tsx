@@ -8,6 +8,7 @@ const Head = async ({ params }) => {
   return (
     <>
       <title>{frontMatter.title}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </>
   );
 };
