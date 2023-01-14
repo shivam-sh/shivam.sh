@@ -7,7 +7,7 @@ const Home = ({ }) => {
     <div className={'container'}>
       <Head>
         <title>Shivam Sh</title>
-        <meta name="description" content="Page not found" />
+        <meta name="description" content="404 | Page not found" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </Head>
