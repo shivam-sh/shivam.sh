@@ -6,15 +6,11 @@ import Logo from 'components/Logo';
 import styles from 'styles/components/Navbar.module.scss';
 import { usePathname } from 'next/navigation';
 
-export enum NavbarLink {
+enum NavbarLink {
   Home = '',
   Blog = 'blog',
   Projects = 'projects',
   About = 'about',
-}
-
-export interface NavbarProps {
-  currentPage: NavbarLink;
 }
 
 export default function Navbar() {
