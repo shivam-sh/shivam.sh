@@ -1,10 +1,10 @@
-import Navbar, { NavbarLink } from 'app/Navbar';
+import Navbar from "app/navbar";
 import Head from "next/head";
-import styles from "../styles/404.module.scss";
+import styles from "styles/404.module.scss";
 
-const Home = ({ }) => {
+export default function Home() {
   return (
-    <div className={'container'}>
+    <div className={"container"}>
       <Head>
         <title>Shivam Sh</title>
         <meta name="description" content="404 | Page not found" />
@@ -14,19 +14,12 @@ const Home = ({ }) => {
 
       <Navbar />
 
-      <div className={'content'}>
+      <div className={"content"}>
         <div className={styles.intro}>
-          <h2 className={styles.title}>
-            404
-          </h2>
-
-          <q className={styles.description}>
-            Page not found
-          </q>
+          <h2 className={styles.title}>404</h2>
+          <q className={styles.description}>Page not found</q>
         </div>
       </div>
     </div>
   );
 }
-
-export default Home;

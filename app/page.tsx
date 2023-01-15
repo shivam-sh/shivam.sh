@@ -1,6 +1,6 @@
-import styles from "../styles/Home.module.scss";
+import styles from 'styles/Home.module.scss';
 
-const Home = ({ }) => {
+export default function Home() {
   return (
     <div className={styles.intro}>
       <h2 className={styles.title}>
@@ -17,5 +17,3 @@ const Home = ({ }) => {
     </div>
   );
 }
-
-export default Home;

@@ -1,9 +1,9 @@
 'use client';
 
-import { BoxIcon, FileTextIcon, HomeIcon } from '../components/Icons';
+import { BoxIcon, FileTextIcon, HomeIcon } from 'components/Icons';
 import Link from 'next/link';
-import Logo from '../components/Logo';
-import styles from '../styles/components/Navbar.module.scss';
+import Logo from 'components/Logo';
+import styles from 'styles/components/Navbar.module.scss';
 import { usePathname } from 'next/navigation';
 
 export enum NavbarLink {
@@ -17,15 +17,14 @@ export interface NavbarProps {
   currentPage: NavbarLink;
 }
 
-const Navbar = () => {
+export default function Navbar() {
   const pathname = usePathname();
   const currentPage = pathname.split('/')[1];
   let currentLink: NavbarLink;
 
   if (currentPage.length === 4 && !isNaN(parseInt(currentPage))) {
     currentLink = NavbarLink.Blog;
-  }
-  else currentLink = currentPage as NavbarLink;
+  } else currentLink = currentPage as NavbarLink;
 
   return (
     <div className={styles.navbar}>
@@ -75,6 +74,4 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
-
-export default Navbar;
+}

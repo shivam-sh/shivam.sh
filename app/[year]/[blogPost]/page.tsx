@@ -7,10 +7,10 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
-import styles from '../../../styles/BlogPost.module.scss';
+import styles from 'styles/BlogPost.module.scss';
 import { unified } from 'unified';
 
-const Post = async ({ params }) => {
+export default async function Post({ params }) {
   const source = await generatePageSource(params);
 
   return (
@@ -19,13 +19,11 @@ const Post = async ({ params }) => {
       dangerouslySetInnerHTML={{ __html: source }}
     />
   );
-};
-export default Post;
+}
 
-export const generateStaticParams = async () => {
+export async function generateStaticParams() {
   const postsDir = join('ssg', 'blog');
   const years = fs.readdirSync(postsDir);
-
   const posts = [];
 
   years.forEach((year) => {
@@ -42,9 +40,9 @@ export const generateStaticParams = async () => {
     year: file.year,
     blogPost: file.name,
   }));
-};
+}
 
-const generatePageSource = async ({ year, blogPost }) => {
+async function generatePageSource({ year, blogPost }) {
   const fileContent = fs.readFileSync(
     join('ssg', 'blog', `${year}`, `${blogPost}.md`)
   );
@@ -60,4 +58,4 @@ const generatePageSource = async ({ year, blogPost }) => {
     .process(content);
 
   return String(markdown);
-};
+}

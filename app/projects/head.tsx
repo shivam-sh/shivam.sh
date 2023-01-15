@@ -1,4 +1,4 @@
-const Head = () => {
+export default function Head() {
   return (
     <>
       <title>Projects</title>
@@ -6,4 +6,3 @@ const Head = () => {
     </>
   );
 };
-export default Head;

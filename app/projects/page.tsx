@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { join } from 'path';
 import Link from 'next/link';
 import matter from 'gray-matter';
-import styles from '../../styles/Projects.module.scss';
+import styles from 'styles/Projects.module.scss';
 
-const Projects = async () => {
+export default async function Projects() {
   const metadata = await getProjectsMetadata();
 
   return (
@@ -37,11 +37,9 @@ const Projects = async () => {
       })}
     </div>
   );
-};
+}
 
-export default Projects;
-
-const getProjectsMetadata = async () => {
+async function getProjectsMetadata() {
   const postsDir = join('ssg', 'projects');
   const postFiles = fs.readdirSync(postsDir);
 
@@ -61,4 +59,4 @@ const getProjectsMetadata = async () => {
   });
 
   return metadata;
-};
+}

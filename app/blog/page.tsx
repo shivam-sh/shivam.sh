@@ -3,12 +3,11 @@ import fs from 'fs';
 import { join } from 'path';
 import Link from 'next/link';
 import matter from 'gray-matter';
-import styles from '../../styles/Blog.module.scss';
+import styles from 'styles/Blog.module.scss';
 import generateRssFeed from 'feed/rss';
 
-const Blog = async () => {
+export default async function Blog() {
   const metadata = await getPostMetadata();
-
   return (
     <div className={styles.posts}>
       <h3>Blog</h3>
@@ -33,11 +32,9 @@ const Blog = async () => {
       })}
     </div>
   );
-};
+}
 
-export default Blog;
-
-const getPostMetadata = async () => {
+async function getPostMetadata() {
   const postsDir = join('ssg', 'blog');
   const years = fs
     .readdirSync(postsDir)
@@ -66,4 +63,4 @@ const getPostMetadata = async () => {
   generateRssFeed(metadata);
 
   return metadata;
-};
+}
