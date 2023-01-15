@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Shivam Sh</title>
-        <link>dev.shivam.sh</link>
+        <link>shivam.sh</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 25 Nov 2022 21:31:29 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Jan 2023 06:08:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
             <title>Shivam Sh</title>
-            <url>dev.shivam.sh/logo.png</url>
-            <link>dev.shivam.sh</link>
+            <url>shivam.sh/logo.png</url>
+            <link>shivam.sh</link>
         </image>
-        <copyright>All rights reserved 2022, Shivam Sh</copyright>
+        <copyright>All rights reserved 2023, Shivam Sh</copyright>
         <item>
             <title><![CDATA[Turning Algorithms into Code]]></title>
-            <link>dev.shivam.sh/2020/algorithms-to-code</link>
-            <guid>dev.shivam.sh/2020/algorithms-to-code</guid>
+            <link>shivam.sh/2020/algorithms-to-code</link>
+            <guid>shivam.sh/2020/algorithms-to-code</guid>
             <pubDate>Mon, 27 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[How do you go from an algorithm to working code? This post outlines a procedure to break this problem into manageable steps.]]></description>
             <content:encoded><![CDATA[<p><img src="https://shivam.sh/assets/blog/2020/a-star.png" alt="a-star"></p>
@@ -341,8 +341,8 @@ You can use libraries that create and manage these components for you, but for t
         </item>
         <item>
             <title><![CDATA[Exploring Asynchronous Programming]]></title>
-            <link>dev.shivam.sh/2020/exploring-async-programming</link>
-            <guid>dev.shivam.sh/2020/exploring-async-programming</guid>
+            <link>shivam.sh/2020/exploring-async-programming</link>
+            <guid>shivam.sh/2020/exploring-async-programming</guid>
             <pubDate>Thu, 09 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[A reflection on my latest project. I explore server-side programming through Node.js thanks to a brief introduction while working on a bot.]]></description>
             <content:encoded><![CDATA[<h1>Exploring Asynchronous Programming</h1>
