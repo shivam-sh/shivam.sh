@@ -7,16 +7,18 @@
 
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  max-width: 800px;
+  max-width: 700px;
   width: 100%;
 
   margin: 0;
 
   .post {
-    padding: 2rem 3rem 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
     border-radius: 16px;
     transition-duration: 0.3s;
-    gap: 1rem;
+    gap: 0rem;
     max-width: 100%;
 
     cursor: pointer;
@@ -31,7 +33,7 @@
 
     .description {
       quotes: none;
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
 
     .info {
@@ -46,7 +48,7 @@
 // medium desktop and smaller
 @media (max-width: 39rem) {
   .posts > .post {
-    padding: 1.5rem 2rem 1.5rem 2rem;
+    padding: 1rem 1.5rem;
 
     .title {
       text-indent: 0;
