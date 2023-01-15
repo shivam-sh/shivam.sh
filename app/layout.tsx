@@ -21,7 +21,7 @@ const ubuntuMono = Ubuntu_Mono({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable} ${ubuntuMono.variable}`}>
+    <html lang="en" className={`${inter.className} ${montserrat.variable} ${ubuntuMono.variable}`}>
       <body>
         <div className={'container'}>
           <Navbar />
