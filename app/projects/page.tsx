@@ -14,7 +14,7 @@ export default async function Projects() {
 
       {metadata.map((data) => {
         return (
-          <Link href={data.url} key={data.title} legacyBehavior>
+          <Link href={data.url} key={data.title}>
             <div className={styles.project}>
               <div className={styles.imageContainer}>
                 <Image
@@ -27,7 +27,7 @@ export default async function Projects() {
 
               <div className={styles.info}>
                 <div className={styles.text}>
-                  <h3 className={styles.title}>{data.title}</h3>
+                  <h4 className={styles.title}>{data.title}</h4>
                   <q className={styles.description}>{data.description}</q>
                 </div>
               </div>

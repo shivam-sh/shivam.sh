@@ -13,7 +13,7 @@
   margin: 0;
 
   .post {
-    padding: 2rem 3rem 2rem 4rem;
+    padding: 2rem 3rem 2rem 3rem;
     border-radius: 16px;
     transition-duration: 0.3s;
     gap: 1rem;
@@ -26,9 +26,7 @@
     }
 
     .title {
-      // flex: none;
       margin: 0.5rem 0 0.5rem 0rem;
-      text-indent: -2rem;
     }
 
     .description {
@@ -45,7 +43,7 @@
   }
 }
 
-// medium desktop and larger
+// medium desktop and smaller
 @media (max-width: 39rem) {
   .posts > .post {
     padding: 1.5rem 2rem 1.5rem 2rem;
@@ -55,7 +53,6 @@
     }
 
     .description {
-      // display: none;
       font-size: 1rem;
     }
   } 
