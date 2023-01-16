@@ -3,7 +3,7 @@ title: A*
 date: 2020-07-18
 description:
     The A* pathfinding algorithm searching dynamically through a grid of tiles
-url: /projects/astar
+url: /projects/a-star
 ---
 
 ![a-star](/assets/projects/a-star.png)

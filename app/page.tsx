@@ -14,9 +14,12 @@ export default function Home() {
       </h2>
 
       <q className={styles.description}>
-        I’m a Systems Design Engineering {optionalBreakpoint(() => (size.width > 500 || size.width === undefined))}
-        student at the University of Waterloo {optionalBreakpoint(() => (size.width > 500 || size.width === undefined))}
-        I like exploring a variety of technologies {optionalBreakpoint(() => (size.width > 500 || size.width === undefined))}
+        I’m a Systems Design Engineering{' '}
+        {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
+        student at the University of Waterloo{' '}
+        {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
+        I like exploring a variety of technologies{' '}
+        {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
         and sometimes I post about them here
       </q>
     </div>

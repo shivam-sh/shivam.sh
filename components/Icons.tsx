@@ -9,6 +9,7 @@ export const HomeIcon = (props) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     className="feather feather-home"
+    alt="Home"
     {...props}
   >
     <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -27,6 +28,7 @@ export const BoxIcon = (props) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     className="feather feather-box"
+    alt="Projects"
     {...props}
   >
     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -45,6 +47,7 @@ export const FileTextIcon = (props) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     className="feather feather-file-text"
+    alt="Blog Posts"
     {...props}
   >
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
