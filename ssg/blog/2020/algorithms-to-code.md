@@ -2,6 +2,7 @@
 title: Turning Algorithms into Code
 date: 2020-07-27T0:00:00
 description: How do you go from an algorithm to working code? This post outlines a procedure to break this problem into manageable steps.
+imagePath: /assets/blog/2020/a-star.png
 showInTimeline: true
 ---
 
@@ -376,7 +377,7 @@ This step can take a long time as the bugs that were unnoticed in the previous s
 
 This step can be frustrating due to all the debugging that can be involved, but it's also the one that finally gets your code to a working state.
 
-## Optimization/Finishing Touches
+## Optimization & Finishing Touches
 
 The last step of the process (usually also my favourite) is the finishing touches.
 

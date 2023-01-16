@@ -23,14 +23,14 @@ export default function Navbar() {
   } else currentLink = currentPage as NavbarLink;
 
   return (
-    <div className={styles.navbar}>
+    <header className={styles.navbar}>
       <Link href="/">
         <Logo className={styles.logo} />
       </Link>
 
-      <div className={styles.links}>
+      <nav className={styles.links}>
         <Link
-          href={NavbarLink.Home}
+          href="/"
           className={currentLink === NavbarLink.Home ? styles.selected : ''}
         >
           <span>
@@ -62,12 +62,7 @@ export default function Navbar() {
             <span>❯ </span>projects
           </h6>
         </Link>
-        {/* <Link href='/about'>
-                    <a className={currentPage === NavbarLink.About ? styles.selected : ''}>
-                        <h6><span>❯ </span>about</h6>
-                    </a>
-                </Link> */}
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }
