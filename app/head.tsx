@@ -1,8 +1,9 @@
 export default function Head() {
+  const siteURL = process.env.SITE_URL || process.env.VERCEL_URL;
   return (
     <>
       <title>Shivam Sh</title>
-      <meta property="og:url" content={`https://${process.env.SITE_URL}`} />
+      <meta property="og:url" content={`https://${siteURL}`} />
       <meta property="og:site_name" content="Shivam Sh" />
       <meta property="og:title" content="Homepage • Shivam Sh" />
       <meta

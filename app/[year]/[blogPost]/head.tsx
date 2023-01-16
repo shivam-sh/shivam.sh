@@ -4,17 +4,17 @@ import matter from 'gray-matter';
 
 export default async function Head({ params }) {
   const frontMatter = await generateFrontMatter(params);
-
+  const siteURL = process.env.SITE_URL || process.env.VERCEL_URL;
   return (
     <>
       <title>{frontMatter.title}</title>
       <meta
         property="og:url"
-        content={`https://${process.env.SITE_URL}/${params.year}/${params.blogPost}`}
+        content={`https://${siteURL}/${params.year}/${params.blogPost}`}
       />
       <meta
         property="og:image"
-        content={`https://${process.env.SITE_URL}/${frontMatter.imagePath}`}
+        content={`https://${siteURL}/${frontMatter.imagePath}`}
       />
       <meta property="og:site_name" content="Shivam Sh" />
       <meta property="og:title" content={frontMatter.title} />
