@@ -19,14 +19,14 @@ export default function Blob({ window }) {
 
   function pointerDown() {
     click.current = true;
-    timeStep = 0.08;
+    timeStep = 0.02;
 
     randomizeAccentColor();
 
     setTimeout(() => {
       click.current = false;
       timeStep = 0.005;
-    }, 80);
+    }, 150);
   }
 
   useFrame(({ camera }) => {
@@ -40,19 +40,16 @@ export default function Blob({ window }) {
     );
 
     if (mesh.current) {
+      const hoverMultiplier = hover.current ? 2 : 1;
+      const clickMultiplier = click.current ? 3 : 1;
+
+      uniforms.u_intensity.value = MathUtils.lerp(
+        uniforms.u_intensity.value,
+        0.5 * hoverMultiplier * clickMultiplier,
+        0.1
+      );
+
       uniforms.u_time.value += timeStep;
-
-      uniforms.u_intensity.value = MathUtils.lerp(
-        uniforms.u_intensity.value,
-        hover.current ? 1.2 : 0.01,
-        0.05
-      );
-
-      uniforms.u_intensity.value = MathUtils.lerp(
-        uniforms.u_intensity.value,
-        click.current ? 3 : 1.2,
-        0.3
-      );
     }
   });
 
@@ -65,11 +62,12 @@ export default function Blob({ window }) {
       onPointerOut={() => (hover.current = false)}
       onPointerDown={() => pointerDown()}
     >
-      <icosahedronGeometry args={[2, 20]} />
+      <icosahedronGeometry args={[2, 8]} />
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
+        wireframe={true}
       />
     </mesh>
   );
@@ -154,5 +152,28 @@ varying float vDisplacement;
 void main() {
     vec3 color = vec3(abs(vUv - 0.5) * 2.0, 0.9);
     gl_FragColor = vec4(color, 1.0);
+}
+`;
+
+const fragmentShaderWhite = `
+uniform float u_intensity;
+uniform float u_time;
+
+varying vec2 vUv;
+varying float vDisplacement;
+
+// make faces facing away from camera dimmer but not completely black
+varying vec3 vNormal;
+varying vec3 vViewPosition;
+
+
+void main() {
+    vec3 color = vec3(abs(vUv - 0.5) * 2.0, 0.9);
+
+    // make it grayscale
+    float gray = dot(color, vec3(0.299, 0.587, 0.114));
+    color = vec3(gray);
+    gl_FragColor = vec4(color, 0.2);
+
 }
 `;

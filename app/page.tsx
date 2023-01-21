@@ -27,7 +27,7 @@ export default function Home() {
 
       <Canvas
         id={styles.bg_canvas}
-        camera={{ position: [0, 0, 18.0] }}
+        camera={{ position: [0, 0, 8.0] }}
         style={{ position: 'fixed' }}
       >
         <Blob window={size} />
