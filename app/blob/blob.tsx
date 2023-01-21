@@ -15,33 +15,27 @@ export default function Blob({ window }) {
     []
   );
 
-  let timeStep = 0.005;
-
-  function pointerDown() {
-    click.current = true;
-    timeStep = 0.02;
-
-    randomizeAccentColor();
-
-    setTimeout(() => {
-      click.current = false;
-      timeStep = 0.005;
-    }, 150);
-  }
+  let timeStep = 0.001;
 
   useFrame(({ camera }) => {
-    camera.setViewOffset(
-      window.width,
-      window.height,
-      -window.width * 0.45,
-      -window.height * 0.45,
-      window.width,
-      window.height
-    );
+    if (
+      camera.view === null ||
+      camera.view.offsetX !== -window.width * 0.45 ||
+      camera.view.offsetY !== -window.height * 0.45
+    ) {
+      camera.setViewOffset(
+        window.width,
+        window.height,
+        -window.width * 0.45,
+        -window.height * 0.45,
+        window.width,
+        window.height
+      );
+    }
 
     if (mesh.current) {
-      const hoverMultiplier = hover.current ? 2 : 1;
-      const clickMultiplier = click.current ? 3 : 1;
+      const hoverMultiplier = hover.current ? 1.2 : 1;
+      const clickMultiplier = click.current ? 1.5 : 1;
 
       uniforms.u_intensity.value = MathUtils.lerp(
         uniforms.u_intensity.value,
@@ -60,12 +54,20 @@ export default function Blob({ window }) {
       position={[0, 0, 0]}
       onPointerOver={() => (hover.current = true)}
       onPointerOut={() => (hover.current = false)}
-      onPointerDown={() => pointerDown()}
+      onPointerDown={() => {
+        click.current = true;
+        timeStep = 0.003;
+      }}
+      onPointerUp={() => {
+        click.current = false;
+        timeStep = 0.001;
+        randomizeAccentColor();
+      }}
     >
       <icosahedronGeometry args={[2, 8]} />
       <shaderMaterial
         vertexShader={vertexShader}
-        fragmentShader={fragmentShaderWhite}
+        fragmentShader={fragmentShader}
         uniforms={uniforms}
         wireframe={true}
       />
@@ -129,11 +131,8 @@ float noise(vec3 p) {
 
 void main() {
     vUv = uv;
-
     vDisplacement = noise(position + vec3(2.0 * u_time));
-
     vec3 newPosition = position + normal * vDisplacement * u_intensity;
-
     vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectedPosition = projectionMatrix * viewPosition;
@@ -151,29 +150,8 @@ varying float vDisplacement;
 
 void main() {
     vec3 color = vec3(abs(vUv - 0.5) * 2.0, 0.9);
-    gl_FragColor = vec4(color, 1.0);
-}
-`;
-
-const fragmentShaderWhite = `
-uniform float u_intensity;
-uniform float u_time;
-
-varying vec2 vUv;
-varying float vDisplacement;
-
-// make faces facing away from camera dimmer but not completely black
-varying vec3 vNormal;
-varying vec3 vViewPosition;
-
-
-void main() {
-    vec3 color = vec3(abs(vUv - 0.5) * 2.0, 0.9);
-
-    // make it grayscale
     float gray = dot(color, vec3(0.299, 0.587, 0.114));
     color = vec3(gray);
     gl_FragColor = vec4(color, 0.2);
-
 }
 `;
