@@ -1,9 +1,14 @@
 'use client';
 
-import { Canvas } from '@react-three/fiber';
+import dynamic from 'next/dynamic';
 import styles from 'styles/Home.module.scss';
 import { useState, useEffect } from 'react';
-import Blob from './blob/blob';
+
+const Blob = dynamic(() => import('./blob/blob'), { ssr: false });
+const Canvas = dynamic(
+  () => import('@react-three/fiber').then((fiber) => fiber.Canvas),
+  { ssr: false }
+);
 
 export default function Home() {
   const size = useWindowSize();
