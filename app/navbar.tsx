@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <header className={styles.navbar}>
-      <Link href="/">
+      <Link href="/" tabIndex={-1}>
         <Logo className={styles.logo} />
       </Link>
 
