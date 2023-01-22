@@ -18,16 +18,12 @@ export default function Blob({ window }) {
   let timeStep = 0.001;
 
   useFrame(({ camera }) => {
-    if (
-      camera.view === null ||
-      camera.view.offsetX !== -window.width * 0.45 ||
-      camera.view.offsetY !== -window.height * 0.45
-    ) {
+    if (camera.view === null || camera.view.offsetX !== -window.width * 0.5) {
       camera.setViewOffset(
         window.width,
         window.height,
-        -window.width * 0.45,
-        -window.height * 0.45,
+        -window.width * 0.5,
+        0,
         window.width,
         window.height
       );
@@ -50,7 +46,7 @@ export default function Blob({ window }) {
   return (
     <mesh
       ref={mesh}
-      scale={1.5}
+      scale={1.2}
       position={[0, 0, 0]}
       onPointerOver={() => (hover.current = true)}
       onPointerOut={() => (hover.current = false)}
