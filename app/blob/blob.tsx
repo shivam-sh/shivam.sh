@@ -65,7 +65,7 @@ export default function Blob({ window }) {
       <icosahedronGeometry args={[2, 8]} />
       <shaderMaterial
         vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
+        fragmentShader={fragmentShaderWhite}
         uniforms={uniforms}
         wireframe={true}
       />
