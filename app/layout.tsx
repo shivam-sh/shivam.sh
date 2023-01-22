@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
     >
       <body>
         <div className={"container"}>
-          <a id={"skipLink"} href="#content">
+          <a id={"skipLink"} href="#content" tabIndex={0}>
             Skip to Content
           </a>
           <Navbar />
