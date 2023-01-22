@@ -1,7 +1,9 @@
 'use client';
 
+import { Canvas } from '@react-three/fiber';
 import styles from 'styles/Home.module.scss';
 import { useState, useEffect } from 'react';
+import Blob from './blob/blob';
 
 export default function Home() {
   const size = useWindowSize();
@@ -22,6 +24,14 @@ export default function Home() {
         {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
         and sometimes I post about them here
       </q>
+
+      <Canvas
+        id={styles.bg_canvas}
+        camera={{ position: [0, 0, 18.0] }}
+        style={{ position: 'fixed' }}
+      >
+        <Blob window={size} />
+      </Canvas>
     </div>
   );
 }
