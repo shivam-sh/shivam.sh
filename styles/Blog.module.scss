@@ -17,7 +17,8 @@
     flex-direction: column;
     padding: 1.5rem 2rem;
     border-radius: 16px;
-    transition-duration: 0.3s;
+    transition-property: background-color;
+    transition-duration: 0.05s;
     gap: 0rem;
     max-width: 100%;
 
@@ -39,8 +40,10 @@
     .info {
       display: flex;
       flex-direction: row;
+      margin: 0;
 
-      font-size: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-alt);
     }
   }
 }

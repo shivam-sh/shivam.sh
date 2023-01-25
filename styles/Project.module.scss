@@ -6,6 +6,7 @@
   gap: 2rem;
 
   max-width: 600px;
+  font-size: 18px;
   font-weight: 425;
   margin-bottom: -2rem;
 
@@ -23,16 +24,6 @@
   }
   h6 {
     margin-top: 1rem;
-  }
-
-  a {
-    transition: all 0.3s ease-in-out;
-    text-decoration: underline;
-    font-weight: 700;
-
-    &:hover {
-      opacity: 70%;
-    }
   }
 
   img {

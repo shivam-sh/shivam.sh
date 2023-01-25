@@ -1,7 +1,8 @@
 :root {
   --bg: #232323;
-  --bg-alt: #292929;
+  --bg-alt: #262626;
   --text: #eee;
+  --text-alt: #888;
   --accent: #40a3ff;
 }
 
@@ -10,6 +11,7 @@
     --bg: #eeeeee;
     --bg-alt: #e7e7e7;
     --text: #232323;
+    --text-alt: #666;
     --accent: #fe523c;
   }
 }
@@ -43,7 +45,6 @@ h4,
 h5,
 h6 {
   margin: 3rem 0 1.38rem;
-  font-family: var(--font-montserrat);
   font-weight: 700;
   line-height: 1.3;
 }
@@ -51,7 +52,6 @@ h6 {
 h1 {
   margin-top: 0;
   font-size: 3.815rem;
-  font-family: var(--font-inter);
 }
 
 h2 {
@@ -111,6 +111,32 @@ code {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+p > a {
+  transition-property: color, box-shadow;
+  transition-duration: 0.05s;
+  box-shadow: inset 0 -0.1rem 0 var(--text-alt);
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: inset 0 -0.5rem 0 var(--accent);
+  }
+}
+
+blockquote {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 1rem;
+  margin-inline-end: 0px;
+
+  box-shadow: inset 0.1rem 0 0 var(--accent);
+  padding: 0 1.5rem;
+
+  font-family: var(--font-montserrat);
+  font-style: italic;
+  font-size: 1.2rem;
 }
 
 * {

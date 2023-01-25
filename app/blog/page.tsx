@@ -23,9 +23,9 @@ export default async function Blog() {
                 {data.title}
               </h5>
               <q className={styles.description}>{data.description}</q>
-              <caption className={`${styles.info} footnote`}>
+              <p className={`${styles.info} footnote`}>
                 [{format(date, 'dd-MM-yyyy')}]
-              </caption>
+              </p>
             </div>
           </Link>
         );
