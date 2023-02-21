@@ -5,6 +5,9 @@
  **/
 
 const nextConfig = {
+  images: {
+    domains: ['cdn.shivam.sh'],
+  },
   reactStrictMode: true,
   typescript: {
     // !! WARN !!
