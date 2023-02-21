@@ -19,7 +19,6 @@ export default async function Head({ params }) {
 }
 
 async function getMetadata({ year, blogPost }) {
-  console.log(`${process.env.CDN_URL}/blog/${year}/${blogPost}/data.json`);
   const metadata = await fetch(
     `${process.env.CDN_URL}/blog/${year}/${blogPost}/data.json`,
     { next: { revalidate: 3600 } }
