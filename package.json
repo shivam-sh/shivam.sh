@@ -11,11 +11,11 @@
   "dependencies": {
     "@next/font": "^13.1.2",
     "@react-three/fiber": "^8.10.0",
-    "@types/three": "^0.148.0",
+    "@types/three": "^0.149.0",
     "date-fns": "^2.29.3",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "next": "^13.1.2",
+    "next": "^13.1.6",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -29,13 +29,13 @@
     "remark-stringify": "^10.0.2",
     "sass": "^1.57.1",
     "sharp": "^0.31.3",
-    "three": "^0.148.0",
+    "three": "^0.149.0",
     "unified": "^10.1.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
-    "@types/react": "18.0.26",
+    "@types/react": "18.0.28",
     "react-refresh": "0.14.0",
-    "typescript": "4.9.4"
+    "typescript": "4.9.5"
   }
 }
