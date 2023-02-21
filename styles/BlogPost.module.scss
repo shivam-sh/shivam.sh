@@ -96,3 +96,9 @@
     }
   }
 }
+
+@media (max-width: 39rem) {
+  .postContent, .loadingPostContent {
+    padding: 1rem 1rem 6rem 0.5rem;
+  }
+}
