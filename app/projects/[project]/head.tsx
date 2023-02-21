@@ -1,28 +1,33 @@
-import matter from 'gray-matter';
-
 export default async function Head({ params }) {
-  const frontMatter = await generateFrontMatter(params);
+  const metadata = await getMetadata(params);
   const siteURL = process.env.SITE_URL || process.env.VERCEL_URL;
   return (
     <>
-      <title>{frontMatter.title}</title>
-      <meta property="og:url" content={`${siteURL}${frontMatter.url}`} />
-      <meta property="og:image" content={`${frontMatter.image}`} />
+      <title>{metadata.title}</title>
+      <meta property="og:url" content={`${siteURL}${metadata.url}`} />
+      <meta property="og:image" content={`${metadata.image}`} />
       <meta property="og:site_name" content="Shivam Sh" />
-      <meta property="og:title" content={frontMatter.title} />
-      <meta property="og:description" content={frontMatter.description} />
-      <meta name="description" content={frontMatter.description} />
+      <meta property="og:title" content={metadata.title} />
+      <meta property="og:description" content={metadata.description} />
+      <meta name="description" content={metadata.description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </>
   );
 }
 
-async function generateFrontMatter({ project }) {
-  const postContent = await fetch(
-    `${process.env.CDN_URL}/projects/${project}/post.md`,
+async function getMetadata({ project }) {
+  const metadata = await fetch(
+    `${process.env.CDN_URL}/projects/${project}/data.json`,
     { next: { revalidate: 3600 } }
-  ).then((res) => res.text());
+  )
+    .then((res) => res.json())
+    .catch(() => {
+      return {
+        title: 'Project not found',
+        description: 'The project you are looking for does not exist',
+        image: '',
+      };
+    });
 
-  const { data } = matter(postContent);
-  return data;
+  return metadata;
 }
