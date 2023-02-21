@@ -1,4 +1,4 @@
-import styles from 'styles/Project.module.scss';
+import styles from 'styles/Post.module.scss';
 
 export default async function Loading() {
   return <LoadingBars />;

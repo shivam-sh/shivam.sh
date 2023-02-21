@@ -37,7 +37,7 @@ export default function Navbar() {
             <HomeIcon />
           </span>
           <h6>
-            <span>❯ </span>home
+            <span>&nbsp;</span>home
           </h6>
         </Link>
         <Link
@@ -48,7 +48,7 @@ export default function Navbar() {
             <FileTextIcon />
           </span>
           <h6>
-            <span>❯ </span>blog
+            <span>&nbsp;</span>blog
           </h6>
         </Link>
         <Link
@@ -59,7 +59,7 @@ export default function Navbar() {
             <BoxIcon />
           </span>
           <h6>
-            <span>❯ </span>projects
+            <span>&nbsp;</span>projects
           </h6>
         </Link>
       </nav>

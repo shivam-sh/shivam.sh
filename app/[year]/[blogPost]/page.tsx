@@ -5,7 +5,7 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
-import styles from 'styles/BlogPost.module.scss';
+import styles from 'styles/Post.module.scss';
 import { unified } from 'unified';
 
 export default async function Page({ params }) {

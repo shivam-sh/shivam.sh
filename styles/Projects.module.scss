@@ -10,7 +10,7 @@
   max-width: calc(1000px + 4rem);
   width: 100%;
 
-  padding: 1rem 3rem 6rem 1rem;
+  padding: 1rem 1rem 6rem 0.5rem;
   margin: 0;
 
   a {
@@ -79,7 +79,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
-  padding: 1rem 3rem 0rem 1rem;
+  padding: 1rem 1rem 6rem 0.5rem;
 
   width: 100%;
   max-width: calc(1000px + 4rem);
@@ -99,6 +99,8 @@
 // medium desktop and larger
 @media (min-width: 39rem) {
   .projects {
+    padding: 1rem 3rem 6rem 1rem;
+
     a > .project {
       flex-direction: row;
       padding: 1.5rem 2rem 1.5rem 2rem;
@@ -113,5 +115,15 @@
     a:nth-child(2n + 1) > .project {
       flex-direction: row-reverse;
     }
+  }
+
+  .loadingProjects {
+    padding: 1rem 3rem 0rem 1rem;
+  }
+}
+
+@media (max-width: 39rem) {
+  .postContent, .loadingPostContent {
+    padding: 1rem 1rem 6rem 0.5rem;
   }
 }
