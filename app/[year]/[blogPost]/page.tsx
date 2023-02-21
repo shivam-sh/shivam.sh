@@ -1,5 +1,3 @@
-import fs from 'fs';
-import { join } from 'path';
 import matter from 'gray-matter';
 import remarkBehead from 'remark-behead';
 import remarkGfm from 'remark-gfm';
@@ -10,9 +8,8 @@ import rehypeStringify from 'rehype-stringify';
 import styles from 'styles/BlogPost.module.scss';
 import { unified } from 'unified';
 
-export default async function Post({ params }) {
+export default async function Page({ params }) {
   const source = await generatePageSource(params);
-
   return (
     <div
       className={styles.postContent}
@@ -21,32 +18,12 @@ export default async function Post({ params }) {
   );
 }
 
-export async function generateStaticParams() {
-  const postsDir = join('ssg', 'blog');
-  const years = fs.readdirSync(postsDir);
-  const posts = [];
-
-  years.forEach((year) => {
-    const files = fs.readdirSync(join(postsDir, year));
-    posts.push(
-      ...files.map((file) => ({
-        name: file.replace('.md', ''),
-        year: year,
-      }))
-    );
-  });
-
-  return posts.map((file) => ({
-    year: file.year,
-    blogPost: file.name,
-  }));
-}
-
 async function generatePageSource({ year, blogPost }) {
-  const fileContent = fs.readFileSync(
-    join('ssg', 'blog', `${year}`, `${blogPost}.md`)
-  );
-  const { content } = matter(fileContent);
+  const post = await fetch(
+    `${process.env.CDN_URL}/blog/${year}/${blogPost}/post.md`,
+    { next: { revalidate: 3600 } }
+  ).then((res) => res.text());
+  const { content } = matter(post);
 
   const markdown = await unified()
     .use(remarkParse)

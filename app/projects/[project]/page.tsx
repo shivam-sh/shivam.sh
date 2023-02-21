@@ -1,5 +1,3 @@
-import fs from 'fs';
-import { join } from 'path';
 import matter from 'gray-matter';
 import remarkBehead from 'remark-behead';
 import remarkGfm from 'remark-gfm';
@@ -21,28 +19,12 @@ export default async function Project({ params }) {
   );
 }
 
-export async function generateStaticParams() {
-  const postsDir = join('ssg', 'projects');
-  const projects = fs.readdirSync(postsDir);
-
-  const posts = [];
-
-  projects.forEach((file) => {
-    if (file.endsWith('-auto.md')) {
-      posts.push(file);
-    }
-  });
-
-  return posts.map((file) => ({
-    project: file.replace(/-auto/, '').replace(/\.md$/, ''),
-  }));
-}
-
 async function generatePageSource({ project }) {
-  const fileContent = fs.readFileSync(
-    join('ssg', 'projects', `${project}-auto.md`)
-  );
-  const { content } = matter(fileContent);
+  const post = await fetch(
+    `${process.env.CDN_URL}/projects/${project}/post.md`,
+    { next: { revalidate: 3600 } }
+  ).then((res) => res.text());
+  const { content } = matter(post);
 
   const markdown = await unified()
     .use(remarkParse)

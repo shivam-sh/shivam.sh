@@ -20,7 +20,7 @@
     transition-property: background-color;
     transition-duration: 0.05s;
     gap: 0rem;
-    max-width: 100%;
+    width: 100%;
 
     cursor: pointer;
 
@@ -45,6 +45,37 @@
       font-size: 0.8rem;
       color: var(--text-alt);
     }
+  }
+
+  .loadingBars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    
+    .loadingBar {
+      width: 100%;
+      height: 2rem;
+      border-radius: 0.5rem;
+      background-color: var(--text);
+    }
+
+    // pulse animation
+    // @for $i from 1 through 10 {
+    //   .loading-bar:nth-child(#{$i}n) {
+    //       animation: pulse #{$i * 0.5}s infinite;
+    //   }
+    // }
+
+    // @for $i from 1 through 10 {
+    //   .myClass .loading-bar:nth-child(#{$i}n) {
+    //       animation-delay: #{$i * 0.5}s;
+    //   }
+    // }
   }
 }
 

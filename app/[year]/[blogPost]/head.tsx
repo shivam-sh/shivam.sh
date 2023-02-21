@@ -1,5 +1,3 @@
-import fs from 'fs';
-import { join } from 'path';
 import matter from 'gray-matter';
 
 export default async function Head({ params }) {
@@ -10,11 +8,11 @@ export default async function Head({ params }) {
       <title>{frontMatter.title}</title>
       <meta
         property="og:url"
-        content={`https://${siteURL}/${params.year}/${params.blogPost}`}
+        content={`${siteURL}/${params.year}/${params.blogPost}`}
       />
       <meta
         property="og:image"
-        content={`https://${siteURL}/${frontMatter.imagePath}`}
+        content={`${siteURL}/${frontMatter.imagePath}`}
       />
       <meta property="og:site_name" content="Shivam Sh" />
       <meta property="og:title" content={frontMatter.title} />
@@ -26,10 +24,11 @@ export default async function Head({ params }) {
 }
 
 async function generateFrontMatter({ year, blogPost }) {
-  const fileContent = fs.readFileSync(
-    join('ssg', 'blog', `${year}`, `${blogPost}.md`)
-  );
+  const postContent = await fetch(
+    `${process.env.CDN_URL}/blog/${year}/${blogPost}/post.md`,
+    { next: { revalidate: 3600 } }
+  ).then((res) => res.text());
 
-  const { data } = matter(fileContent);
+  const { data } = matter(postContent);
   return data;
 }
