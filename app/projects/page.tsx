@@ -15,7 +15,7 @@ export default async function Projects() {
             <div className={styles.project}>
               <div className={styles.imageContainer}>
                 <Image
-                  src={'/assets' + data.url + '.png'}
+                  src={data.image}
                   alt={data.title}
                   fill
                   className={styles.image}
