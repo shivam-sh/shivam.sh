@@ -5,11 +5,11 @@
   justify-content: flex-start;
   gap: 2rem;
 
+  width: 100%;
   max-width: 600px;
   font-size: 18px;
   font-weight: 425;
   padding: 1rem 3rem 6rem 1rem;
-  margin-bottom: -2rem;
 
   h3,
   h4,
@@ -38,7 +38,7 @@
 
   pre {
     overflow: auto;
-    white-space: pre-wrap;
+    overflow-x: scroll;
     word-wrap: break-word;
     max-width: 100%;
     width: 100%;

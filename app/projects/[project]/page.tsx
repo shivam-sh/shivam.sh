@@ -5,12 +5,11 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
-import styles from 'styles/Project.module.scss';
+import styles from 'styles/Post.module.scss';
 import { unified } from 'unified';
 
 export default async function Project({ params }) {
   const source = await generatePageSource(params);
-
   return (
     <div
       className={styles.postContent}
