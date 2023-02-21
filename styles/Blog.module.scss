@@ -3,13 +3,13 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 2rem;
 
   min-height: 100vh;
   min-height: -webkit-fill-available;
   max-width: 700px;
   width: 100%;
 
+  padding: 1rem 3rem 6rem 1rem;
   margin: 0;
 
   .post {
@@ -46,36 +46,28 @@
       color: var(--text-alt);
     }
   }
+}
+
+.loadingPosts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 3rem 3rem 0rem 1rem;
+
+  width: 100%;
+  max-width: 700px;
+  max-height: 100vh;
+  max-height: -webkit-fill-available;
+  overflow: hidden;
 
   .loadingBars {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    gap: 1rem;
     
     .loadingBar {
-      width: 100%;
-      height: 2rem;
-      border-radius: 0.5rem;
-      background-color: var(--text);
+      height: 10rem;
     }
-
-    // pulse animation
-    // @for $i from 1 through 10 {
-    //   .loading-bar:nth-child(#{$i}n) {
-    //       animation: pulse #{$i * 0.5}s infinite;
-    //   }
-    // }
-
-    // @for $i from 1 through 10 {
-    //   .myClass .loading-bar:nth-child(#{$i}n) {
-    //       animation-delay: #{$i * 0.5}s;
-    //   }
-    // }
   }
 }
 
