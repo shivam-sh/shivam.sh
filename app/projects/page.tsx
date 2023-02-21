@@ -1,8 +1,5 @@
-import fs from 'fs';
 import Image from 'next/image';
-import { join } from 'path';
 import Link from 'next/link';
-import matter from 'gray-matter';
 import styles from 'styles/Projects.module.scss';
 
 export default async function Projects() {
@@ -40,23 +37,11 @@ export default async function Projects() {
 }
 
 async function getProjectsMetadata() {
-  const postsDir = join('ssg', 'projects');
-  const postFiles = fs.readdirSync(postsDir);
-
-  const metadata = [];
-
-  postFiles.forEach((file) => {
-    const contents = fs.readFileSync(join(postsDir, file).toString());
-    const { data } = matter(contents);
-
-    metadata.push({
-      ...data,
-      url: `/projects/${file
-        .replace(/ssg/, '')
-        .replace(/-auto/, '')
-        .replace(/\.md$/, '')}`,
-    });
-  });
+  const metadata = await fetch(`${process.env.CDN_URL}/projects.json`, {
+    next: { revalidate: 3600 },
+  })
+    .then((res) => res.json())
+    .then((data) => data.projects);
 
   return metadata;
 }

@@ -1,24 +1,25 @@
-import fs from "fs";
-import { Feed } from "feed";
-import { join } from "path";
-import matter from "gray-matter";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import { unified } from "unified";
+import fs from 'fs';
+import { Feed } from 'feed';
+import matter from 'gray-matter';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import { unified } from 'unified';
 
 export default async function generateRssFeed(postsData) {
   const site_url = process.env.SITE_URL || process.env.VERCEL_URL;
 
   let posts = [];
 
-  await postsData.forEach(async (post) => {
-    const fileContent = fs.readFileSync(join("ssg", "blog", `${post.url}.md`));
+  await Promise.allSettled(
+    postsData.map(async (post) => {
+      const postContent = await fetch(
+        `${process.env.CDN_URL}/blog${post.url}/post.md`
+      ).then((res) => res.text());
 
-    if (post.showInTimeline === true) {
-      const { content } = matter(fileContent);
+      const { content } = matter(postContent);
 
       const markdown = await unified()
         .use(remarkParse)
@@ -35,17 +36,17 @@ export default async function generateRssFeed(postsData) {
         url: `${site_url}${post.url}`,
         content: String(markdown),
       });
-    }
-  });
+    })
+  );
 
   const feedOptions = {
-    title: "Shivam Sh",
+    title: 'Shivam Sh',
     id: site_url,
     link: site_url,
     image: `${site_url}/logo.png`,
     favicon: `${site_url}/favicon.png`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Shivam Sh`,
-    generator: "Feed for Node.js",
+    generator: 'Feed for Node.js',
     feedLinks: {
       rss2: `${site_url}rss`,
     },
@@ -64,5 +65,5 @@ export default async function generateRssFeed(postsData) {
     });
   });
 
-  fs.writeFileSync("./public/rss", feed.rss2());
+  fs.writeFileSync('./public/rss', feed.rss2());
 }

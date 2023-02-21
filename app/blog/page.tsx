@@ -1,8 +1,5 @@
 import { format } from 'date-fns';
-import fs from 'fs';
-import { join } from 'path';
 import Link from 'next/link';
-import matter from 'gray-matter';
 import styles from 'styles/Blog.module.scss';
 import generateRssFeed from 'feed/rss';
 
@@ -35,32 +32,13 @@ export default async function Blog() {
 }
 
 async function getPostMetadata() {
-  const postsDir = join('ssg', 'blog');
-  const years = fs
-    .readdirSync(postsDir)
-    .filter((file) => fs.statSync(join(postsDir, file)).isDirectory());
-  const postFiles = [];
+  const postData = await fetch(`${process.env.CDN_URL}/blog-posts.json`, {
+    next: { revalidate: 3600 },
+  })
+    .then((res) => res.json())
+    .then((data) => data.posts);
 
-  years.forEach((year) => {
-    const files = fs.readdirSync(join(postsDir, year));
-    postFiles.push(...files.map((file) => join(postsDir, year, file)));
-  });
+  generateRssFeed(postData.filter((post) => post.showInRSSFeed === true));
 
-  const metadata = [];
-
-  postFiles.forEach((file) => {
-    const contents = fs.readFileSync(join(file).toString());
-    const { data } = matter(contents);
-
-    if (data.showInTimeline) {
-      metadata.push({
-        ...data,
-        url: file.replace(/ssg\/blog/, '').replace(/\.md$/, ''),
-      });
-    }
-  });
-
-  generateRssFeed(metadata);
-
-  return metadata;
+  return postData;
 }

@@ -1,12 +1,11 @@
 {
   "name": "shivam.sh",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
-    "build": "yarn prep && next build",
+    "build": "next build",
     "build-dev": "yarn build && next start",
-    "dev": "yarn prep && next dev -H 0.0.0.0",
-    "prep": "rm -r public/assets; cp -r ssg/assets public/assets; rm -r public/assets; cp -r ssg/assets public/assets;",
+    "dev": "next dev -H 0.0.0.0",
     "start": "next start"
   },
   "dependencies": {
