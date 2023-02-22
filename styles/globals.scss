@@ -1,4 +1,4 @@
-:root {
+html {
   --bg: #232323;
   --bg-alt: #262626;
   --text: #eee;
@@ -7,13 +7,29 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  html {
     --bg: #eeeeee;
     --bg-alt: #e7e7e7;
     --text: #232323;
     --text-alt: #666;
     --accent: #fe523c;
   }
+}
+
+.darkTheme {
+  --bg: #232323;
+  --bg-alt: #262626;
+  --text: #eee;
+  --text-alt: #888;
+  --accent: #f5c116;
+}
+
+.lightTheme {
+  --bg: #eeeeee;
+  --bg-alt: #e7e7e7;
+  --text: #232323;
+  --text-alt: #666;
+  --accent: #fe523c;
 }
 
 * {
