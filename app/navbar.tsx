@@ -1,9 +1,9 @@
 'use client';
 
-import { BoxIcon, FileTextIcon, HomeIcon } from 'components/Icons';
+import { ConnectIcon, DashboardIcon, FeedIcon, VillaIcon } from 'assets/Icons';
 import Link from 'next/link';
-import Logo from 'components/Logo';
-import styles from 'styles/components/Navbar.module.scss';
+import Logo from 'assets/Logo';
+import styles from 'styles/Navbar.module.scss';
 import { usePathname } from 'next/navigation';
 
 enum NavbarLink {
@@ -34,7 +34,7 @@ export default function Navbar() {
           className={currentLink === NavbarLink.Home ? styles.selected : ''}
         >
           <span>
-            <HomeIcon />
+            <VillaIcon />
           </span>
           <h6>
             <span>&nbsp;</span>home
@@ -45,7 +45,7 @@ export default function Navbar() {
           className={currentLink === NavbarLink.Blog ? styles.selected : ''}
         >
           <span>
-            <FileTextIcon />
+            <FeedIcon />
           </span>
           <h6>
             <span>&nbsp;</span>blog
@@ -56,10 +56,21 @@ export default function Navbar() {
           className={currentLink === NavbarLink.Projects ? styles.selected : ''}
         >
           <span>
-            <BoxIcon />
+            <DashboardIcon />
           </span>
           <h6>
             <span>&nbsp;</span>projects
+          </h6>
+        </Link>
+        <Link
+          href="/about"
+          className={currentLink === NavbarLink.About ? styles.selected : ''}
+        >
+          <span>
+            <ConnectIcon />
+          </span>
+          <h6>
+            <span>&nbsp;</span>about
           </h6>
         </Link>
       </nav>

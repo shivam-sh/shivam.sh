@@ -81,12 +81,14 @@ q {
   font-size: 1.2rem;
 }
 
-caption {
+.caption {
   font-size: 0.8rem;
+  text-align: center;
 }
 
 .endnote {
   font-size: 0.8rem;
+  color: var(--text-alt);
 }
 
 .footnote {
@@ -113,7 +115,7 @@ a {
   text-decoration: none;
 }
 
-p > a {
+p > a, li > a {
   transition-property: color, box-shadow;
   transition-duration: 0.05s;
   box-shadow: inset 0 -0.1rem 0 var(--text-alt);
