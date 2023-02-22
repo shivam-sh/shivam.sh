@@ -12,6 +12,18 @@
   padding: 1rem 3rem 6rem 1rem;
   margin: 0;
 
+  .inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+
+    .rssLink {
+      padding-right: 2.5rem;
+    }
+  }
+
   .post {
     display: flex;
     flex-direction: column;
@@ -64,7 +76,7 @@
 
   .loadingBars {
     gap: 1rem;
-    
+
     .loadingBar {
       height: 10rem;
     }
@@ -85,7 +97,8 @@
     }
   }
 
-  .posts, .loadingPosts {
+  .posts,
+  .loadingPosts {
     padding: 1rem 1rem 6rem 0.5rem;
   }
 }

@@ -7,10 +7,15 @@ import { getPostsMetadata } from 'generation/blog-posts';
 export default async function Blog() {
   const metadata = await getPostsMetadata();
   generateRssFeed(metadata.filter((post) => post.showInRSSFeed === true));
-  
+
   return (
     <div className={styles.posts}>
-      <h3>Blog</h3>
+      <span className={styles.inline}>
+        <h3>Blog</h3>
+        <p className={`caption ${styles.rssLink}`}>
+          <Link href="/rss">RSS</Link>
+        </p>
+      </span>
 
       {metadata.map((data) => {
         const date = new Date(data.date);
