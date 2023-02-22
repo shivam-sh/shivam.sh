@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from 'styles/Projects.module.scss';
+import { getProjectsMetadata } from 'generation/projects';
 
 export default async function Projects() {
   const metadata = await getProjectsMetadata();
@@ -34,14 +35,4 @@ export default async function Projects() {
       })}
     </div>
   );
-}
-
-async function getProjectsMetadata() {
-  const metadata = await fetch(`${process.env.CDN_URL}/projects.json`, {
-    next: { revalidate: 3600 },
-  })
-    .then((res) => res.json())
-    .then((data) => data.projects);
-
-  return metadata;
 }

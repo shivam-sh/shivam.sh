@@ -1,3 +1,4 @@
+import { getPostsMetadata } from 'generation/blog-posts';
 import matter from 'gray-matter';
 import remarkBehead from 'remark-behead';
 import remarkGfm from 'remark-gfm';
@@ -18,10 +19,18 @@ export default async function Page({ params }) {
   );
 }
 
+export async function generateStaticParams() {
+  const posts = await getPostsMetadata();
+
+  return posts.map((post) => ({
+    year: (new Date(post.date).getFullYear()).toString(),
+    blogPost: post.url.split('/').pop(),
+  }));
+}
+
 async function generatePageSource({ year, blogPost }) {
   const post = await fetch(
-    `${process.env.CDN_URL}/blog/${year}/${blogPost}/post.md`,
-    { next: { revalidate: 3600 } }
+    `${process.env.CDN_URL}/blog/${year}/${blogPost}/post.md`
   ).then((res) => res.text());
   const { content } = matter(post);
 
