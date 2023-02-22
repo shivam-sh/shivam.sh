@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { MathUtils } from 'three';
-import { randomizeAccentColor } from '../colors';
+import { AccentChanger } from 'app/navbar';
 
 export default function Blob({ window }) {
   const mesh = useRef<THREE.Mesh>();
@@ -57,7 +57,7 @@ export default function Blob({ window }) {
       onPointerUp={() => {
         click.current = false;
         timeStep = 0.001;
-        randomizeAccentColor();
+        AccentChanger.randomizeAccentColor();
       }}
     >
       <icosahedronGeometry args={[2, 8]} />

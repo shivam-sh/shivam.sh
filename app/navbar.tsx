@@ -5,12 +5,48 @@ import Link from 'next/link';
 import Logo from 'components/Logo';
 import styles from 'styles/components/Navbar.module.scss';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 enum NavbarLink {
   Home = '',
   Blog = 'blog',
   Projects = 'projects',
   About = 'about',
+}
+
+const accentColors = {
+  accent: [
+    '#40a3ff',
+    '#fe523c',
+    '#fc80ff',
+    '#21debb',
+    '#8746f0',
+    '#f5c116',
+    '#f5241d',
+  ],
+};
+
+export class AccentChanger {
+  static observer: Function = () => {};
+
+  static subscribe(observer: Function) {
+    AccentChanger.observer = observer;
+  }
+
+  static unsubscribe() {
+    AccentChanger.observer = () => {};
+  }
+
+  static randomizeAccentColor() {
+    const color =
+      accentColors.accent[
+        Math.floor(Math.random() * accentColors.accent.length)
+      ];
+
+    document.documentElement.style.setProperty('--accent', color);
+
+    AccentChanger.observer({ accentColor: color });
+  }
 }
 
 export default function Navbar() {
@@ -21,6 +57,20 @@ export default function Navbar() {
   if (currentPage.length === 4 && !isNaN(parseInt(currentPage))) {
     currentLink = NavbarLink.Blog;
   } else currentLink = currentPage as NavbarLink;
+
+  const [accentColor, setAccentColor] = useState(
+    typeof window !== 'undefined' ?
+      document.documentElement.style.getPropertyValue('--accent')
+      : '#40a3ff'
+  );
+
+  useEffect(() => {
+    AccentChanger.subscribe((e) => {
+      setAccentColor(e.accentColor);
+    });
+
+    return AccentChanger.unsubscribe();
+  }, []);
 
   return (
     <header className={styles.navbar}>
