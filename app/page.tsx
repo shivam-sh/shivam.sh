@@ -25,9 +25,9 @@ export default function Home() {
         {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
         student at the University of Waterloo{' '}
         {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
-        I like exploring a variety of technologies{' '}
+        I like exploring and creating with tech{' '}
         {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
-        and sometimes I post about them here
+        and sometimes I post about it here
       </q>
 
       <Canvas
