@@ -115,24 +115,3 @@
     }
   }
 }
-
-// small phone screen
-// screen width smaller than 768px
-@media (max-width: 30rem) {
-  .navbar {
-    flex-direction: row;
-    padding-left: 1rem;
-    margin-right: 1.25rem;
-
-    .logo {
-      position: fixed;
-      top: 1rem;
-    }
-
-    .links {
-      padding: 0.5rem 0;
-      margin-left: -0.1rem;
-      bottom: 1rem;
-    }
-  }
-}
