@@ -1,3 +1,5 @@
+'use client';
+
 import { format } from 'date-fns';
 import Link from 'next/link';
 import styles from 'styles/Blog.module.scss';

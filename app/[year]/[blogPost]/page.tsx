@@ -1,3 +1,5 @@
+'use client';
+
 import matter from 'gray-matter';
 import remarkBehead from 'remark-behead';
 import remarkGfm from 'remark-gfm';
