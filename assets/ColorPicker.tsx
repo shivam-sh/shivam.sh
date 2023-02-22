@@ -34,7 +34,6 @@ export const ColorPicker = ({ children }) => {
     const storedColor = window.localStorage.getItem('accentColor');
     if (storedColor) {
       setAccentColor(storedColor);
-      document.documentElement.style.setProperty('--accent', storedColor);
     }
 
     return () => setWindowExists(false);
@@ -53,6 +52,39 @@ export const ColorPicker = ({ children }) => {
       value={{ color: accentColor, setColor: updateAccentColor }}
     >
       {children}
+      <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function() {
+              try {
+                const lightModeQuery = window.matchMedia('(prefers-color-scheme: light)');
+
+                lightModeQuery.addEventListener('change', (e) => {
+                  if (e.matches === true) {
+                    document.documentElement.classList.remove('darkTheme');
+                    document.documentElement.classList.add('lightTheme');
+                  } else {
+                    document.documentElement.classList.remove('lightTheme');
+                    document.documentElement.classList.add('darkTheme');
+                  }
+                });
+
+                if (lightModeQuery.matches === true) {
+                  document.documentElement.classList.add('lightTheme');
+                } else {
+                  document.documentElement.classList.add('darkTheme');
+                }
+
+                const localAccentColor = localStorage.getItem('accentColor');
+                if (localAccentColor) {
+                  document.documentElement.style.setProperty('--accent', localAccentColor);
+                }
+              }
+              catch (e) {}
+            })();
+            `
+          }}
+        />
     </ColorContext.Provider>
   );
 };
