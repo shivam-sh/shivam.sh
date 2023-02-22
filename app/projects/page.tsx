@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from 'styles/Projects.module.scss';
 
+export const dynamic = 'auto';
+
 export default async function Projects() {
   const metadata = await getProjectsMetadata();
-
   return (
     <div className={styles.projects}>
       <h3>Projects</h3>

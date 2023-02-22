@@ -8,6 +8,8 @@ import rehypeStringify from 'rehype-stringify';
 import styles from 'styles/Post.module.scss';
 import { unified } from 'unified';
 
+export const dynamic = 'auto';
+
 export default async function Page({ params }) {
   const source = await generatePageSource(params);
   return (

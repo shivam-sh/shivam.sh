@@ -3,6 +3,8 @@ import Link from 'next/link';
 import styles from 'styles/Blog.module.scss';
 import generateRssFeed from 'feed/rss';
 
+export const dynamic = 'auto';
+
 export default async function Blog() {
   const metadata = await getPostMetadata();
   return (
