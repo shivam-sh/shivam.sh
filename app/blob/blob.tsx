@@ -1,9 +1,11 @@
+import { ColorContext, colors } from 'assets/ColorPicker';
+import { useContext } from 'react';
 import { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { MathUtils } from 'three';
-import { randomizeAccentColor } from '../colors';
 
 export default function Blob({ window }) {
+  const { setColor } = useContext(ColorContext);
   const mesh = useRef<THREE.Mesh>();
   const hover = useRef(false);
   const click = useRef(false);
@@ -57,7 +59,9 @@ export default function Blob({ window }) {
       onPointerUp={() => {
         click.current = false;
         timeStep = 0.001;
-        randomizeAccentColor();
+
+        const color = colors.accent[Math.floor(Math.random() * colors.accent.length)];
+        setColor(color);
       }}
     >
       <icosahedronGeometry args={[2, 8]} />
