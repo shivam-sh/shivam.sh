@@ -1,3 +1,4 @@
+import { getProjectsMetadata } from 'generation/projects';
 import matter from 'gray-matter';
 import remarkBehead from 'remark-behead';
 import remarkGfm from 'remark-gfm';
@@ -18,10 +19,17 @@ export default async function Project({ params }) {
   );
 }
 
+export async function generateStaticParams() {
+  const posts = await getProjectsMetadata();
+
+  return posts.map((post) => ({
+    project: post.url.split('/').pop(),
+  }));
+}
+
 async function generatePageSource({ project }) {
   const post = await fetch(
-    `${process.env.CDN_URL}/projects/${project}/post.md`,
-    { next: { revalidate: 3600 } }
+    `${process.env.CDN_URL}/projects/${project}/post.md`
   ).then((res) => res.text());
   const { content } = matter(post);
 
