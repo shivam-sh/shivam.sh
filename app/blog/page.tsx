@@ -38,7 +38,7 @@ async function getPostMetadata() {
     .then((res) => res.json())
     .then((data) => data.posts);
 
-  generateRssFeed(postData.filter((post) => post.showInRSSFeed === true));
+  // generateRssFeed(postData.filter((post) => post.showInRSSFeed === true));
 
   return postData;
 }
