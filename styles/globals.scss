@@ -81,12 +81,7 @@ q {
   font-size: 1.2rem;
 }
 
-.caption {
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.endnote {
+.caption, .endnote {
   font-size: 0.8rem;
   color: var(--text-alt);
 }
