@@ -65,5 +65,5 @@ export default async function generateRssFeed(postsData) {
     });
   });
 
-  fs.writeFileSync('./public/rss', feed.rss2());
+  fs.writeFileSync('./public/rss.xml', feed.rss2());
 }

@@ -13,7 +13,7 @@ export default async function Blog() {
       <span className={styles.inline}>
         <h3>Blog</h3>
         <p className={`caption ${styles.rssLink}`}>
-          <Link href="/rss">RSS</Link>
+          <Link href="/rss.xml">RSS</Link>
         </p>
       </span>
 
