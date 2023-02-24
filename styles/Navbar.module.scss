@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 1.5rem 0.2rem 0.5rem 1rem;
+  padding: 1.5rem 2rem 0.5rem 2rem;
 
   position: sticky;
   top: 0;
@@ -22,7 +22,7 @@
   .logo {
     margin-left: -0.2rem;
     svg {
-      display: block;
+      display: inline-block;
     }
   }
 
@@ -40,60 +40,36 @@
     a {
       text-decoration: none;
       color: var(--text);
-      
-      transition: opacity 0.1s ease-in-out, color 0.1s ease-in-out;
 
-      &:where(.selected) {
-        color: var(--accent);
-      }
-
-      &:hover:where(:not(.selected)) {
-        color: var(--accent);
-      }
-
-      h6 {
-        display: none;
-        font-size: 1.125rem;
-        font-family: var(--font-inter);
-        margin: 0;
-      }
-    }
-  }
-}
-
-// medium to large desktop
-@media (min-width: 52rem) {
-  .navbar {
-    padding: 1.5rem 2rem 0.5rem 2rem;
-
-    .logo {
-      svg {
-        display: inline-block;
-      }
-    }
-
-    .links > a {
       span > svg {
         display: none;
+        transition: opacity 0.1s ease-in-out, color 0.1s ease-in-out;
       }
 
-      h6 {
-        display: contents;
+      .linkText {
+        font-family: var(--font-inter);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.25rem;
+        color: var(--text);
+        margin: 0;
 
         span {
           display: inline-block;
           width: 0;
           margin: 0;
           border-radius: 0.1rem;
-          transition: width 0.1s ease-in-out, margin-right 0.1s ease-in-out;
+          transition: width 0.1s ease-in-out, margin-right 0.1s ease-in-out,
+            opacity 0.1s ease-in-out;
         }
       }
 
       &:where(.selected) {
-        opacity: 1;
-        color: var(--text);
+        span {
+          color: var(--accent);
+        }
 
-        h6 > span {
+        .linkText > span {
           display: inline-block;
           background-color: var(--accent);
           width: 0.2rem;
@@ -102,15 +78,37 @@
       }
 
       &:hover:where(:not(.selected)) {
-        opacity: 1;
-        color: var(--text);
+        span {
+          color: var(--accent);
+        }
 
-        h6 > span {
+        .linkText > span {
           display: inline-block;
           background-color: var(--accent);
           width: 0.2rem;
           margin-right: 0.3rem;
         }
+      }
+    }
+  }
+}
+
+// medium to small screens
+@media (max-width: 52rem) {
+  .navbar {
+    padding: 1.5rem 0.2rem 0.5rem 1rem;
+
+    .logo > svg {
+      display: block;
+    }
+
+    .links > a {
+      span > svg {
+        display: block;
+      }
+
+      .linkText {
+        display: none;
       }
     }
   }
