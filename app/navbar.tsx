@@ -36,9 +36,9 @@ export default function Navbar() {
           <span>
             <VillaIcon />
           </span>
-          <h6>
+          <p className={ styles.linkText }>
             <span>&nbsp;</span>home
-          </h6>
+          </p>
         </Link>
         <Link
           href="/blog"
@@ -47,9 +47,9 @@ export default function Navbar() {
           <span>
             <FeedIcon />
           </span>
-          <h6>
+          <p className={ styles.linkText }>
             <span>&nbsp;</span>blog
-          </h6>
+          </p>
         </Link>
         <Link
           href="/projects"
@@ -58,9 +58,9 @@ export default function Navbar() {
           <span>
             <DashboardIcon />
           </span>
-          <h6>
+          <p className={ styles.linkText }>
             <span>&nbsp;</span>projects
-          </h6>
+          </p>
         </Link>
         <Link
           href="/about"
@@ -69,9 +69,9 @@ export default function Navbar() {
           <span>
             <ConnectIcon />
           </span>
-          <h6>
+          <p className={ styles.linkText }>
             <span>&nbsp;</span>about
-          </h6>
+          </p>
         </Link>
       </nav>
     </header>
