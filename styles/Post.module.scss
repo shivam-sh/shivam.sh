@@ -1,15 +1,18 @@
 .postContent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   gap: 2rem;
 
   width: 100%;
-  max-width: 600px;
   font-size: 18px;
   font-weight: 425;
   padding: 1rem 3rem 6rem 1rem;
+
+  * {
+    width: min(100%, 550px);
+  }
 
   h3,
   h4,
@@ -27,31 +30,59 @@
     margin-top: 1rem;
   }
 
-  ul {
-    margin-block-start: -1rem;
+  blockquote {
+    max-width: min(100%, calc(550px - 3rem));
   }
 
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: auto;
-
-    border-radius: 0.75rem;
+  ul {
+    margin-block-start: -1rem;
   }
 
   pre {
     overflow: auto;
     overflow-x: scroll;
     word-wrap: break-word;
-    max-width: 100%;
-    width: 100%;
+    width: min(100%, 650px);
     max-height: 80vh;
     margin: 0;
     padding: 0;
     border-radius: 0.5rem;
     background-color: var(--bg-alt);
     line-height: 1.7;
+    code {
+      width: min(100%, 650px);
+    }
+  }
+
+  p {
+    img {
+      max-width: min(100%, 650px);
+      max-height: 750px;
+      width: auto;
+      height: auto;
+      border-radius: 0.75rem;
+    }
+
+    &:where(:has(img + img)) {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      align-self: center;
+      gap: 1rem;
+
+      max-width: min(100%, 1000px);
+      width: auto;
+      overflow-x: scroll;
+
+      img {
+        max-height: 600px;
+      }
+    }
+  }
+
+  p:where(:has(img)) + .caption {
+    margin-top: -1rem;
+    align-self: center;
   }
 }
 
@@ -71,8 +102,9 @@
   .loadingBars {
     align-items: flex-start;
     margin-top: 2rem;
-    
-    .loadingBar, .spacer {
+
+    .loadingBar,
+    .spacer {
       border-radius: 0.25rem;
     }
 
@@ -85,11 +117,11 @@
       max-width: 80%;
       border-radius: 0.5rem;
     }
-    .loadingBar:nth-child(6n+5) {
+    .loadingBar:nth-child(6n + 5) {
       max-width: 90%;
       align-self: flex-end;
     }
-    .loadingBar:nth-child(6n+9) {
+    .loadingBar:nth-child(6n + 9) {
       max-width: 75%;
     }
 
@@ -101,8 +133,9 @@
   }
 }
 
-@media (max-width: 39rem) {
-  .postContent, .loadingPostContent {
+@media (max-width: 70rem) {
+  .postContent,
+  .loadingPostContent {
     padding: 1rem 1rem 6rem 0.5rem;
   }
 }
