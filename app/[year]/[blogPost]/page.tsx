@@ -38,9 +38,9 @@ async function generatePageSource({ year, blogPost }) {
     .use(remarkParse)
     .use(remarkBehead, { minDepth: 3 })
     .use(remarkGfm)
-    .use(remarkRehype)
+    .use(remarkRehype, {allowDangerousHtml: true})
     .use(rehypeHighlight)
-    .use(rehypeStringify)
+    .use(rehypeStringify, {allowDangerousHtml: true})
     .process(content);
 
   return String(markdown);
