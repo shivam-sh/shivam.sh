@@ -1,23 +1,23 @@
+import { fetchProjects } from 'generation/posts';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from 'styles/Projects.module.scss';
-import { getProjectsMetadata } from 'generation/projects';
 
 export default async function Projects() {
-  const metadata = await getProjectsMetadata();
+  const projects = await fetchProjects();
 
   return (
     <div className={styles.projects}>
       <h3>Projects</h3>
 
-      {metadata.map((data) => {
+      {projects.map((project) => {
         return (
-          <Link href={data.url} key={data.title}>
+          <Link href={project.url} key={project.title}>
             <div className={styles.project}>
               <div className={styles.imageContainer}>
                 <Image
-                  src={data.image}
-                  alt={data.title}
+                  src={project.image}
+                  alt={project.title}
                   fill
                   className={styles.image}
                 />
@@ -25,8 +25,8 @@ export default async function Projects() {
 
               <div className={styles.info}>
                 <div className={styles.text}>
-                  <h4 className={styles.title}>{data.title}</h4>
-                  <q className={styles.description}>{data.description}</q>
+                  <h4 className={styles.title}>{project.title}</h4>
+                  <q className={styles.description}>{project.description}</q>
                 </div>
               </div>
             </div>

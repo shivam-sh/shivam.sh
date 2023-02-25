@@ -1,12 +1,7 @@
-import fs from 'fs';
 import { Feed } from 'feed';
+import fs from 'fs';
 import matter from 'gray-matter';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
-import { unified } from 'unified';
+import { parseMarkdown } from './posts';
 
 export default async function generateRssFeed(postsData) {
   const site_url = process.env.SITE_URL || process.env.VERCEL_URL;
@@ -21,13 +16,7 @@ export default async function generateRssFeed(postsData) {
 
       const { content } = matter(postContent);
 
-      const markdown = await unified()
-        .use(remarkParse)
-        .use(remarkGfm)
-        .use(remarkRehype)
-        .use(rehypeHighlight)
-        .use(rehypeStringify)
-        .process(content);
+      const markdown = await parseMarkdown(content);
 
       posts.push({
         title: post.title,
