@@ -1,3 +1,4 @@
+import matter from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import remarkParse from 'remark-parse';
@@ -16,13 +17,37 @@ export async function parseMarkdown(mdString: string) {
 }
 
 export async function fetchPosts() {
-  return await fetch(`${process.env.CDN_URL}/blog-posts.json`)
+  return await fetch(`${process.env.CDN_URL}/posts.json`, {
+    next: { revalidate: 600 },
+  })
     .then((res) => res.json())
     .then((data) => data.posts);
 }
 
+export async function fetchPost(year: number, postName: string) {
+  const markdown = await fetch(
+    `${process.env.CDN_URL}/posts/${year}/${postName}/post.md`,
+    { next: { revalidate: 600 } }
+  ).then((res) => res.text());
+
+  return matter(markdown);
+}
+
 export async function fetchProjects() {
-  return await fetch(`${process.env.CDN_URL}/projects.json`)
+  return await fetch(`${process.env.CDN_URL}/projects.json`, {
+    next: { revalidate: 600 },
+  })
     .then((res) => res.json())
     .then((data) => data.projects);
+}
+
+export async function fetchProject(projectName: string) {
+  const markdown = await fetch(
+    `${process.env.CDN_URL}/projects/${projectName}/post.md`,
+    {
+      next: { revalidate: 600 },
+    }
+  ).then((res) => res.text());
+
+  return matter(markdown);
 }

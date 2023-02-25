@@ -3,10 +3,7 @@ export default function Head() {
   return (
     <>
       <title>Blog • Shivam Sh</title>
-      <meta
-        property="og:url"
-        content={`${siteURL}/blog`}
-      />
+      <meta property="og:url" content={`${siteURL}/blog`} />
       <meta property="og:site_name" content="Shivam Sh" />
       <meta property="og:title" content="Blog • Shivam Sh" />
       <meta
