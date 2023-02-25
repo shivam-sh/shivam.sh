@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import styles from 'styles/Post.module.scss';
 
 export default function About() {
   return (
-    <div className={styles.postContent}>
+    <div className='postContent'>
       <p />
       <h5>Hey, I'm Shivam 👋</h5>
       <p>

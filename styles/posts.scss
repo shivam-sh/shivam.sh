@@ -54,29 +54,27 @@
     }
   }
 
-  p {
+  p > img {
+    max-width: min(100%, 650px);
+    max-height: 750px;
+    width: auto;
+    height: auto;
+    border-radius: 0.75rem;
+  }
+
+  .image-carousel {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-self: center;
+    gap: 1rem;
+
+    max-width: min(100%, 1000px);
+    width: auto;
+    overflow-x: scroll;
+
     img {
-      max-width: min(100%, 650px);
-      max-height: 750px;
-      width: auto;
-      height: auto;
-      border-radius: 0.75rem;
-    }
-
-    &:where(:has(img + img)) {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      align-self: center;
-      gap: 1rem;
-
-      max-width: min(100%, 1000px);
-      width: auto;
-      overflow-x: scroll;
-
-      img {
-        max-height: 600px;
-      }
+      max-height: 600px;
     }
   }
 
