@@ -1,4 +1,5 @@
 import 'styles/globals.scss';
+import 'styles/posts.scss';
 import 'styles/highlight.scss';
 import { ColorPicker } from 'assets/ColorPicker';
 import { Inter, Montserrat, Ubuntu_Mono } from '@next/font/google';

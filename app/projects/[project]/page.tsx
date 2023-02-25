@@ -6,16 +6,12 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
-import styles from 'styles/Post.module.scss';
 import { unified } from 'unified';
 
 export default async function Project({ params }) {
   const source = await generatePageSource(params);
   return (
-    <div
-      className={styles.postContent}
-      dangerouslySetInnerHTML={{ __html: source }}
-    />
+    <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />
   );
 }
 
@@ -37,9 +33,9 @@ async function generatePageSource({ project }) {
     .use(remarkParse)
     .use(remarkBehead, { minDepth: 3 })
     .use(remarkGfm)
-    .use(remarkRehype, {allowDangerousHtml: true})
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeHighlight)
-    .use(rehypeStringify, {allowDangerousHtml: true})
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(content);
 
   return String(markdown);
