@@ -1,12 +1,5 @@
-import { getPostsMetadata } from 'generation/blog-posts';
+import { fetchPosts, parseMarkdown } from 'generation/posts';
 import matter from 'gray-matter';
-import remarkBehead from 'remark-behead';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
-import { unified } from 'unified';
 
 export default async function Page({ params }) {
   const source = await generatePageSource(params);
@@ -16,7 +9,7 @@ export default async function Page({ params }) {
 }
 
 export async function generateStaticParams() {
-  const posts = await getPostsMetadata();
+  const posts = await fetchPosts();
 
   return posts.map((post) => ({
     year: new Date(post.date).getFullYear().toString(),
@@ -28,16 +21,8 @@ async function generatePageSource({ year, blogPost }) {
   const post = await fetch(
     `${process.env.CDN_URL}/blog/${year}/${blogPost}/post.md`
   ).then((res) => res.text());
+
   const { content } = matter(post);
-
-  const markdown = await unified()
-    .use(remarkParse)
-    .use(remarkBehead, { minDepth: 3 })
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeHighlight)
-    .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(content);
-
+  const markdown = await parseMarkdown(content);
   return String(markdown);
 }

@@ -1,12 +1,12 @@
+import { fetchPosts } from 'generation/posts';
 import { format } from 'date-fns';
+import generateRssFeed from 'generation/rss';
 import Link from 'next/link';
 import styles from 'styles/Blog.module.scss';
-import generateRssFeed from 'generation/rss';
-import { getPostsMetadata } from 'generation/blog-posts';
 
 export default async function Blog() {
-  const metadata = await getPostsMetadata();
-  generateRssFeed(metadata.filter((post) => post.showInRSSFeed === true));
+  const posts = await fetchPosts();
+  generateRssFeed(posts.filter((post) => post.showInRSSFeed === true));
 
   return (
     <div className={styles.posts}>
@@ -17,17 +17,16 @@ export default async function Blog() {
         </p>
       </span>
 
-      {metadata.map((data) => {
-        const date = new Date(data.date);
-
+      {posts.map((post) => {
+        const date = new Date(post.date);
         return (
-          <Link href={data.url} key={data.title}>
+          <Link href={post.url} key={post.title}>
             <div className={styles.post}>
               <h5 className={styles.title}>
                 <span className="accent">//&nbsp;&nbsp;</span>
-                {data.title}
+                {post.title}
               </h5>
-              <q className={styles.description}>{data.description}</q>
+              <q className={styles.description}>{post.description}</q>
               <p className={`${styles.info} footnote`}>
                 [{format(date, 'dd-MM-yyyy')}]
               </p>

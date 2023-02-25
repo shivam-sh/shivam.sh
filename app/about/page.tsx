@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className='postContent'>
       <p />
-      <h5>Hey, I'm Shivam 👋</h5>
+      <h2>Hey, I'm Shivam 👋</h2>
       <p>
         I built this website to showcase some of my projects, explorations, and
         experiences. I love pushing the boundaries with technology, design, and
