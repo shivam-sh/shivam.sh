@@ -1,8 +1,8 @@
 'use client';
 
-import { ConnectIcon, DashboardIcon, FeedIcon, VillaIcon } from 'assets/Icons';
+import { ConnectIcon, DashboardIcon, FeedIcon, VillaIcon } from 'layout/Icons';
 import Link from 'next/link';
-import Logo from 'assets/Logo';
+import Logo from 'layout/Logo';
 import styles from 'styles/Navbar.module.scss';
 import { usePathname } from 'next/navigation';
 
