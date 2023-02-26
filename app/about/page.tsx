@@ -1,6 +1,18 @@
 import Link from 'next/link';
 
-export default function About() {
+export const metadata = {
+  title: 'About • Shivam Sh',
+  description: "Hey, I'm Shivam 👋",
+  openGraph: {
+    siteName: 'Shivam Sh',
+    title: 'About • Shivam Sh',
+    description: "Hey, I'm Shivam 👋",
+    url: (process.env.SITE_URL ?? process.env.VERCEL_URL) + '/about',
+  },
+};
+    
+
+export default function Page() {
   return (
     <div className='postContent'>
       <p />

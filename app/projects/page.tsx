@@ -3,7 +3,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from 'styles/Projects.module.scss';
 
-export default async function Projects() {
+export const metadata = {
+  title: 'Projects • Shivam Sh',
+  description: 'A list of some of my projects • Shivam Sh',
+  openGraph: {
+    siteName: 'Shivam Sh',
+    title: 'Projects • Shivam Sh',
+    description: 'A list of some of my projects • Shivam Sh',
+    url: (process.env.SITE_URL ?? process.env.VERCEL_URL) + '/projects',
+  },
+};
+
+export default async function Page() {
   const projects = await fetchProjects();
 
   return (
