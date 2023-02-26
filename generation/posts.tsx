@@ -21,7 +21,10 @@ export async function fetchPosts() {
     next: { revalidate: 600 },
   })
     .then((res) => res.json())
-    .then((data) => data.posts);
+    .then((data) => data.posts)
+    .catch(() => {
+      return [];
+    });
 }
 
 export async function fetchPost(year: number, postName: string) {
@@ -38,7 +41,10 @@ export async function fetchProjects() {
     next: { revalidate: 600 },
   })
     .then((res) => res.json())
-    .then((data) => data.projects);
+    .then((data) => data.projects)
+    .catch(() => {
+      return [];
+    });
 }
 
 export async function fetchProject(projectName: string) {
