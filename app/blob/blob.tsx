@@ -45,9 +45,14 @@ export default function Blob({ window }) {
     }
   });
 
+  if (mesh !== undefined) {
+    
+  }
+
   return (
     <mesh
-      ref={mesh == undefined ? null : mesh}
+      // @ts-ignore - mesh.current is incorrectly typed, shouldn't be null anyways
+      ref={mesh}
       scale={1.2}
       position={[0, 0, 0]}
       onPointerOver={() => (hover.current = true)}
