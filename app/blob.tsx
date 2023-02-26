@@ -1,10 +1,14 @@
-import { ColorContext, colors } from 'assets/ColorPicker';
+'use client';
+
+import { ColorContext, colors } from 'custom/ColorPicker';
+import { MathUtils } from 'three';
 import { useContext } from 'react';
 import { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { MathUtils } from 'three';
+import useWindowSize from 'custom/useWindowSize';
 
-export default function Blob({ window }) {
+export default function Blob() {
+  const window = useWindowSize({ defaultSize: { width: 0, height: 0 } });
   const { setColor } = useContext(ColorContext);
   const mesh = useRef<THREE.Mesh>();
   const hover = useRef(false);
