@@ -47,7 +47,7 @@ export default function Blob({ window }) {
 
   return (
     <mesh
-      ref={mesh}
+      ref={mesh == undefined ? mesh : null}
       scale={1.2}
       position={[0, 0, 0]}
       onPointerOver={() => (hover.current = true)}
@@ -60,7 +60,8 @@ export default function Blob({ window }) {
         click.current = false;
         timeStep = 0.001;
 
-        const color = colors.accent[Math.floor(Math.random() * colors.accent.length)];
+        const color =
+          colors.accent[Math.floor(Math.random() * colors.accent.length)];
         setColor(color);
       }}
     >

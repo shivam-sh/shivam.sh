@@ -14,7 +14,7 @@ enum NavbarLink {
 }
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const currentPage = pathname.split('/')[1];
   let currentLink: NavbarLink;
 
@@ -36,7 +36,7 @@ export default function Navbar() {
           <span>
             <VillaIcon />
           </span>
-          <p className={ styles.linkText }>
+          <p className={styles.linkText}>
             <span>&nbsp;</span>home
           </p>
         </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
           <span>
             <FeedIcon />
           </span>
-          <p className={ styles.linkText }>
+          <p className={styles.linkText}>
             <span>&nbsp;</span>blog
           </p>
         </Link>
@@ -58,7 +58,7 @@ export default function Navbar() {
           <span>
             <DashboardIcon />
           </span>
-          <p className={ styles.linkText }>
+          <p className={styles.linkText}>
             <span>&nbsp;</span>projects
           </p>
         </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
           <span>
             <ConnectIcon />
           </span>
-          <p className={ styles.linkText }>
+          <p className={styles.linkText}>
             <span>&nbsp;</span>about
           </p>
         </Link>
