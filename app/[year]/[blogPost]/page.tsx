@@ -1,5 +1,6 @@
 import { fetchPost, fetchPosts, parseMarkdown } from 'generation/posts';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export default async function Page({ params }) {
   const source = await generatePageSource(params);
@@ -41,7 +42,9 @@ export async function generateStaticParams() {
 }
 
 async function generatePageSource({ year, blogPost }) {
-  const { content } = await fetchPost(year, blogPost);
+  const { content } = await fetchPost(year, blogPost)
+  if (!content) notFound();
+  
   const markdown = await parseMarkdown(content);
   return String(markdown);
 }

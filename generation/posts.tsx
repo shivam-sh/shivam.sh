@@ -31,7 +31,10 @@ export async function fetchPost(year: number, postName: string) {
   const markdown = await fetch(
     `${process.env.CDN_URL}/posts/${year}/${postName}/post.md`,
     { next: { revalidate: 600 } }
-  ).then((res) => res.text());
+  ).then((res) => {
+    if (res.status === 404) return '';
+    return res.text();
+  });
 
   return matter(markdown);
 }
@@ -53,7 +56,10 @@ export async function fetchProject(projectName: string) {
     {
       next: { revalidate: 600 },
     }
-  ).then((res) => res.text());
+  ).then((res) => {
+    if (res.status === 404) return '';
+    return res.text();
+  });
 
   return matter(markdown);
 }
