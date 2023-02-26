@@ -45,8 +45,13 @@ export default function Blob({ window }) {
     }
   });
 
+  if (mesh !== undefined) {
+    
+  }
+
   return (
     <mesh
+      // @ts-ignore - mesh.current is incorrectly typed, shouldn't be null anyways
       ref={mesh}
       scale={1.2}
       position={[0, 0, 0]}
@@ -60,7 +65,8 @@ export default function Blob({ window }) {
         click.current = false;
         timeStep = 0.001;
 
-        const color = colors.accent[Math.floor(Math.random() * colors.accent.length)];
+        const color =
+          colors.accent[Math.floor(Math.random() * colors.accent.length)];
         setColor(color);
       }}
     >

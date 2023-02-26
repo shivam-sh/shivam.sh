@@ -22,11 +22,11 @@ export default function Home() {
 
       <q className={styles.description}>
         I’m a Systems Design Engineering{' '}
-        {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
+        {optionalBreakpoint(() => (size.width ?? 1000) > 500 || size.width === undefined)}
         student at the University of Waterloo{' '}
-        {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
+        {optionalBreakpoint(() => (size.width ?? 1000) > 500 || size.width === undefined)}
         I like exploring and creating with tech{' '}
-        {optionalBreakpoint(() => size.width > 500 || size.width === undefined)}
+        {optionalBreakpoint(() => (size.width ?? 1000) > 500 || size.width === undefined)}
         and sometimes I post about it here
       </q>
 
@@ -49,8 +49,8 @@ function optionalBreakpoint(expression: () => boolean) {
 
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
+    width: 1000,
+    height: 1000,
   });
 
   useEffect(() => {
