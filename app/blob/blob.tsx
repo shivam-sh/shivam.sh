@@ -47,7 +47,7 @@ export default function Blob({ window }) {
 
   return (
     <mesh
-      ref={mesh == undefined ? mesh : null}
+      ref={mesh == undefined ? null : mesh}
       scale={1.2}
       position={[0, 0, 0]}
       onPointerOver={() => (hover.current = true)}
