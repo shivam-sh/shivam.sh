@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@next/font": "^13.2.1",
     "@react-three/fiber": "^8.11.5",
     "@types/three": "^0.149.0",
     "date-fns": "^2.29.3",
