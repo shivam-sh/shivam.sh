@@ -8,6 +8,7 @@ import Navbar from './navbar';
 export const metadata = {
   title: 'Shivam Sh',
   description: "Shivam Sh's Personal Website",
+  metadataBase: new URL(process.env.SITE_URL ?? `https://${process.env.VERCEL_URL}/`),
   icons: [
     {
       rel: 'icon',

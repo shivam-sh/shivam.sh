@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { year, blogPost } }): Promise<
       title: data.title ?? 'Post not found',
       description:
         data.description ?? 'The post you are looking for was not found',
-      url: `${siteURL}/${year}/${blogPost}`,
+      url: `/${year}/${blogPost}`,
       images: [
         {
           url: `${data.image}`,

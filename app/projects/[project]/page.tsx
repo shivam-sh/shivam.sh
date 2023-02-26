@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { project } }): Promise<Metadat
       title: data.title ?? 'Project not found',
       description:
         data.description ?? 'The project you are looking for was not found',
-      url: `${siteURL}/${project}`,
+      url: `/projects/${project}`,
       images: [
         {
           url: `${data.image}`,
