@@ -1,14 +1,7 @@
+import Blob from './blob';
+import Canvas from './canvas';
 import Description from './description';
-// import dynamic from 'next/dynamic';
 import styles from 'styles/Home.module.scss';
-import { Canvas } from '@react-three/fiber';
-import Blob from './blob/blob';
-
-// const Blob = dynamic(() => import('./blob/blob'), { ssr: false });
-// const Canvas = dynamic(
-//   () => import('@react-three/fiber').then((fiber) => fiber.Canvas),
-//   { ssr: false }
-// );
 
 export default function Page() {
   return (
@@ -18,7 +11,7 @@ export default function Page() {
         I'm Shivam
       </h2>
 
-      <Description className={styles.className} />
+      <Description className={styles.description} />
 
       <Canvas
         id={styles.bg_canvas}

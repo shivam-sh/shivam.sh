@@ -1,20 +1,28 @@
-import useWindowSize from 'layout/useWindowSize';
+'use client';
 
-export default function description(props) {
-  const size = useWindowSize();
+import useWindowSize from 'custom/useWindowSize';
+
+export default function description(
+  props: React.DetailedHTMLProps<
+    React.QuoteHTMLAttributes<HTMLQuoteElement>,
+    HTMLQuoteElement
+  >
+) {
+  const window = useWindowSize({ defaultSize: { width: 501, height: 501 } });
+
   return (
     <q {...props}>
       I’m a Systems Design Engineering{' '}
       {optionalBreakpoint(
-        () => (size.width ?? 0) > 500 || size.width === undefined
+        () => (window.width ?? 0) > 500 || window.width === undefined
       )}
       student at the University of Waterloo{' '}
       {optionalBreakpoint(
-        () => (size.width ?? 0) > 500 || size.width === undefined
+        () => (window.width ?? 0) > 500 || window.width === undefined
       )}
       I like exploring and creating with tech{' '}
       {optionalBreakpoint(
-        () => (size.width ?? 0) > 500 || size.width === undefined
+        () => (window.width ?? 0) > 500 || window.width === undefined
       )}
       and sometimes I post about it here
     </q>
