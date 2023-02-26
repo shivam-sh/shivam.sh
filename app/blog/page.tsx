@@ -3,7 +3,18 @@ import { format } from 'date-fns';
 import Link from 'next/link';
 import styles from 'styles/Blog.module.scss';
 
-export default async function Blog() {
+export const metadata = {
+  title: 'Posts • Shivam Sh',
+  description: 'Some posts about topics that are on my mind',
+  openGraph: {
+    siteName: 'Shivam Sh',
+    title: 'Posts • Shivam Sh',
+    description: 'Some posts about topics that are on my mind',
+    url: process.env.SITE_URL ?? process.env.VERCEL_URL,
+  },
+};
+
+export default async function Page() {
   const posts = await fetchPosts();
   return (
     <div className={styles.posts}>
