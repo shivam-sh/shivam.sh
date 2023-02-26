@@ -1,5 +1,4 @@
-import { fetchProjects, parseMarkdown } from 'generation/posts';
-import matter from 'gray-matter';
+import { fetchProject, fetchProjects, parseMarkdown } from 'generation/posts';
 
 export default async function Project({ params }) {
   const source = await generatePageSource(params);
@@ -17,11 +16,7 @@ export async function generateStaticParams() {
 }
 
 async function generatePageSource({ project }) {
-  const post = await fetch(
-    `${process.env.CDN_URL}/projects/${project}/post.md`
-  ).then((res) => res.text());
-
-  const { content } = matter(post);
+  const { content } = await fetchProject(project);
   const markdown = await parseMarkdown(content);
   return String(markdown);
 }

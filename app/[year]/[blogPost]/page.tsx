@@ -1,4 +1,4 @@
-import { fetchPosts, parseMarkdown } from 'generation/posts';
+import { fetchPost, fetchPosts, parseMarkdown } from 'generation/posts';
 import matter from 'gray-matter';
 
 export default async function Page({ params }) {
@@ -13,15 +13,12 @@ export async function generateStaticParams() {
 
   return posts.map((post) => ({
     year: new Date(post.date).getFullYear().toString(),
-    blogPost: post.url.split('/').pop(),
+    blogPost: post.path.split('/').pop(),
   }));
 }
 
 async function generatePageSource({ year, blogPost }) {
-  const post = await fetch(
-    `${process.env.CDN_URL}/blog/${year}/${blogPost}/post.md`
-  ).then((res) => res.text());
-
+  const post = await fetchPost(year, blogPost);
   const { content } = matter(post);
   const markdown = await parseMarkdown(content);
   return String(markdown);
