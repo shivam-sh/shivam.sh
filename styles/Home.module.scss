@@ -32,10 +32,19 @@
 
     max-height: 100vh;
     overflow: hidden;
+    opacity: 0.3;
 
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .intro {
+    #bg_canvas {
+      filter: invert(1);
+    }
   }
 }
 
