@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 
 enum NavbarLink {
   Home = '',
-  Blog = 'blog',
+  Posts = 'posts',
   Projects = 'projects',
   About = 'about',
 }
@@ -19,7 +19,7 @@ export default function Navbar() {
   let currentLink: NavbarLink;
 
   if (currentPage.length === 4 && !isNaN(parseInt(currentPage))) {
-    currentLink = NavbarLink.Blog;
+    currentLink = NavbarLink.Posts;
   } else currentLink = currentPage as NavbarLink;
 
   return (
@@ -41,14 +41,14 @@ export default function Navbar() {
           </p>
         </Link>
         <Link
-          href="/blog"
-          className={currentLink === NavbarLink.Blog ? styles.selected : ''}
+          href="/posts"
+          className={currentLink === NavbarLink.Posts ? styles.selected : ''}
         >
           <span>
             <FeedIcon />
           </span>
           <p className={styles.linkText}>
-            <span>&nbsp;</span>blog
+            <span>&nbsp;</span>posts
           </p>
         </Link>
         <Link

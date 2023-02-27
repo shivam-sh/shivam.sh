@@ -3,7 +3,7 @@ html {
   --bg-alt: #262626;
   --text: #eee;
   --text-alt: #888;
-  --accent: #f5c116;
+  --accent: #777777;
 }
 
 @media (prefers-color-scheme: light) {
@@ -12,7 +12,7 @@ html {
     --bg-alt: #e7e7e7;
     --text: #232323;
     --text-alt: #666;
-    --accent: #fe523c;
+    --accent: #AAAAAA;
   }
 }
 
@@ -21,7 +21,7 @@ html {
   --bg-alt: #262626;
   --text: #eee;
   --text-alt: #888;
-  --accent: #f5c116;
+  --accent: #777777;
 }
 
 .lightTheme {
@@ -29,7 +29,7 @@ html {
   --bg-alt: #e7e7e7;
   --text: #232323;
   --text-alt: #666;
-  --accent: #fe523c;
+  --accent: #AAAAAA;
 }
 
 * {
@@ -100,6 +100,10 @@ q {
 .caption, .endnote {
   font-size: 0.8rem;
   color: var(--text-alt);
+
+  a {
+    color: var(--text);
+  }
 }
 
 .footnote {

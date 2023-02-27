@@ -1,26 +1,29 @@
 .posts {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
 
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  max-width: 700px;
   width: 100%;
 
   padding: 1rem 3rem 6rem 1rem;
   margin: 0;
+
+  * {
+    width: min(100%, 650px);
+  }
 
   .inline {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
-    width: 100%;
 
     .rssLink {
       padding-right: 2.5rem;
+      width: fit-content;
     }
   }
 
@@ -45,8 +48,13 @@
     }
 
     .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
       quotes: none;
       font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .info {
@@ -63,16 +71,31 @@
 .loadingPosts {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   gap: 2rem;
   padding: 3rem 3rem 0rem 1rem;
 
   width: 100%;
-  max-width: 700px;
   max-height: 100vh;
   max-height: -webkit-fill-available;
   overflow: hidden;
+
+  * {
+    width: min(100%, 600px);
+  }
+
+  .inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .rssLink {
+      padding-right: 2.5rem;
+      width: fit-content;
+    }
+  }
 
   .loadingBars {
     gap: 1rem;
@@ -83,13 +106,14 @@
   }
 }
 
-// medium desktop and smaller
-@media (max-width: 39rem) {
-  .posts > .post {
-    padding: 1rem 1.5rem;
+@media (max-width: 52rem) {
+  .posts {
+    .post {
+      padding: 1rem 1.5rem;
+    }
 
     .title {
-      text-indent: 0;
+      font-size: 1.4rem;
     }
 
     .description {
@@ -99,6 +123,6 @@
 
   .posts,
   .loadingPosts {
-    padding: 1rem 1rem 6rem 0.5rem;
+    padding: 1rem 1rem 3rem 0.5rem;
   }
 }
