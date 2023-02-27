@@ -1,6 +1,6 @@
 'use client';
 
-import { ColorContext, colors } from 'custom/ColorPicker';
+import { ColorSchemeContext } from 'custom/ColorSchemeController';
 import { MathUtils } from 'three';
 import { useContext } from 'react';
 import { useMemo, useRef } from 'react';
@@ -9,7 +9,7 @@ import useWindowSize from 'custom/useWindowSize';
 
 export default function Blob() {
   const window = useWindowSize({ defaultSize: { width: 0, height: 0 } });
-  const { setColor } = useContext(ColorContext);
+  const { incrementAccent } = useContext(ColorSchemeContext);
   const mesh = useRef<THREE.Mesh>();
   const hover = useRef(false);
   const click = useRef(false);
@@ -69,9 +69,7 @@ export default function Blob() {
         click.current = false;
         timeStep = 0.001;
 
-        const color =
-          colors.accent[Math.floor(Math.random() * colors.accent.length)];
-        setColor(color);
+        incrementAccent();
       }}
     >
       <icosahedronGeometry args={[2, 8]} />

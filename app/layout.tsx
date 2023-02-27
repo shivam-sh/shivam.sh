@@ -1,7 +1,7 @@
 import 'styles/globals.scss';
 import 'styles/posts.scss';
 import 'styles/highlight.scss';
-import { ColorPicker } from 'custom/ColorPicker';
+import { ColorSchemeController } from 'custom/ColorSchemeController';
 import { Inter, Montserrat, Ubuntu_Mono } from 'next/font/google';
 import Navbar from './navbar';
 
@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
       className={`${inter.className} ${montserrat.variable} ${ubuntuMono.variable}`}
     >
       <body>
-        <ColorPicker>
+        <ColorSchemeController>
           <div className={'container'}>
             <a id={'skipLink'} href="#content" tabIndex={0}>
               Skip to Content
@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             <main id={'content'}>{children}</main>
           </div>
-        </ColorPicker>
+        </ColorSchemeController>
       </body>
     </html>
   );
