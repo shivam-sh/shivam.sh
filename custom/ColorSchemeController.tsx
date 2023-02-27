@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from 'react';
 
 export const accentColors = {
   dark: [
+    '#dfc58d',
     '#777777',
     '#40a3ff',
     '#fe523c',
@@ -14,6 +15,7 @@ export const accentColors = {
     '#f5241d',
   ],
   light: [
+    '#ddae49',
     '#AAAAAA',
     '#40a3ff',
     '#fe523c',
