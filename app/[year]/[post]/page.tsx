@@ -8,8 +8,8 @@ export default async function Page({ params }) {
   );
 }
 
-export async function generateMetadata({ params: { year, blogPost } }): Promise<Metadata> {
-  const { data } = await fetchPost(year, blogPost);
+export async function generateMetadata({ params: { year, post } }): Promise<Metadata> {
+  const { data } = await fetchPost(year, post);
   const siteURL = process.env.SITE_URL || process.env.VERCEL_URL;
 
   return {
@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { year, blogPost } }): Promise<
       title: data.title ?? 'Post not found',
       description:
         data.description ?? 'The post you are looking for was not found',
-      url: `/${year}/${blogPost}`,
+      url: `/${year}/${post}`,
       images: [
         {
           url: `${data.image}`,
@@ -36,12 +36,12 @@ export async function generateStaticParams() {
 
   return posts.map((post) => ({
     year: new Date(post.date).getFullYear().toString(),
-    blogPost: post.path.split('/').pop(),
+    post: post.path.split('/').pop(),
   }));
 }
 
-async function generatePageSource({ year, blogPost }) {
-  const { content } = await fetchPost(year, blogPost);
+async function generatePageSource({ year, post }) {
+  const { content } = await fetchPost(year, post);
   const markdown = await parseMarkdown(content);
   return String(markdown);
 }

@@ -1,7 +1,7 @@
 import { fetchPosts } from 'generation/posts';
 import { format } from 'date-fns';
 import Link from 'next/link';
-import styles from 'styles/Blog.module.scss';
+import styles from 'styles/Posts.module.scss';
 
 export const metadata = {
   title: 'Posts • Shivam Sh',
@@ -19,7 +19,7 @@ export default async function Page() {
   return (
     <div className={styles.posts}>
       <span className={styles.inline}>
-        <h3>Blog</h3>
+        <h3>Posts</h3>
         <p className={`caption ${styles.rssLink}`}>
           <Link href="/rss">RSS</Link>
         </p>
@@ -31,7 +31,7 @@ export default async function Page() {
           <Link href={post.path} key={post.title}>
             <div className={styles.post}>
               <h5 className={styles.title}>
-                <span className="accent">//&nbsp;&nbsp;</span>
+                <span className="accent">//&nbsp;</span>
                 {post.title}
               </h5>
               <q className={styles.description}>{post.description}</q>
