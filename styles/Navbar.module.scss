@@ -1,16 +1,13 @@
 .navbar {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+  height: 100%;
   background: none;
+  min-width: 8rem;
+  grid-area: sidebar;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 1.5rem 2rem 0.5rem 2rem;
+  padding: 1.5rem 2rem 2rem 2rem;
 
-  position: sticky;
-  top: 0;
-  left: 0;
   z-index: 1;
 
   a {
@@ -20,7 +17,10 @@
   }
 
   .logo {
-    margin-left: -0.2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1.5rem 2rem 2rem 1.8rem;
     svg {
       display: inline-block;
     }
@@ -97,9 +97,14 @@
 @media (max-width: 52rem) {
   .navbar {
     padding: 1.5rem 0.2rem 0.5rem 1rem;
+    min-width: 3.5rem;
 
-    .logo > svg {
-      display: block;
+    .logo {
+      padding: 1.5rem 2rem 2rem 0.8rem;
+
+      svg {
+        display: block;
+      }
     }
 
     .links > a {
