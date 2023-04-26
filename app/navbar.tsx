@@ -4,23 +4,10 @@ import { ConnectIcon, DashboardIcon, FeedIcon, VillaIcon } from 'app/custom/asse
 import Link from 'next/link';
 import Logo from 'app/custom/assets/Logo';
 import styles from 'styles/Navbar.module.scss';
-import { usePathname } from 'next/navigation';
-
-enum NavbarLink {
-  Home = '',
-  Posts = 'posts',
-  Projects = 'projects',
-  About = 'about',
-}
+import { currentPageType, PageType } from './custom/navigation';
 
 export default function Navbar() {
-  const pathname = usePathname() ?? '';
-  const currentPage = pathname.split('/')[1];
-  let currentLink: NavbarLink;
-
-  if (currentPage.length === 4 && !isNaN(parseInt(currentPage))) {
-    currentLink = NavbarLink.Posts;
-  } else currentLink = currentPage as NavbarLink;
+  let currentPage = currentPageType()
 
   return (
     <header className={styles.navbar}>
@@ -31,7 +18,7 @@ export default function Navbar() {
       <nav className={styles.links}>
         <Link
           href="/"
-          className={currentLink === NavbarLink.Home ? styles.selected : ''}
+          className={currentPage === PageType.HOME ? styles.selected : ''}
         >
           <span>
             <VillaIcon />
@@ -42,7 +29,7 @@ export default function Navbar() {
         </Link>
         <Link
           href="/posts"
-          className={currentLink === NavbarLink.Posts ? styles.selected : ''}
+          className={currentPage === PageType.POSTS || currentPage === PageType.POST ? styles.selected : ''}
         >
           <span>
             <FeedIcon />
@@ -53,7 +40,7 @@ export default function Navbar() {
         </Link>
         <Link
           href="/projects"
-          className={currentLink === NavbarLink.Projects ? styles.selected : ''}
+          className={currentPage === PageType.PROJECTS || currentPage === PageType.PROJECT ? styles.selected : ''}
         >
           <span>
             <DashboardIcon />
@@ -64,7 +51,7 @@ export default function Navbar() {
         </Link>
         <Link
           href="/about"
-          className={currentLink === NavbarLink.About ? styles.selected : ''}
+          className={currentPage === PageType.ABOUT ? styles.selected : ''}
         >
           <span>
             <ConnectIcon />
