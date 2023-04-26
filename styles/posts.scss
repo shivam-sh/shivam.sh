@@ -1,19 +1,4 @@
-.postContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 2rem;
-
-  width: 100%;
-  font-size: 18px;
-  font-weight: 425;
-  padding: 1rem 3rem 6rem 1rem;
-
-  * {
-    width: min(100%, 550px);
-  }
-
+@mixin longform-text {
   h1,
   h2,
   h3,
@@ -27,6 +12,9 @@
   h1 {
     font-size: 2rem;
     font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+    text-decoration-color: var(--accent);
   }
 
   h2 {
@@ -82,6 +70,74 @@
       width: min(100%, 650px);
     }
   }
+}
+
+@mixin table-of-contents {
+  max-height: fit-content;
+  animation: fadein 2s;
+  padding: 0 0 0 2rem;
+  max-width: 8rem;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  z-index: 1;
+
+  p {
+    transition: opacity 0.2s ease-in-out, color 0.1s ease-in-out;
+    text-overflow: clip;
+    overflow: visible;
+    white-space: nowrap;
+
+    font-family: var(--font-inter);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 3rem;
+    color: var(--text);
+    opacity: 0.5;
+    max-width: 8rem;
+    margin: 0;
+
+    mask: linear-gradient(90deg, #000 20%, transparent);
+
+    &:hover {
+      mask: linear-gradient(90deg, #000 80%, transparent);
+      max-width: 8rem;
+      opacity: 0.75;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.toc {
+  @include table-of-contents;
+}
+
+.postContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+
+  width: 100%;
+  font-size: 18px;
+  font-weight: 425;
+  padding: 1rem 3rem 6rem 1rem;
+
+  * {
+    width: min(100%, 550px);
+  }
+
+  @include longform-text;
 
   p > img {
     max-width: min(100%, 650px);
@@ -170,3 +226,10 @@
     padding: 1rem 1rem 3rem 0.5rem;
   }
 }
+
+@media (max-width: 52rem) {
+  .toc {
+    display: none;
+  }
+}
+
