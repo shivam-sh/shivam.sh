@@ -1,11 +1,11 @@
 'use client';
 
-import { ColorSchemeContext } from 'custom/ColorSchemeController';
+import { ColorSchemeContext } from 'app/custom/ColorSchemeController';
 import { MathUtils } from 'three';
 import { useContext } from 'react';
 import { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import useWindowSize from 'custom/useWindowSize';
+import useWindowSize from 'app/custom/useWindowSize';
 
 export default function Blob() {
   const window = useWindowSize({ defaultSize: { width: 0, height: 0 } });

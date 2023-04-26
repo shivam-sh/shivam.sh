@@ -1,6 +1,6 @@
 'use client';
 
-import useWindowSize from 'custom/useWindowSize';
+import useWindowSize from 'app/custom/useWindowSize';
 
 export default function description(
   props: React.DetailedHTMLProps<

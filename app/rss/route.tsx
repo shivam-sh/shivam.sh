@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import { fetchPost, fetchPosts, parseMarkdown } from 'generation/posts';
+import { fetchPost, fetchPosts, parseMarkdown } from 'app/custom/posts';
 
 export async function GET(request: Request) {
   const site_url = process.env.SITE_URL || process.env.VERCEL_URL;

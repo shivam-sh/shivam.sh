@@ -1,4 +1,4 @@
-import { fetchPost, fetchPosts, parseMarkdown } from 'generation/posts';
+import { fetchPost, fetchPosts, parseMarkdown } from 'app/custom/posts';
 import { Metadata } from 'next';
 
 export default async function Page({ params }) {
