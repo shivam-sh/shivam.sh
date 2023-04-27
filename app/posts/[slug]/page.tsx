@@ -6,9 +6,12 @@ import {
 } from 'app/custom/posts';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export default async function Page({ params }) {
   const post = await fetchPost(params.slug);
+  if (post === '') return notFound();
+  
   const source = String(await rehypeHTML(post.html));
   const toc = (await parseTOC(source)).filter((entry) => entry.depth <= 2);
 

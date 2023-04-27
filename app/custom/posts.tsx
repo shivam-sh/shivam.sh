@@ -21,38 +21,54 @@ export async function rehypeHTML(htmlString: string) {
 }
 
 export async function fetchPosts() {
-  return await api.posts.browse({ limit: 'all', formats: ['html'], include: 'tags'}).then((posts) => {
-    return posts.filter((post) =>
-      post.tags.some((tag) => tag.name === '#post') && post.status === 'published'
-    );
-  });
+  return await api.posts
+    .browse({ limit: 'all', formats: ['html'], include: 'tags' })
+    .then((posts) => {
+      return posts.filter(
+        (post) =>
+          post.tags.some((tag) => tag.name === '#post') &&
+          post.status === 'published'
+      );
+    });
 }
 
 export async function fetchPost(slug: string) {
-  return await api.posts.read({ slug, formats: ['html'], include: 'tags'})
+  return await api.posts
+    .read({ slug, formats: ['html'], include: 'tags' })
     .then((post) => {
       if (!post.tags.some((tag) => tag.name === '#post')) {
-        return "";
+        throw new Error('Not found');
       }
       return post;
+    })
+    .catch(() => {
+      return '';
     });
 }
 
 export async function fetchProjects() {
-  return await api.posts.browse({ limit: 'all', formats: ['plaintext'], include: 'tags'}).then((projects) => {
-    return projects.filter((project) =>
-    project.tags.some((tag) => tag.name === '#project') && project.status === 'published'
-    );
-  });
+  return await api.posts
+    .browse({ limit: 'all', formats: ['plaintext'], include: 'tags' })
+    .then((projects) => {
+      return projects.filter(
+        (project) =>
+          project.tags.some((tag) => tag.name === '#project') &&
+          project.status === 'published'
+      );
+    });
 }
 
 export async function fetchProject(slug: string) {
-  return await api.posts.read({ slug, formats: ['html'], include: 'tags'})
+  return await api.posts
+    .read({ slug, formats: ['html'], include: 'tags' })
     .then((project) => {
       if (!project.tags.some((tag) => tag.name === '#project')) {
-        return "";
+        throw new Error('Not found');
       }
       return project;
+    })
+    .catch(() => {
+      return '';
     });
 }
 

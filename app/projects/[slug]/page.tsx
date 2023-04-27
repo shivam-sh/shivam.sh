@@ -1,9 +1,12 @@
 import { fetchProject, fetchProjects, rehypeHTML } from 'app/custom/posts';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export default async function Page({ params }) {
-  const post = await fetchProject(params.slug);
-  const source = String(await rehypeHTML(post.html));
+  const project = await fetchProject(params.slug);
+  if (project === '') return notFound();
+  const source = String(await rehypeHTML(project.html));
+
   return (
     <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />
   );
