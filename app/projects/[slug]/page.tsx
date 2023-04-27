@@ -12,6 +12,8 @@ export default async function Page({ params }) {
   );
 }
 
+export const revalidate = 60;
+
 export async function generateMetadata({ params: { slug } }): Promise<Metadata> {
   const project = await fetchProject(slug);
 

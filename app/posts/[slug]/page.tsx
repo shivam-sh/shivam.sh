@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+export const revalidate = 60;
+
 export default async function Page({ params }) {
   const post = await fetchPost(params.slug);
   if (post === '') return notFound();
