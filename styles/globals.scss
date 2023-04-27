@@ -39,6 +39,9 @@ html {
 html {
   font-size: 100%; /*16px*/
 
+  --scroll-behavior: smooth!important;
+  scroll-behavior: smooth!important;
+
   body {
     padding: 0;
     margin: 0;

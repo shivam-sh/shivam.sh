@@ -9,30 +9,32 @@
     "start": "next start"
   },
   "dependencies": {
-    "@react-three/fiber": "^8.12.0",
-    "@types/three": "^0.150.1",
+    "@react-three/fiber": "^8.12.2",
+    "@types/three": "^0.150.2",
+    "cheerio": "^1.0.0-rc.12",
     "date-fns": "^2.29.3",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "next": "^13.3.0",
+    "next": "^13.3.1",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "rehype-highlight": "^6.0.0",
+    "rehype-slug": "^5.1.0",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "remark-stringify": "^10.0.2",
-    "sass": "^1.61.0",
+    "sass": "^1.62.1",
     "sharp": "^0.32.0",
     "three": "^0.151.3",
     "unified": "^10.1.2"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "@types/react": "18.0.33",
+    "@types/node": "^18.16.1",
+    "@types/react": "18.2.0",
     "react-refresh": "0.14.0",
     "typescript": "5.0.4"
   }

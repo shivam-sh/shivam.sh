@@ -1,4 +1,4 @@
-import { fetchPosts } from 'generation/posts';
+import { fetchPosts } from 'app/custom/posts';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import styles from 'styles/Posts.module.scss';
