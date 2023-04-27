@@ -1,22 +1,59 @@
 import { load } from 'cheerio';
-import matter from 'gray-matter';
-import remarkGfm from 'remark-gfm';
+import { rehype } from 'rehype';
 import rehypeHighlight from 'rehype-highlight';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
-import { unified } from 'unified';
+import rehypeSlug from 'rehype-slug';
 
-export async function parseMarkdown(mdString: string) {
-  return await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
+import GhostAdminAPI from '@tryghost/admin-api';
+
+const api = new GhostAdminAPI({
+  url: process.env.GHOST_URL,
+  key: process.env.GHOST_API_KEY,
+  version: 'v5.45',
+});
+
+export async function rehypeHTML(htmlString: string) {
+  return await rehype()
     .use(rehypeHighlight)
     .use(rehypeSlug)
     .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(mdString);
+    .process(htmlString);
+}
+
+export async function fetchPosts() {
+  return await api.posts.browse({ limit: 'all', formats: ['html'], include: 'tags'}).then((posts) => {
+    return posts.filter((post) =>
+      post.tags.some((tag) => tag.name === '#post') && post.status === 'published'
+    );
+  });
+}
+
+export async function fetchPost(slug: string) {
+  return await api.posts.read({ slug, formats: ['html'], include: 'tags'})
+    .then((post) => {
+      if (!post.tags.some((tag) => tag.name === '#post')) {
+        return "";
+      }
+      return post;
+    });
+}
+
+export async function fetchProjects() {
+  return await api.posts.browse({ limit: 'all', formats: ['plaintext'], include: 'tags'}).then((projects) => {
+    return projects.filter((project) =>
+    project.tags.some((tag) => tag.name === '#project') && project.status === 'published'
+    );
+  });
+}
+
+export async function fetchProject(slug: string) {
+  return await api.posts.read({ slug, formats: ['html'], include: 'tags'})
+    .then((project) => {
+      if (!project.tags.some((tag) => tag.name === '#project')) {
+        return "";
+      }
+      return project;
+    });
 }
 
 export async function parseTOC(htmlString: string) {
@@ -33,55 +70,4 @@ export async function parseTOC(htmlString: string) {
     }
   });
   return headings;
-}
-
-export async function fetchPosts() {
-  return await fetch(`${process.env.CDN_URL}/posts.json`, {
-    next: { revalidate: 600 },
-  })
-    .then((res) => res.json())
-    .then((data) => data.posts)
-    .catch(() => {
-      return [];
-    });
-}
-
-export async function fetchPost(year: number, postName: string) {
-  const markdown = await fetch(
-    `${process.env.CDN_URL}/posts/${year}/${postName}/post.md`,
-    { next: { revalidate: 600 } }
-  ).then((res) => res.text());
-
-  return matter(markdown);
-}
-
-export async function fetchPostTOC(year: number, postName: string) {
-  const markdown = await fetch(
-    `${process.env.CDN_URL}/posts/${year}/${postName}/post.md`,
-    { next: { revalidate: 600 } }
-  ).then((res) => res.text());
-
-  return parseTOC(markdown);
-}
-
-export async function fetchProjects() {
-  return await fetch(`${process.env.CDN_URL}/projects.json`, {
-    next: { revalidate: 600 },
-  })
-    .then((res) => res.json())
-    .then((data) => data.projects)
-    .catch(() => {
-      return [];
-    });
-}
-
-export async function fetchProject(projectName: string) {
-  const markdown = await fetch(
-    `${process.env.CDN_URL}/projects/${projectName}/post.md`,
-    {
-      next: { revalidate: 600 },
-    }
-  ).then((res) => res.text());
-
-  return matter(markdown);
 }

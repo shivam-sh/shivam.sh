@@ -27,7 +27,7 @@ export default async function Page() {
             <div className={styles.project}>
               <div className={styles.imageContainer}>
                 <Image
-                  src={project.image}
+                  src={project.feature_image ?? '/logo.png'}
                   alt={project.title}
                   fill
                   className={styles.image}
@@ -37,7 +37,7 @@ export default async function Page() {
               <div className={styles.info}>
                 <div className={styles.text}>
                   <h4 className={styles.title}>{project.title}</h4>
-                  <q className={styles.description}>{project.description}</q>
+                  <q className={styles.description}>{project.excerpt}</q>
                 </div>
               </div>
             </div>

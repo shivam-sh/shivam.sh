@@ -1,11 +1,10 @@
 import { Feed } from 'feed';
-import { fetchPost, fetchPosts, parseMarkdown } from 'app/custom/posts';
+import { fetchPosts } from 'app/custom/posts';
 
-export async function GET(request: Request) {
+export async function GET() {
   const site_url = process.env.SITE_URL || process.env.VERCEL_URL;
   const postsData = await fetchPosts();
   const rssData = postsData
-    .filter((post) => post.showInRSSFeed === true)
     .slice(0, 10);
 
   const feedOptions = {
@@ -24,18 +23,13 @@ export async function GET(request: Request) {
   const feed = new Feed(feedOptions);
 
   await Promise.allSettled(
-    rssData.map(async (postData) => {
-      const postIdentifier = postData.path.split('/').pop();
-      const postYear = new Date(postData.date).getFullYear();
-      const { data, content } = await fetchPost(postYear, postIdentifier);
-      const markdown = await parseMarkdown(content);
-
+    rssData.map(async (post) => {
       feed.addItem({
-        title: data.title,
-        description: data.description,
-        date: new Date(postData.date),
-        link: `${site_url}/${postData.path}`,
-        content: String(markdown),
+        title: post.title,
+        description: post.excerpt,
+        date: new Date(post.published_at),
+        link: `${post.url}`,
+        content: String(post.html),
       });
     })
   );

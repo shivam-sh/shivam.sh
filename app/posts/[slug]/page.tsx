@@ -1,14 +1,15 @@
 import {
   fetchPost,
   fetchPosts,
-  parseMarkdown,
   parseTOC,
+  rehypeHTML,
 } from 'app/custom/posts';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
 export default async function Page({ params }) {
-  const source = await generatePageSource(params);
+  const post = await fetchPost(params.slug);
+  const source = String(await rehypeHTML(post.html));
   const toc = (await parseTOC(source)).filter((entry) => entry.depth <= 2);
 
   return (
@@ -17,7 +18,7 @@ export default async function Page({ params }) {
         {toc.map((entry) => {
           return (
             <Link
-              href={`${params.year}/${params.post}/#${entry.id}`}
+              href={`posts/${params.slug}/#${entry.id}`}
               replace={true}
               className="tocLink"
               key={entry.id}
@@ -36,24 +37,23 @@ export default async function Page({ params }) {
 }
 
 export async function generateMetadata({
-  params: { year, post },
+  params: { slug },
 }): Promise<Metadata> {
-  const { data } = await fetchPost(year, post);
-  const siteURL = process.env.SITE_URL || process.env.VERCEL_URL;
+  const post = await fetchPost(slug);
 
   return {
-    title: data.title ?? 'Post not found',
-    description: data.description ?? 'The post you are looking was not found',
+    title: post.title ?? 'Post not found',
+    description: post.excerpt ?? 'The post you are looking was not found',
     openGraph: {
       siteName: 'Shivam Sh',
-      title: data.title ?? 'Post not found',
+      title: post.title ?? 'Post not found',
       description:
-        data.description ?? 'The post you are looking for was not found',
-      url: `/${year}/${post}`,
+      post.excerpt ?? 'The post you are looking for was not found',
+      url: `/posts/${slug}`,
       images: [
         {
-          url: `${data.image}`,
-          alt: data.title ?? 'Post not found',
+          url: `${post.feature_image}`,
+          alt: post.title ?? 'Post not found',
         },
       ],
     },
@@ -64,13 +64,6 @@ export async function generateStaticParams() {
   const posts = await fetchPosts();
 
   return posts.map((post) => ({
-    year: new Date(post.date).getFullYear().toString(),
-    post: post.path.split('/').pop(),
+    slug: post.slug,
   }));
-}
-
-async function generatePageSource({ year, post }) {
-  const { content } = await fetchPost(year, post);
-  const markdown = await parseMarkdown(content);
-  return String(markdown);
 }
