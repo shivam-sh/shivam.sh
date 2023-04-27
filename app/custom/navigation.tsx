@@ -17,7 +17,7 @@ export enum PageType {
     [PageType.POSTS]: /^\/posts$/,
     [PageType.PROJECTS]: /^\/projects$/,
     [PageType.ABOUT]: /^\/about$/,
-    [PageType.POST]: /^\/\d{4}\/[a-zA-Z0-9_-]+$/,
+    [PageType.POST]: /^\/posts\/[a-zA-Z0-9_-]+$/,
     [PageType.PROJECT]: /^\/projects\/[a-zA-Z0-9_-]+$/,
   };
   

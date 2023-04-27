@@ -14,6 +14,8 @@ export const metadata = {
   },
 };
 
+export const revalidate = 60;
+
 export default async function Page() {
   const projects = await fetchProjects();
 
@@ -22,12 +24,13 @@ export default async function Page() {
       <h3>Projects</h3>
 
       {projects.map((project) => {
+        if (project.canonical_url != null) project.url = project.canonical_url;
         return (
           <Link href={project.url} key={project.title}>
             <div className={styles.project}>
               <div className={styles.imageContainer}>
                 <Image
-                  src={project.image}
+                  src={project.feature_image ?? '/logo.png'}
                   alt={project.title}
                   fill
                   className={styles.image}
@@ -37,7 +40,7 @@ export default async function Page() {
               <div className={styles.info}>
                 <div className={styles.text}>
                   <h4 className={styles.title}>{project.title}</h4>
-                  <q className={styles.description}>{project.description}</q>
+                  <q className={styles.description}>{project.excerpt}</q>
                 </div>
               </div>
             </div>

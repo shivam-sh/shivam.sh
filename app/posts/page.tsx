@@ -14,6 +14,8 @@ export const metadata = {
   },
 };
 
+export const revalidate = 60;
+
 export default async function Page() {
   const posts = await fetchPosts();
   return (
@@ -26,15 +28,17 @@ export default async function Page() {
       </span>
 
       {posts.map((post) => {
-        const date = new Date(post.date);
+        const date = new Date(post.published_at);
+        if (post.canonical_url != null) post.url = post.canonical_url;
+        
         return (
-          <Link href={post.path} key={post.title}>
+          <Link href={post.url} key={post.title}>
             <div className={styles.post}>
               <h5 className={styles.title}>
                 <span className="accent">//&nbsp;</span>
                 {post.title}
               </h5>
-              <q className={styles.description}>{post.description}</q>
+              <q className={styles.description}>{post.excerpt}</q>
               <p className={`${styles.info} footnote`}>
                 [{format(date, 'dd-MM-yyyy')}]
               </p>

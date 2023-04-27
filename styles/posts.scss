@@ -136,7 +136,11 @@
 
   @include longform-text;
 
-  p > img {
+  .kg-card {
+    margin: 0;
+  }
+
+  p > img, .kg-card > img {
     max-width: min(100%, 650px);
     max-height: 750px;
     width: auto;
