@@ -27,6 +27,8 @@ export default async function Page() {
 
       {posts.map((post) => {
         const date = new Date(post.published_at);
+        if (post.canonical_url != null) post.url = post.canonical_url;
+        
         return (
           <Link href={post.url} key={post.title}>
             <div className={styles.post}>

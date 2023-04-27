@@ -22,6 +22,7 @@ export default async function Page() {
       <h3>Projects</h3>
 
       {projects.map((project) => {
+        if (project.canonical_url != null) project.url = project.canonical_url;
         return (
           <Link href={project.url} key={project.title}>
             <div className={styles.project}>
