@@ -72,6 +72,15 @@ export async function fetchProject(slug: string) {
     });
 }
 
+export async function fetchWithID(id: string) {
+  return await api.posts
+    .browse({ formats: ['html'], filter: `uuid:${id}` })
+    .then((post) => post[0])
+    .catch(() => {
+      return '';
+    });
+}
+
 export async function parseTOC(htmlString: string) {
   const $ = load(htmlString);
   const headings: { id: string; text: string; depth: number }[] = [];
