@@ -19,6 +19,17 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  redirects: async () => {
+    return (
+      [
+        { // redirect /[year]/[slug] to /posts/[slug] but only if [year] is a number
+          source: '/:year(\\d+)/:slug',
+          destination: '/posts/:slug',
+          permanent: true,
+        }
+      ]
+    )
+  },
 };
 
 module.exports = nextConfig;
