@@ -3,7 +3,7 @@ import {
   fetchPosts,
   parseTOC,
   rehypeHTML,
-} from 'app/custom/posts';
+} from 'app/custom/postData';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';

@@ -1,6 +1,6 @@
 'use client';
 
-import { ColorSchemeContext } from 'app/custom/ColorSchemeController';
+import { ColorSchemeContext } from 'app/custom/components/ColorSchemeController';
 import { MathUtils } from 'three';
 import { useContext } from 'react';
 import { useMemo, useRef } from 'react';

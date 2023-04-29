@@ -25,9 +25,8 @@ export async function fetchPosts() {
     .browse({ limit: 'all', formats: ['html'], include: 'tags' })
     .then((posts) => {
       return posts.filter(
-        (post) =>
-          post.tags.some((tag) => tag.name === '#post') &&
-          post.status === 'published'
+        (post) => post.tags.some((tag) => tag.name === '#post') &&
+        post.status === 'published'
       );
     });
 }

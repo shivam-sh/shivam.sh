@@ -4,7 +4,7 @@ import { ConnectIcon, DashboardIcon, FeedIcon, VillaIcon } from 'app/custom/asse
 import Link from 'next/link';
 import Logo from 'app/custom/assets/Logo';
 import styles from 'styles/Navbar.module.scss';
-import { currentPageType, PageType } from './custom/navigation';
+import { currentPageType, PageType } from '../navigation';
 
 export default function Navbar() {
   let currentPage = currentPageType()

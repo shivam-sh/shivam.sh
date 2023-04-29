@@ -179,6 +179,8 @@
 
   hr {
     margin-block: -1rem;
+    border-bottom: 1px;
+    border-inline: 0;
     border-color: var(--accent);
   }
 }

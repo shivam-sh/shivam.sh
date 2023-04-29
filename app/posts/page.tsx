@@ -1,4 +1,4 @@
-import { fetchPosts, rehypeHTML } from 'app/custom/posts';
+import { fetchPosts, rehypeHTML } from 'app/custom/postData';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import styles from 'styles/Posts.module.scss';

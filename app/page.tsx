@@ -1,6 +1,6 @@
-import Blob from './blob';
-import Canvas from './canvas';
-import Description from './description';
+import Blob from './custom/components/blob';
+import Canvas from './custom/components/canvas';
+import Description from './custom/components/description';
 import styles from 'styles/Home.module.scss';
 
 export default function Page() {

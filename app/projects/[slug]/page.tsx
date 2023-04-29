@@ -1,4 +1,4 @@
-import { fetchProject, fetchProjects, rehypeHTML } from 'app/custom/posts';
+import { fetchProject, fetchProjects, rehypeHTML } from 'app/custom/postData';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
