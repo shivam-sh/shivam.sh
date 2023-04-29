@@ -1,9 +1,9 @@
 import 'styles/globals.scss';
 import 'styles/posts.scss';
 import 'styles/highlight.scss';
-import { ColorSchemeController } from 'app/custom/ColorSchemeController';
+import { ColorSchemeController } from 'app/custom/components/ColorSchemeController';
 import { Inter, Montserrat, Ubuntu_Mono } from 'next/font/google';
-import Navbar from './navbar';
+import Navbar from './custom/components/navbar';
 
 export const metadata = {
   title: 'Shivam Sh',

@@ -1,4 +1,4 @@
-import { fetchProjects } from 'app/custom/posts';
+import { fetchProjects } from 'app/custom/postData';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from 'styles/Projects.module.scss';

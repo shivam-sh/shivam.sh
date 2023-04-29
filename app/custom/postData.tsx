@@ -25,9 +25,8 @@ export async function fetchPosts() {
     .browse({ limit: 'all', formats: ['html'], include: 'tags' })
     .then((posts) => {
       return posts.filter(
-        (post) =>
-          post.tags.some((tag) => tag.name === '#post') &&
-          post.status === 'published'
+        (post) => post.tags.some((tag) => tag.name === '#post') &&
+        post.status === 'published'
       );
     });
 }
@@ -67,6 +66,15 @@ export async function fetchProject(slug: string) {
       }
       return project;
     })
+    .catch(() => {
+      return '';
+    });
+}
+
+export async function fetchWithID(id: string) {
+  return await api.posts
+    .browse({ formats: ['html'], filter: `uuid:${id}` })
+    .then((post) => post[0])
     .catch(() => {
       return '';
     });
