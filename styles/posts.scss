@@ -67,6 +67,10 @@
       width: min(100%, 650px);
     }
   }
+
+  figure {
+    margin-inline: 0;
+  }
 }
 
 @mixin table-of-contents {
@@ -140,6 +144,10 @@
     margin: 0;
   }
 
+  .kg-embed-card {
+    width: auto;
+  }
+
   p > img, .kg-card > img {
     max-width: min(100%, 650px);
     max-height: 750px;
@@ -171,6 +179,7 @@
 
   hr {
     margin-block: -1rem;
+    border-color: var(--accent);
   }
 }
 
@@ -233,4 +242,3 @@
     display: none;
   }
 }
-
