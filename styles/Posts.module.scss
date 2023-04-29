@@ -1,8 +1,11 @@
+@import './posts.scss';
+
 .posts {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  gap: 0.5rem;
 
   min-height: 100vh;
   min-height: -webkit-fill-available;
@@ -24,6 +27,41 @@
     .rssLink {
       padding-right: 2.5rem;
       width: fit-content;
+    }
+  }
+
+  .inlinePost {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 2rem;
+    gap: 0rem;
+
+    margin: 1rem 0 1rem 2rem;
+    border-left: var(--accent) 1px solid;
+
+    @include longform-text;
+
+    .title {
+      margin: 0;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+
+      font-size: 0.8rem;
+      color: var(--text-alt);
+    }
+
+    * {
+      max-width: 100%; 
+      width: auto; 
+      height: auto;
+    }
+
+    figure > img {
+      border-radius: 0.75rem;
     }
   }
 
@@ -49,7 +87,7 @@
 
     .description {
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       quotes: none;
       font-size: 1rem;
