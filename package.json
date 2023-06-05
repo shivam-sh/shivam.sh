@@ -11,7 +11,7 @@
   "dependencies": {
     "@react-three/fiber": "^8.12.2",
     "@tryghost/admin-api": "^1.13.5",
-    "@types/three": "^0.150.2",
+    "@types/three": "^0.152.1",
     "cheerio": "^1.0.0-rc.12",
     "date-fns": "^2.29.3",
     "feed": "^4.2.2",
@@ -28,12 +28,12 @@
     "remark-stringify": "^10.0.2",
     "sass": "^1.62.1",
     "sharp": "^0.32.0",
-    "three": "^0.151.3"
+    "three": "^0.153.0"
   },
   "devDependencies": {
-    "@types/node": "^18.16.1",
-    "@types/react": "18.2.0",
+    "@types/node": "^20.2.5",
+    "@types/react": "18.2.8",
     "react-refresh": "0.14.0",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
