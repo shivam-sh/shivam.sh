@@ -19,7 +19,8 @@ export default async function Page({ params }) {
   }
   
   const source = String(await rehypeHTML(post.html));
-  const toc = (await parseTOC(source)).filter((entry) => entry.depth <= 2);
+  let toc = (await parseTOC(source)).filter((entry) => entry.depth <= 2);
+  if (toc.length < 3) toc = [];
 
   return (
     <>
@@ -27,7 +28,7 @@ export default async function Page({ params }) {
         {toc.map((entry) => {
           return (
             <Link
-              href={`posts/${params.slug}/#${entry.id}`}
+              href={`/posts/${params.slug}/#${entry.id}`}
               replace={true}
               className="tocLink"
               key={entry.id}
