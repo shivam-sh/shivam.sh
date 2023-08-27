@@ -33,13 +33,20 @@
   .inlinePost {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 2rem;
+    padding: 0.5em 2em;
     gap: 0rem;
 
-    margin: 1rem 0 1rem 2rem;
+    margin: 1em 0 1em 1em;
     border-left: var(--accent) 1px solid;
 
+    transition-property: box-shadow;
+    transition-duration: 0.1s;
+
     @include longform-text;
+
+    &:hover {
+      box-shadow: -4px 0 0 var(--accent);
+    }
 
     .title {
       margin: 0;
@@ -48,10 +55,17 @@
     .info {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
       margin: 0;
 
-      font-size: 0.8rem;
-      color: var(--text-alt);
+      p {
+        font-size: 0.8rem;
+        color: var(--text-alt);
+        font-weight: 700;
+        width: fit-content;
+        margin: 0;
+      }
     }
 
     * {
@@ -100,10 +114,17 @@
     .info {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
       margin: 0;
 
-      font-size: 0.8rem;
-      color: var(--text-alt);
+      p {
+        font-size: 0.8rem;
+        color: var(--text-alt);
+        font-weight: 700;
+        width: fit-content;
+        margin: 0;
+      }
     }
   }
 }
