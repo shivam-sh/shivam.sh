@@ -36,16 +36,16 @@ export default async function Page() {
 
 async function Post(post) {
   const inline = post.tags.some((tag) => tag.name === '#inline');
-  const href = post.canonical_url != null 
+  post.href = post.canonical_url != null 
     ? post.canonical_url 
     : post.url;
 
   return (
-    <Link href={href} key={post.title}>
+    <Link href={post.href} key={post.title}>
       <div className={inline ? styles.inlinePost : styles.post}>
         <PostTitle post={post} inline={inline} />
         <PostDescription post={post} inline={inline} />
-        <PostInfo post={post} inline={inline} />
+        <PostInfo post={post} />
       </div>
     </Link>
   );
@@ -56,10 +56,7 @@ function PostTitle({ post, inline }) {
     return (
     <>
       {post.title != '(Untitled)' 
-        ? (
-          <Link href={post.canonical_url} key={post.title}>
-            <h4 className={styles.title}>{post.title}</h4>
-          </Link>)
+        ? <h4 className={styles.title}>{post.title}</h4>
         : null}
     </>
     );
@@ -86,7 +83,7 @@ async function PostDescription({post, inline}) {
   );
 }
 
-function PostInfo({post, inline}) {
+function PostInfo({post}) {
   const date = new Date(post.published_at);
 
   return (
