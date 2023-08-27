@@ -28,49 +28,74 @@ export default async function Page() {
       </span>
 
       {posts.map((post) => {
-        if (post.canonical_url != null) post.url = post.canonical_url;
-        if (post.tags.some((tag) => tag.name === '#inline'))
-          return InlinePost(post);
-        return LinkPost(post);
+        return Post(post);
       })}
     </div>
   );
 }
 
-function LinkPost(post) {
-  const date = new Date(post.published_at);
+async function Post(post) {
+  const inline = post.tags.some((tag) => tag.name === '#inline');
+  post.href = post.canonical_url != null 
+    ? post.canonical_url 
+    : post.url;
 
   return (
-    <Link href={post.url} key={post.title}>
-      <div className={styles.post}>
-        <h5 className={styles.title}>
-          <span className="accent">//&nbsp;</span>
-          {post.title}
-        </h5>
-        <q className={styles.description}>{post.excerpt}</q>
-        <p className={`${styles.info} footnote`}>
-          [{format(date, 'dd-MM-yyyy')}]
-        </p>
+    <Link href={post.href} key={post.title}>
+      <div className={inline ? styles.inlinePost : styles.post}>
+        <PostTitle post={post} inline={inline} />
+        <PostDescription post={post} inline={inline} />
+        <PostInfo post={post} />
       </div>
     </Link>
   );
 }
 
-async function InlinePost(post) {
-  const date = new Date(post.published_at);
-  const source = String(await rehypeHTML(post.html));
+function PostTitle({ post, inline }) {
+  if (inline) {
+    return (
+    <>
+      {post.title != '(Untitled)' 
+        ? <h4 className={styles.title}>{post.title}</h4>
+        : null}
+    </>
+    );
+  }
 
   return (
-    <div className={styles.inlinePost}>
-      {post.title != '(Untitled)' ? (
-        <Link href={post.url} key={post.title}>
-          <h3 className={styles.title}>{post.title}</h3>
-        </Link>
-      ) : null}
+    <h5 className={styles.title}>
+      <span className="accent">//&nbsp;</span>
+      {post.title}
+    </h5>
+  );
+}
+
+async function PostDescription({post, inline}) {
+  const source = String(await rehypeHTML(post.html));
+  if (inline) {
+    return (
       <div dangerouslySetInnerHTML={{ __html: source }} />
-      <p className={`${styles.info} footnote`}>
-        [{format(date, 'dd-MM-yyyy')}]
-      </p>
+    );
+  }
+
+  return (
+    <q className={styles.description}>{post.excerpt}</q>
+  );
+}
+
+function PostInfo({post}) {
+  const date = new Date(post.published_at);
+
+  return (
+    <div className={`${styles.info} footnote`}>
+      <p>[{format(date, 'dd-MM-yyyy')}]</p>
+
+      {
+        post.canonical_url != null
+          ? (<p>External Link</p>)
+          : null
+      }
     </div>
   );
 }
+
