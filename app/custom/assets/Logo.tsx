@@ -23,7 +23,6 @@ export const S = (props) => (
     width={36}
     height={38}
     viewBox="0 0 36 38"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
@@ -34,13 +33,11 @@ export const S = (props) => (
     {/* <g filter="url(#a)"> */}
     <path
       d="M13.555 32c-3.955 0-5.932 0-6.522-.611a2 2 0 0 1-.47-1.987c.255-.81 2.024-1.695 5.561-3.464l13.245-6.622c1.533-.767 2.3-1.15 2.923-1.058a2 2 0 0 1 1.347.832c.361.516.361 1.373.361 3.088V28.8c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C28.48 32 27.92 32 26.8 32H13.555Z"
-      fill="var(--text)"
     />
     {/* </g> */}
     {/* <g filter="url(#b)"> */}
     <path
       d="M4 5.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C5.52 2 6.08 2 7.2 2h13.245c3.955 0 5.932 0 6.522.611a2 2 0 0 1 .47 1.987c-.255.81-2.024 1.695-5.561 3.464L8.63 14.685c-1.533.766-2.3 1.15-2.923 1.057a2 2 0 0 1-1.347-.832C4 14.394 4 13.537 4 11.822V5.2Z"
-      fill="var(--text)"
     />
     {/* </g> */}
     <defs>
@@ -103,7 +100,6 @@ export const H = (props) => (
     width={38}
     height={38}
     viewBox="0 0 38 38"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
@@ -115,7 +111,6 @@ export const H = (props) => (
       width={10}
       height={30}
       rx={2}
-      fill="var(--text)"
     />
     {/* </g> */}
     {/* <g filter="url(#b)"> */}
@@ -125,7 +120,6 @@ export const H = (props) => (
       width={10}
       height={30}
       rx={2}
-      fill="var(--text)"
     />
     {/* </g> */}
     <defs>

@@ -1,35 +1,43 @@
 html {
-  --bg: #232323;
-  --bg-alt: #262626;
+  --bg: #131212;
+  --bg-alt: #171616;
   --text: #eee;
   --text-alt: #888;
-  --accent: #dfc58d;
+  --primary: #658181;
+  --secondary: #1B1F22;
+  --accent: #a0c0c0;
 }
 
 @media (prefers-color-scheme: light) {
   html {
     --bg: #eeeeee;
-    --bg-alt: #e7e7e7;
+    --bg-alt: #e8e8e8;
     --text: #232323;
     --text-alt: #666;
-    --accent: #ddae49;
+    --primary: #658181;
+    --secondary: #DBE0E0;
+    --accent: #5C8888;
   }
 }
 
 .darkTheme {
-  --bg: #232323;
-  --bg-alt: #262626;
+  --bg: #131212;
+  --bg-alt: #171616;
   --text: #eee;
   --text-alt: #888;
-  --accent: #dfc58d;
+  --primary: #658181;
+  --secondary: #1B1F22;
+  --accent: #a0c0c0;
 }
 
 .lightTheme {
   --bg: #eeeeee;
-  --bg-alt: #e7e7e7;
+  --bg-alt: #e8e8e8;
   --text: #232323;
   --text-alt: #666;
-  --accent: #ddae49;
+  --primary: #658181;
+  --secondary: #DBE0E0;
+  --accent: #5C8888;
 }
 
 * {
@@ -189,6 +197,12 @@ blockquote {
 
 .accent {
   color: var(--accent);
+}
+
+.accent-gradient {
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .container {
