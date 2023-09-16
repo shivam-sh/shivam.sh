@@ -7,8 +7,8 @@ export default function Page() {
   return (
     <div className={styles.intro}>
       <h2 className={styles.title}>
-        Hey There<span className="accent-gradient">,</span> <br />
-        I'm Shivam
+        Hey There,<br />
+        <span className="accent-gradient">I'm Shivam</span>
       </h2>
 
       <Description className={styles.description} />
