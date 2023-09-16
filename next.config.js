@@ -27,6 +27,11 @@ const nextConfig = {
           destination: `${process.env.GHOST_URL}/content/:slug*`,
           permanent: true,
         },
+        { //redirects to the correct link when clicking on the title of the page in the nav bar
+          source: '/slug/:path*',
+          destination: '/posts/:path*',
+          permanent: true
+        },
         { // redirect /ghost to {GHOST_URL}/ghost
           source: '/ghost',
           destination: `${process.env.GHOST_URL}/ghost`,
