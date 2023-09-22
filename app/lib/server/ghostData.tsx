@@ -22,7 +22,7 @@ export async function fetchPosts() {
       for (const post of ghostPosts) {
         const inline = post.tags.some((tag) => tag.name === '#inline');
 
-        const localProject = {
+        const localPost = {
           title: post.title,
           excerpt: post.excerpt,
           date: format(new Date(post.published_at), 'dd-MM-yyyy'),
@@ -32,7 +32,42 @@ export async function fetchPosts() {
           externalLink: post.canonical_url != null
         };
 
-        posts.push(localProject);
+        posts.push(localPost);
+      }
+      return posts;
+    })
+    .then((posts) => {
+      for (const post of posts) {
+        if (post.url.startsWith(process.env.SITE_URL)) {
+          post.url = post.url.replace(process.env.SITE_URL, '');
+        } else if (process.env.VERCEL_URL && post.url.startsWith(process.env.VERCEL_URL)) {
+          post.url = post.url.replace(process.env.VERCEL_URL, '');
+        }
+      }
+      return posts;
+    });
+}
+
+export async function fetchRSSPosts() {
+  return await api.posts
+    .browse({ limit: 20, formats: ['html'], include: 'tags' })
+    .then((posts) => {
+      return posts.filter(
+        (post) => post.tags.some((tag) => tag.name === '#post') && post.status === 'published'
+      );
+    })
+    .then((ghostPosts) => {
+      let posts: any[] = [];
+      for (const post of ghostPosts) {
+        const localPost = {
+          title: post.title,
+          excerpt: post.excerpt,
+          date: format(new Date(post.published_at), 'dd-MM-yyyy'),
+          url: post.canonical_url != null ? post.canonical_url : post.url,
+          html: post.html
+        };
+
+        posts.push(localPost);
       }
       return posts;
     })
