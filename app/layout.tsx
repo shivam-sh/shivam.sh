@@ -6,8 +6,8 @@ import { Inter, Montserrat, Ubuntu_Mono } from 'next/font/google';
 import Navbar from 'app/components/navbar';
 
 export const metadata = {
-  title: 'Shivam Sh',
-  description: "Shivam Sh's Personal Website",
+  title: 'Spectre',
+  description: "Spectre, a website template built to integrate with the Ghost CMS.",
   metadataBase: new URL(process.env.SITE_URL ?? `https://${process.env.VERCEL_URL}/`),
   icons: [
     {
@@ -42,9 +42,9 @@ export const metadata = {
     }
   ],
   openGraph: {
-    siteName: 'Shivam Sh',
-    title: 'Shivam Sh',
-    description: "Shivam Sh's Personal Website",
+    siteName: 'Spectre',
+    title: 'Spectre',
+    description: "Spectre, a website template built to integrate with the Ghost CMS.",
     url: process.env.SITE_URL ?? process.env.VERCEL_URL
   }
 };
@@ -74,8 +74,16 @@ export default function RootLayout({ children }) {
             <a id={'skipLink'} href="#content" tabIndex={0}>
               Skip to Content
             </a>
+
             <Navbar />
+
             <main id={'content'}>{children}</main>
+
+            <footer>
+              <p>
+                Spectre: Built by <a href="https://shivam.sh">Shivam Sh</a>
+              </p>
+            </footer>
           </div>
         </AppContextController>
       </body>

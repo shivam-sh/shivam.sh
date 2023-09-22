@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About • Shivam Sh',
-  description: "Hey, I'm Shivam 👋",
+  title: 'About • Spectre',
+  description: "Spectre, a website template built to integrate with the Ghost CMS",
   openGraph: {
     siteName: 'Shivam Sh',
-    title: 'About • Shivam Sh',
-    description: "Hey, I'm Shivam 👋",
+    title: 'About • Spectre',
+    description: "Spectre, a website template built to integrate with the Ghost CMS",
     url: (process.env.SITE_URL ?? process.env.VERCEL_URL) + '/about'
   }
 };
@@ -17,29 +17,21 @@ export default function Page() {
       <p />
       <h2>Hey, I&apos;m Shivam 👋</h2>
       <p>
-        I built this website to showcase some of my projects, explorations, and experiences. I love
-        pushing the boundaries with technology, design, and interactions to uncover innovative
-        solutions and creative designs.
-        <br />
-        This lets me learn about the creative design of the hardware and software we interact with,
-        while learning new things along the way.
+        I built Spectre to work as an engine for my own website, and decided to move it to its own repo so that I can use it as a template to work off of and improve for future sites.
+      </p>
+      <p>
+        Feel free to take a look around the site, but if you&apos;d like to visit my personal site, you can find it at <Link href="https://shivam.sh">shivam.sh</Link>.
+      </p>
+      <p>
+        I&apos;ve populated the posts and projects pages with some of my own content as placeholders.
       </p>
       <p>
         If you&apos;d like to get in touch, feel free to email me at{' '}
         <Link href="mailto:contact@shivam.sh">contact@shivam.sh</Link>.
       </p>
       <p>
-        In case you want to know more about my work & experience, you can find my resume{' '}
-        <Link href="/resume.pdf">here</Link>.
-      </p>
-      <p>
         You can also find some of my work on <Link href="https://github.com/shivam-sh">Github</Link>{' '}
         and <Link href="https://linkedin.com/in/shivam-sh">LinkedIn</Link>.
-      </p>
-      <p>
-        I&apos;d love to hear your thoughts on my projects, or chat about anything that interests
-        you. Whether it&apos;s related to technology, design, or something completely different,
-        feel free to connect with me on LinkedIn or drop me an email.
       </p>
       <p>Thanks for dropping by!</p>
 

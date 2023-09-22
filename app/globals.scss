@@ -125,7 +125,7 @@ q {
   font-style: italic;
 }
 
-pre > code {
+pre>code {
   display: inline-block;
   padding: 0.5rem;
 }
@@ -143,8 +143,8 @@ a {
   text-decoration: none;
 }
 
-p > a,
-li > a {
+p>a,
+li>a {
   transition-property: color, box-shadow;
   transition-duration: 0.05s;
   box-shadow: inset 0 -0.1rem 0 var(--text-alt);
@@ -215,14 +215,14 @@ blockquote {
   padding: 0;
   display: grid;
   grid-template-columns: min-content auto;
-  grid-template-areas: 'sidebar main';
+  grid-template-areas: 'sidebar main' 'sidebar footer';
   align-items: start;
 
   #content {
     min-height: 100vh;
     width: calc(100vw - 8rem);
 
-    grid-area: content;
+    grid-area: main;
     display: flex;
     flex-direction: column;
     justify-content: center;
