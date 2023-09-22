@@ -1,9 +1,11 @@
 import { Feed } from 'feed';
-import { fetchPosts } from 'app/lib/server/ghostData';
+import { fetchRSSPosts } from 'app/lib/server/ghostData';
+
+`use server`;
 
 export async function GET() {
   const site_url = process.env.SITE_URL || process.env.VERCEL_URL;
-  const postsData = await fetchPosts();
+  const postsData = await fetchRSSPosts();
   const rssData = postsData.slice(0, 10);
 
   const feedOptions = {
@@ -26,7 +28,7 @@ export async function GET() {
       feed.addItem({
         title: post.title,
         description: post.excerpt,
-        date: new Date(post.published_at),
+        date: new Date(post.date),
         link: `${post.url}`,
         content: String(post.html)
       });
