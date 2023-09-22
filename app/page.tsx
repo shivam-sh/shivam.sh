@@ -7,7 +7,8 @@ export default function Page() {
   return (
     <div className={styles.intro}>
       <h2 className={styles.title}>
-        This is<br />
+        This is
+        <br />
         <span className="accent-gradient">Spectre</span>
       </h2>
 
