@@ -62,7 +62,7 @@ export async function fetchRSSPosts() {
         const localPost = {
           title: post.title,
           excerpt: post.excerpt,
-          date: format(new Date(post.published_at), 'dd-MM-yyyy'),
+          date: new Date(post.published_at),
           url: post.canonical_url != null ? post.canonical_url : post.url,
           html: post.html
         };

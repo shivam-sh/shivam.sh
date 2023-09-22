@@ -28,7 +28,7 @@ export async function GET() {
       feed.addItem({
         title: post.title,
         description: post.excerpt,
-        date: new Date(post.published_at),
+        date: new Date(post.date),
         link: `${post.url}`,
         content: String(post.html)
       });
