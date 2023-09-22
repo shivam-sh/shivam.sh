@@ -215,14 +215,14 @@ blockquote {
   padding: 0;
   display: grid;
   grid-template-columns: min-content auto;
-  grid-template-areas: 'sidebar main';
+  grid-template-areas: 'sidebar main' 'sidebar footer';
   align-items: start;
 
   #content {
     min-height: 100vh;
     width: calc(100vw - 8rem);
 
-    grid-area: content;
+    grid-area: main;
     display: flex;
     flex-direction: column;
     justify-content: center;
