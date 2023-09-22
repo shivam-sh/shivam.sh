@@ -1,4 +1,4 @@
-import styles from 'styles/Posts.module.scss';
+import styles from './Posts.module.scss';
 import Link from 'next/link';
 
 export default async function Loading() {

@@ -1,4 +1,4 @@
-@import './posts.scss';
+@import 'app/posts.scss';
 
 .posts {
   display: flex;
@@ -8,7 +8,6 @@
   gap: 1rem;
 
   min-height: 100vh;
-  min-height: -webkit-fill-available;
   width: 100%;
 
   padding: 1rem 3rem 6rem 1rem;
@@ -37,19 +36,18 @@
     gap: 0rem;
 
     margin: 1em 0 1em 1em;
-    border-left: var(--accent) 1px solid;
+    border-left: var(--accent) 2px solid;
 
     transition-property: box-shadow;
     transition-duration: 0.1s;
 
     @include longform-text;
 
-    &:hover {
-      box-shadow: -4px 0 0 var(--accent);
-    }
-
     .title {
       margin: 0;
+      a {
+        text-decoration: underline;
+      }
     }
 
     .info {
@@ -69,8 +67,8 @@
     }
 
     * {
-      max-width: 100%; 
-      width: auto; 
+      max-width: 100%;
+      width: auto;
       height: auto;
     }
 
@@ -91,7 +89,7 @@
 
     cursor: pointer;
 
-    background-color: var(--bg-alt);;
+    background-color: var(--bg-alt);
 
     &:hover {
       background-color: var(--secondary);

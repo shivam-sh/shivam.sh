@@ -1,7 +1,7 @@
-import { fetchProjects } from 'app/custom/postData';
+import { fetchProjects } from 'app/lib/server/ghostData';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from 'styles/Projects.module.scss';
+import styles from './Projects.module.scss';
 
 export const metadata = {
   title: 'Projects • Shivam Sh',
@@ -10,8 +10,8 @@ export const metadata = {
     siteName: 'Shivam Sh',
     title: 'Projects • Shivam Sh',
     description: 'A list of some of my projects • Shivam Sh',
-    url: (process.env.SITE_URL ?? process.env.VERCEL_URL) + '/projects',
-  },
+    url: (process.env.SITE_URL ?? process.env.VERCEL_URL) + '/projects'
+  }
 };
 
 export const revalidate = 60;
@@ -24,13 +24,12 @@ export default async function Page() {
       <h3>Projects</h3>
 
       {projects.map((project) => {
-        if (project.canonical_url != null) project.url = project.canonical_url;
         return (
           <Link href={project.url} key={project.title}>
             <div className={styles.project}>
               <div className={styles.imageContainer}>
                 <Image
-                  src={project.feature_image ?? '/logo.png'}
+                  src={project.featureImage ?? '/logo.png'}
                   alt={project.title}
                   fill
                   className={styles.image}

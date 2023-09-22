@@ -1,4 +1,5 @@
-import { fetchWithID, parseTOC, rehypeHTML } from 'app/custom/postData';
+import { fetchWithID } from 'app/lib/server/ghostData';
+import { parseTOC, rehypeHTML } from 'app/lib/server/postProcessing';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -9,15 +10,12 @@ export default async function Page({ params }) {
   const post = await fetchWithID(params.id);
   if (post === '') return notFound();
 
-  if (
-    post.tags.some((tag) => tag.name === '#inline') &&
-    post.title != '(Untitled)'
-  ) {
+  if (post.tags.some((tag) => tag.name === '#inline') && post.title != '(Untitled)') {
     post.html = `<h1 id="${post.title}">${post.title}</h1>` + post.html;
   }
 
   const source = String(await rehypeHTML(post.html));
-  const toc = (await parseTOC(source)).filter((entry) => entry.depth <= 2);
+  const toc = await parseTOC(source);
 
   return (
     <>
@@ -35,10 +33,7 @@ export default async function Page({ params }) {
           );
         })}
       </div>
-      <div
-        className="postContent"
-        dangerouslySetInnerHTML={{ __html: source }}
-      />
+      <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />
     </>
   );
 }
@@ -56,10 +51,10 @@ export async function generateMetadata({ params: { id } }): Promise<Metadata> {
       url: `/posts/${id}`,
       images: [
         {
-          url: `${post.feature_image}`,
-          alt: post.title ?? 'Post not found',
-        },
-      ],
-    },
+          url: `${post.featureImage}`,
+          alt: post.title ?? 'Post not found'
+        }
+      ]
+    }
   };
 }
