@@ -1,7 +1,7 @@
-import { fetchPosts, rehypeHTML } from 'app/custom/postData';
-import { format } from 'date-fns';
+import { fetchPosts } from 'app/lib/server/ghostData';
+import { rehypeHTML } from 'app/lib/server/postProcessing';
 import Link from 'next/link';
-import styles from 'styles/Posts.module.scss';
+import styles from './Posts.module.scss';
 
 export const metadata = {
   title: 'Posts • Shivam Sh',
@@ -10,8 +10,8 @@ export const metadata = {
     siteName: 'Shivam Sh',
     title: 'Posts • Shivam Sh',
     description: 'Some posts about topics that are on my mind',
-    url: process.env.SITE_URL ?? process.env.VERCEL_URL,
-  },
+    url: process.env.SITE_URL ?? process.env.VERCEL_URL
+  }
 };
 
 export const revalidate = 60;
@@ -35,16 +35,21 @@ export default async function Page() {
 }
 
 async function Post(post) {
-  const inline = post.tags.some((tag) => tag.name === '#inline');
-  post.href = post.canonical_url != null 
-    ? post.canonical_url 
-    : post.url;
+  if (post.inline) {
+    return (
+      <div className={styles.inlinePost}>
+        <PostTitle post={post} inline={post.inline} />
+        <PostDescription post={post} inline={post.inline} />
+        <PostInfo post={post} />
+      </div>
+    );
+  }
 
   return (
-    <Link href={post.href} key={post.title}>
-      <div className={inline ? styles.inlinePost : styles.post}>
-        <PostTitle post={post} inline={inline} />
-        <PostDescription post={post} inline={inline} />
+    <Link href={post.url} key={post.title}>
+      <div className={post.inline ? styles.inlinePost : styles.post}>
+        <PostTitle post={post} inline={post.inline} />
+        <PostDescription post={post} inline={post.inline} />
         <PostInfo post={post} />
       </div>
     </Link>
@@ -54,48 +59,39 @@ async function Post(post) {
 function PostTitle({ post, inline }) {
   if (inline) {
     return (
-    <>
-      {post.title != '(Untitled)' 
-        ? <h4 className={styles.title}>{post.title}</h4>
-        : null}
-    </>
+      <>
+        {post.title != '(Untitled)' ? (
+          <h4 className={styles.title}>
+            <Link href={post.url}>{post.title}</Link>
+          </h4>
+        ) : null}
+      </>
     );
   }
 
   return (
     <h5 className={styles.title}>
-      <span className="accent">//&nbsp;</span>
+      <span className="accent">{'// '}</span>
       {post.title}
     </h5>
   );
 }
 
-async function PostDescription({post, inline}) {
+async function PostDescription({ post, inline }) {
   const source = String(await rehypeHTML(post.html));
   if (inline) {
-    return (
-      <div dangerouslySetInnerHTML={{ __html: source }} />
-    );
+    return <div dangerouslySetInnerHTML={{ __html: source }} />;
   }
 
-  return (
-    <q className={styles.description}>{post.excerpt}</q>
-  );
+  return <q className={styles.description}>{post.excerpt}</q>;
 }
 
-function PostInfo({post}) {
-  const date = new Date(post.published_at);
-
+function PostInfo({ post }) {
   return (
     <div className={`${styles.info} footnote`}>
-      <p>[{format(date, 'dd-MM-yyyy')}]</p>
+      <p>[{post.date}]</p>
 
-      {
-        post.canonical_url != null
-          ? (<p>External Link</p>)
-          : null
-      }
+      {post.externalLink ? <p>External Link</p> : null}
     </div>
   );
 }
-

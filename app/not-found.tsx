@@ -1,4 +1,4 @@
-import styles from 'styles/Home.module.scss';
+import styles from './Home.module.scss';
 
 export default function NotFound() {
   return (
