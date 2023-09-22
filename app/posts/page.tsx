@@ -4,11 +4,11 @@ import Link from 'next/link';
 import styles from './Posts.module.scss';
 
 export const metadata = {
-  title: 'Posts • Spectre',
+  title: 'Posts • Shivam Sh',
   description: 'Some posts about topics that are on my mind',
   openGraph: {
-    siteName: 'Spectre',
-    title: 'Posts • Spectre',
+    siteName: 'Shivam Sh',
+    title: 'Posts • Shivam Sh',
     description: 'Some posts about topics that are on my mind',
     url: process.env.SITE_URL ?? process.env.VERCEL_URL
   }
