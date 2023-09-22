@@ -5,13 +5,13 @@ export default function description(
 ) {
   return (
     <q {...props}>
-      I’m a Systems Design Engineering
+      Spectre is a website template for Next.js
       <br />
-      student at the University of Waterloo
+      focusing on accessibility and performance.
       <br />
-      I like exploring and creating with tech
+      It is built to integrate with the Ghost CMS.
       <br />
-      and sometimes I post about it here
+      and is fully adaptable to your needs.
     </q>
   );
 }
