@@ -4,7 +4,7 @@ html {
   --text: #eee;
   --text-alt: #888;
   --primary: #658181;
-  --secondary: #1B1F22;
+  --secondary: #1b1f22;
   --accent: #a0c0c0;
 }
 
@@ -15,8 +15,8 @@ html {
     --text: #232323;
     --text-alt: #666;
     --primary: #658181;
-    --secondary: #DBE0E0;
-    --accent: #5C8888;
+    --secondary: #dbe0e0;
+    --accent: #5c8888;
   }
 }
 
@@ -26,7 +26,7 @@ html {
   --text: #eee;
   --text-alt: #888;
   --primary: #658181;
-  --secondary: #1B1F22;
+  --secondary: #1b1f22;
   --accent: #a0c0c0;
 }
 
@@ -36,8 +36,8 @@ html {
   --text: #232323;
   --text-alt: #666;
   --primary: #658181;
-  --secondary: #DBE0E0;
-  --accent: #5C8888;
+  --secondary: #dbe0e0;
+  --accent: #5c8888;
 }
 
 * {
@@ -45,10 +45,11 @@ html {
 }
 
 html {
-  font-size: 100%; /*16px*/
+  font-size: 100%;
+  /*16px*/
 
-  --scroll-behavior: smooth!important;
-  scroll-behavior: smooth!important;
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
 
   body {
     padding: 0;
@@ -108,7 +109,8 @@ q {
   font-size: 1.2rem;
 }
 
-.caption, .endnote {
+.caption,
+.endnote {
   font-size: 0.8rem;
   color: var(--text-alt);
 
@@ -141,7 +143,8 @@ a {
   text-decoration: none;
 }
 
-p > a, li > a {
+p > a,
+li > a {
   transition-property: color, box-shadow;
   transition-duration: 0.05s;
   box-shadow: inset 0 -0.1rem 0 var(--text-alt);
@@ -172,7 +175,8 @@ blockquote {
 }
 
 ::selection {
-  background: var(--accent); /* WebKit/Blink Browsers */
+  background: var(--accent);
+  /* WebKit/Blink Browsers */
 }
 
 #skipLink {
@@ -202,15 +206,16 @@ blockquote {
 .accent-gradient {
   background: linear-gradient(120deg, var(--primary), var(--accent));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.container {
-  padding: 0 0;
+.site {
+  min-height: 100vh;
+  padding: 0;
   display: grid;
   grid-template-columns: min-content auto;
-  grid-template-areas: 
-    "sidebar content";
+  grid-template-areas: 'sidebar main';
   align-items: start;
 
   #content {
@@ -222,9 +227,19 @@ blockquote {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
 
     overflow-y: auto;
     flex: 1;
+  }
+
+  footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
   }
 }
 
@@ -241,7 +256,7 @@ blockquote {
   margin: 0;
   padding: 0;
   width: 100%;
-  
+
   .loadingBar {
     width: 100%;
     height: 1.5rem;
@@ -271,7 +286,7 @@ blockquote {
       transform: scale(1);
       opacity: 0.6;
     }
-    
+
     50% {
       transform: scale(0.99);
       opacity: 1;
@@ -285,7 +300,27 @@ blockquote {
 }
 
 @media (max-width: 52rem) {
-  .container > #content {
-    width: calc(100vw - 3.5rem);
+  header {
+    transition-property: box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+
+  html[data-scroll='true'] {
+    header {
+      background-color: color-mix(in srgb, var(--bg) 75%, transparent);
+      backdrop-filter: blur(25px);
+      background-blend-mode: overlay;
+      box-shadow: 0 10px 15px rgb(0 0 0 / 5%);
+    }
+  }
+
+  .site {
+    grid-template-areas: 'main' 'sidebar' 'footer';
+
+    #content {
+      padding-top: 3rem;
+      width: 100vw;
+    }
   }
 }

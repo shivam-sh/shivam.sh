@@ -1,22 +1,22 @@
 'use client';
 
-import { ColorSchemeContext } from 'app/custom/components/ColorSchemeController';
+import { AppContext } from 'app/components/AppContextController';
 import { MathUtils } from 'three';
 import { useContext } from 'react';
 import { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import useWindowSize from 'app/custom/useWindowSize';
+import useWindowSize from 'app/lib/useWindowSize';
 
 export default function Blob() {
   const window = useWindowSize({ defaultSize: { width: 0, height: 0 } });
-  const { incrementAccent } = useContext(ColorSchemeContext);
+  const { incrementAccent } = useContext(AppContext);
   const mesh = useRef<THREE.Mesh>();
   const hover = useRef(false);
   const click = useRef(false);
   const uniforms = useMemo(
     () => ({
       u_intensity: { value: 0.01 },
-      u_time: { value: 0 },
+      u_time: { value: 0 }
     }),
     []
   );
@@ -50,7 +50,6 @@ export default function Blob() {
   });
 
   if (mesh !== undefined) {
-    
   }
 
   return (

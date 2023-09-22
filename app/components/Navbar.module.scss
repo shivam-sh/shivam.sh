@@ -1,0 +1,154 @@
+.navbar {
+  grid-area: sidebar;
+  height: 100%;
+  min-width: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1;
+
+  a {
+    margin: 0;
+    padding: 0;
+    max-height: 2.375rem;
+  }
+
+  .logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1.5rem 2rem 2rem 1.8rem;
+
+    svg {
+      display: inline-block;
+      fill: var(--text);
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    bottom: 2rem;
+    position: fixed;
+
+    border-radius: 0.5rem;
+    padding: 0 0;
+    gap: 2rem;
+
+    a {
+      text-decoration: none;
+      color: var(--text);
+
+      .linkText {
+        display: flex;
+        font-family: var(--font-inter);
+        font-size: 1.15rem;
+        font-weight: 700;
+        line-height: 1.25rem;
+        color: var(--text);
+        margin: 0;
+
+        transition: gap 0.1s ease-in-out;
+        gap: 0;
+
+        span {
+          display: inline-block;
+          background-color: var(--accent);
+          border-radius: 0.1rem;
+          width: 0;
+          margin: 0;
+          opacity: 0;
+
+          transition-property: all;
+          transition-duration: 0.1s;
+          transition-timing-function: ease-in-out;
+        }
+      }
+
+      &:where(.selected),
+      &:hover:where(:not(.selected)) {
+        .linkText {
+          gap: 0.3rem;
+
+          span {
+            height: auto;
+            width: 0.2rem;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// medium to small screens
+@media (max-width: 52rem) {
+  .navbar {
+    flex-direction: row;
+    height: auto;
+    width: 100vw;
+
+    padding: 1rem 1rem 1rem 1rem;
+
+    position: fixed;
+
+    .logo {
+      padding: 0.8rem 1rem 0.6rem 1rem;
+    }
+
+    .links {
+      position: relative;
+      flex-direction: row;
+      bottom: auto;
+      right: 1.5rem;
+
+      a:first-child {
+        display: none;
+      }
+
+      a {
+        .linkText {
+          gap: 0.1rem;
+          display: flex;
+          flex-direction: column-reverse;
+
+          span {
+            width: 100%;
+            height: 0;
+          }
+        }
+
+        &:where(.selected),
+        &:hover:where(:not(.selected)) {
+          .linkText {
+            gap: 0.1rem;
+
+            span {
+              width: 100%;
+              height: 2.5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// very small screens
+@media (max-width: 32rem) {
+  .navbar {
+    padding: 1rem 0.3rem 0.8rem 1rem;
+
+    .logo {
+      scale: 0.8;
+      padding: 0.6rem 1rem 0.6rem 1rem;
+    }
+
+    .links {
+      gap: 0.7rem;
+    }
+  }
+}

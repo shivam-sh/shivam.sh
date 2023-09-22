@@ -3,33 +3,15 @@
 import { createContext, useEffect, useState } from 'react';
 
 export const accentColors = {
-  dark: [
-    '#a0c0c0',
-    '#40a3ff',
-    '#fe523c',
-    '#fc80ff',
-    '#21debb',
-    '#8746f0',
-    '#f5c116',
-    '#f5241d',
-  ],
-  light: [
-    '#5c8888',
-    '#40a3ff',
-    '#fe523c',
-    '#fc80ff',
-    '#21debb',
-    '#8746f0',
-    '#f5c116',
-    '#f5241d',
-  ],
+  dark: ['#a0c0c0', '#40a3ff', '#fe523c', '#fc80ff', '#21debb', '#8746f0', '#f5c116', '#f5241d'],
+  light: ['#5c8888', '#40a3ff', '#fe523c', '#fc80ff', '#21debb', '#8746f0', '#f5c116', '#f5241d']
 };
 
-export const ColorSchemeContext = createContext({
-  incrementAccent: () => {},
+export const AppContext = createContext({
+  incrementAccent: () => {}
 });
 
-export const ColorSchemeController = ({ children }) => {
+export const AppContextController = ({ children }) => {
   const [windowExists, setWindowExists] = useState(false);
 
   useEffect(() => {
@@ -43,6 +25,28 @@ export const ColorSchemeController = ({ children }) => {
     } else if (darkAccent) {
       document.documentElement.style.setProperty('--accent', darkAccent);
     }
+
+    const debounce = (fn) => {
+      let frame;
+
+      return (...params) => {
+        if (frame) {
+          cancelAnimationFrame(frame);
+        }
+
+        frame = requestAnimationFrame(() => {
+          fn(...params);
+        });
+      };
+    };
+
+    const storeScroll = () => {
+      document.documentElement.dataset.scroll = window.scrollY > 20 ? 'true' : 'false';
+    };
+
+    document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+
+    storeScroll();
 
     return () => setWindowExists(false);
   }, []);
@@ -71,8 +75,7 @@ export const ColorSchemeController = ({ children }) => {
       if (lightModeQuery.matches) {
         const lightAccent = window.localStorage.getItem('lightAccent') || accentColors.light[0];
         const index = accentColors.light.indexOf(lightAccent);
-        const nextColor =
-          accentColors.light[index + 1] || accentColors.light[0];
+        const nextColor = accentColors.light[index + 1] || accentColors.light[0];
 
         window.localStorage.setItem('lightAccent', nextColor);
         document.documentElement.style.setProperty('--accent', nextColor);
@@ -88,9 +91,7 @@ export const ColorSchemeController = ({ children }) => {
   };
 
   return (
-    <ColorSchemeContext.Provider
-      value={{ incrementAccent: incrementAccentColor }}
-    >
+    <AppContext.Provider value={{ incrementAccent: incrementAccentColor }}>
       {children}
       <script
         dangerouslySetInnerHTML={{
@@ -126,9 +127,9 @@ export const ColorSchemeController = ({ children }) => {
               }
               catch (e) {}
             })();
-            `,
+            `
         }}
       />
-    </ColorSchemeContext.Provider>
+    </AppContext.Provider>
   );
 };

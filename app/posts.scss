@@ -85,7 +85,9 @@
   z-index: 1;
 
   p {
-    transition: opacity 0.2s ease-in-out, color 0.1s ease-in-out;
+    transition:
+      opacity 0.2s ease-in-out,
+      color 0.1s ease-in-out;
     text-overflow: clip;
     overflow: visible;
     white-space: nowrap;
@@ -132,7 +134,7 @@
   width: 100%;
   font-size: 18px;
   font-weight: 425;
-  padding: 1rem 3rem 6rem 1rem;
+  padding: 1rem 3rem 3rem 1rem;
 
   * {
     width: min(100%, 550px);
@@ -148,7 +150,8 @@
     width: auto;
   }
 
-  p > img, .kg-card > img {
+  p > img,
+  .kg-card > img {
     max-width: min(100%, 650px);
     max-height: 750px;
     width: auto;
@@ -232,15 +235,12 @@
   }
 }
 
-@media (max-width: 70rem) {
-  .postContent,
-  .loadingPostContent {
-    padding: 1rem 1rem 3rem 0.5rem;
-  }
-}
-
 @media (max-width: 52rem) {
   .toc {
     display: none;
+  }
+
+  .postContent {
+    padding: 1rem 1rem 3rem 1rem;
   }
 }

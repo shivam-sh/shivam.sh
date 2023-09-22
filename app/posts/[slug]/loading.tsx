@@ -4,35 +4,35 @@ export default async function Loading() {
 
 function LoadingBars() {
   return (
-    <div className='loadingPostContent'>
-      <div className='loadingBars'>
-        <div className='loadingBar' />
-        <div className='spacer' />
-        <div className='loadingBar' />
-        <div className='spacer' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='spacer' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='spacer' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='spacer' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
-        <div className='loadingBar' />
+    <div className="loadingPostContent">
+      <div className="loadingBars">
+        <div className="loadingBar" />
+        <div className="spacer" />
+        <div className="loadingBar" />
+        <div className="spacer" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="spacer" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="spacer" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="spacer" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
+        <div className="loadingBar" />
       </div>
     </div>
   );
