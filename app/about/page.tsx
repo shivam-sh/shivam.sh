@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <div className="postContent">
       <p />
-      <h2>Hey, I'm Shivam 👋</h2>
+      <h2>Hey, I&apos;m Shivam 👋</h2>
       <p>
         I built this website to showcase some of my projects, explorations, and experiences. I love
         pushing the boundaries with technology, design, and interactions to uncover innovative
@@ -25,7 +25,7 @@ export default function Page() {
         while learning new things along the way.
       </p>
       <p>
-        If you'd like to get in touch, feel free to email me at{' '}
+        If you&apos;d like to get in touch, feel free to email me at{' '}
         <Link href="mailto:contact@shivam.sh">contact@shivam.sh</Link>.
       </p>
       <p>
@@ -37,8 +37,8 @@ export default function Page() {
         and <Link href="https://linkedin.com/in/shivam-sh">LinkedIn</Link>.
       </p>
       <p>
-        I'd love to hear your thoughts on my projects, or chat about anything that interests you.
-        Whether it's related to technology, design, or something completely different, feel free to
+        I&apos;d love to hear your thoughts on my projects, or chat about anything that interests you.
+        Whether it&apos;s related to technology, design, or something completely different, feel free to
         connect with me on LinkedIn or drop me an email.
       </p>
       <p>Thanks for dropping by!</p>

@@ -33,12 +33,12 @@ export async function parseTOC(htmlString: string) {
   return headings;
 }
 
-function filterHeadings(headings) {
+function filterHeadings(headings: { id: string; text: string; depth: number }[]) {
   headings.shift(); // remove the title
 
   // find the number of headings at each depth
   let depth: number[] = [];
-  for (const heading in headings) {
+  for (const heading of headings) {
     depth.push(heading.depth);
   }
 

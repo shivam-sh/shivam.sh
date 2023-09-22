@@ -21,7 +21,7 @@ const pathToPageTypeRegex = {
   [PageType.PROJECT]: /^\/projects\/[a-zA-Z0-9_-]+$/
 };
 
-export function currentPageType(): PageType {
+export function useCurrentPageType(): PageType {
   const pathname = usePathname();
 
   const pageType =

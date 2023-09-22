@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import Logo from 'app/components/Logo';
 import styles from './Navbar.module.scss';
-import { currentPageType, PageType } from 'app/lib/navigation';
+import { useCurrentPageType, PageType } from 'app/lib/navigation';
 
 export default function Navbar() {
-  let currentPage = currentPageType();
+  let currentPage = useCurrentPageType();
 
   return (
     <header className={styles.navbar}>

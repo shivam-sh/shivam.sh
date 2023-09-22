@@ -71,7 +71,7 @@ function PostTitle({ post, inline }) {
 
   return (
     <h5 className={styles.title}>
-      <span className="accent">//&nbsp;</span>
+      <span className="accent">{"// "}</span>
       {post.title}
     </h5>
   );
