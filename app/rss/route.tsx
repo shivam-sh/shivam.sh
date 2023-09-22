@@ -7,12 +7,12 @@ export async function GET() {
   const rssData = postsData.slice(0, 10);
 
   const feedOptions = {
-    title: 'Spectre',
+    title: 'Shivam Sh',
     id: site_url ?? '',
     link: site_url,
     image: `${site_url}/logo.png`,
     favicon: `${site_url}/favicon.png`,
-    copyright: `All rights reserved ${new Date().getFullYear()}, Spectre`,
+    copyright: `All rights reserved ${new Date().getFullYear()}, Shivam Sh`,
     generator: 'Feed for Node.js',
     feedLinks: {
       rss2: `${site_url}rss`

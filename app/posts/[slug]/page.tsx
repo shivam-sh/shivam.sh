@@ -45,7 +45,7 @@ export async function generateMetadata({ params: { slug } }): Promise<Metadata> 
     title: post.title ?? 'Post not found',
     description: post.excerpt ?? 'The post you are looking was not found',
     openGraph: {
-      siteName: 'Spectre',
+      siteName: 'Shivam Sh',
       title: post.title ?? 'Post not found',
       description: post.excerpt ?? 'The post you are looking for was not found',
       url: `/posts/${slug}`,

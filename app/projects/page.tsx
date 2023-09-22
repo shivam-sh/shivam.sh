@@ -4,12 +4,12 @@ import Link from 'next/link';
 import styles from './Projects.module.scss';
 
 export const metadata = {
-  title: 'Projects • Spectre',
-  description: 'A list of some of my projects',
+  title: 'Projects • Shivam Sh',
+  description: 'A list of some of my projects • Shivam Sh',
   openGraph: {
-    siteName: 'Spectre',
-    title: 'Projects • Spectre',
-    description: 'A list of some of my projects',
+    siteName: 'Shivam Sh',
+    title: 'Projects • Shivam Sh',
+    description: 'A list of some of my projects • Shivam Sh',
     url: (process.env.SITE_URL ?? process.env.VERCEL_URL) + '/projects'
   }
 };

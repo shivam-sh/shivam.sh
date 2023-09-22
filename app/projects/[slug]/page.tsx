@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { slug } }): Promise<Metadata> 
     title: project.title ?? 'Project not found',
     description: project.excerpt ?? 'The project you are looking was not found',
     openGraph: {
-      siteName: 'Spectre',
+      siteName: 'Shivam Sh',
       title: project.title ?? 'Project not found',
       description: project.excerpt ?? 'The project you are looking for was not found',
       url: `/projects/${slug}`,
