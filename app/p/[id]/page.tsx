@@ -10,7 +10,7 @@ export default async function Page({ params }) {
   const post = await fetchWithID(params.id);
   if (post === '') return notFound();
 
-  if (post.tags.some((tag) => tag.name === '#inline') && post.title != '(Untitled)') {
+  if (post.inline && post.title != '(Untitled)') {
     post.html = `<h1 id="${post.title}">${post.title}</h1>` + post.html;
   }
 
