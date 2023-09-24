@@ -1,7 +1,6 @@
-import Blob from 'app/components/blob';
-import Canvas from 'app/components/canvas';
 import Description from 'app/components/description';
 import styles from './Home.module.scss';
+import Rings from './components/Rings';
 
 export default function Page() {
   return (
@@ -13,13 +12,11 @@ export default function Page() {
 
       <Description className={styles.description} />
 
-      <Canvas
+      <Rings
         id={styles.bg_canvas}
         camera={{ position: [0, 0, 4.0] }}
         style={{ position: 'fixed' }}
-      >
-        <Blob />
-      </Canvas>
+      />
     </div>
   );
 }
