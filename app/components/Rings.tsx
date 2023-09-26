@@ -1,27 +1,69 @@
 'use client';
 
 import { AppContext } from 'app/components/AppContextController';
-import { MathUtils } from 'three';
 import { useContext } from 'react';
+import { MathUtils } from 'three';
 import { useMemo, useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import useWindowSize from 'app/lib/useWindowSize';
 
-export default function Blob() {
+type RingsProps = {
+  innerDiameter: number;
+  thickness: number;
+  opacity: number;
+  intensity: number;
+  timeOffset: number;
+};
+
+export default function Rings(props) {
+  let rings: Array<RingsProps> = [];
+  for (let i = 0; i < 5; i++) {
+    let size = 0.2 * i + 0.1 * (0.5 - Math.random());
+    let offset = 0.1 * (0.5 - Math.random());
+
+    rings.push({
+      innerDiameter: (1 + 2 * size) ** 2,
+      thickness: (0.05 - size * 0.05) ** 1.1,
+      opacity: 0.8 - size ** 2,
+      intensity: 1 - size * 0.8,
+      timeOffset: size * 2 + offset
+    });
+  }
+
+  return (
+    <Canvas {...props}>
+      {rings.map((ring, index) => {
+        return (
+          <Ring
+            key={index}
+            position={[0, 0, 0]}
+            innerDiameter={ring.innerDiameter}
+            thickness={ring.thickness}
+            opacity={ring.opacity}
+            intensity={ring.intensity}
+            timeOffset={ring.timeOffset}
+          />
+        );
+      })}
+    </Canvas>
+  );
+}
+
+function Ring(props) {
   const window = useWindowSize({ defaultSize: { width: 0, height: 0 } });
   const { incrementAccent } = useContext(AppContext);
   const mesh = useRef<THREE.Mesh>();
-  const hover = useRef(false);
   const click = useRef(false);
   const uniforms = useMemo(
     () => ({
-      u_intensity: { value: 0.01 },
-      u_time: { value: 0 }
+      u_intensity: { value: props.intensity },
+      u_time: { value: props.timeOffset },
+      u_opacity: { value: props.opacity }
     }),
     []
   );
 
-  let timeStep = 0.001;
+  let timeStep = 0.0005;
 
   useFrame(({ camera }) => {
     if (camera.view === null || camera.view.offsetX !== -window.width * 0.5) {
@@ -36,12 +78,11 @@ export default function Blob() {
     }
 
     if (mesh.current) {
-      const hoverMultiplier = hover.current ? 1.2 : 1;
       const clickMultiplier = click.current ? 1.5 : 1;
 
       uniforms.u_intensity.value = MathUtils.lerp(
         uniforms.u_intensity.value,
-        0.5 * hoverMultiplier * clickMultiplier,
+        0.5 * clickMultiplier,
         0.1
       );
 
@@ -49,17 +90,11 @@ export default function Blob() {
     }
   });
 
-  if (mesh !== undefined) {
-  }
-
   return (
     <mesh
-      // @ts-ignore - mesh.current is incorrectly typed, shouldn't be null anyways
       ref={mesh}
       scale={1.2}
       position={[0, 0, 0]}
-      onPointerOver={() => (hover.current = true)}
-      onPointerOut={() => (hover.current = false)}
       onPointerDown={() => {
         click.current = true;
         timeStep = 0.003;
@@ -70,13 +105,22 @@ export default function Blob() {
 
         incrementAccent();
       }}
+      {...props}
     >
-      <icosahedronGeometry args={[2, 8]} />
+      <ringGeometry
+        args={[
+          props.innerDiameter,
+          props.innerDiameter + props.thickness,
+          Math.floor(100 * props.innerDiameter)
+        ]}
+      />
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
-        wireframe={true}
+        depthWrite={true}
+        transparent={true}
+        wireframe={false}
       />
     </mesh>
   );
@@ -151,14 +195,15 @@ void main() {
 const fragmentShader = `
 uniform float u_intensity;
 uniform float u_time;
+uniform float u_opacity;
 
 varying vec2 vUv;
 varying float vDisplacement;
 
 void main() {
-    vec3 color = vec3(abs(vUv - 0.5) * 2.0, 0.9);
-    float gray = dot(color, vec3(0.299, 0.587, 0.114));
-    color = vec3(gray);
-    gl_FragColor = vec4(color, 0.2);
+  vec3 color = vec3(0.5); // Set the base color to grey
+  float alpha = u_opacity; // Set the desired transparency level
+
+  gl_FragColor = vec4(color, alpha);
 }
 `;
