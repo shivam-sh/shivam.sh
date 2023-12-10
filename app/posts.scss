@@ -7,6 +7,7 @@
   h6,
   p {
     margin: 0;
+    margin-block-end: 0.5rem;
   }
 
   h1 {
@@ -50,6 +51,11 @@
 
   ul {
     margin-block-start: -1rem;
+  }
+
+  li {
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
   }
 
   pre {
@@ -129,7 +135,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: 1.5rem;
 
   width: 100%;
   font-size: 18px;
