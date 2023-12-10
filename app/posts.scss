@@ -156,6 +156,34 @@
     width: auto;
   }
 
+  .kg-align-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .kg-btn {
+    display: inline-block;
+    width: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    color: var(--bg-alt);
+    background-color: var(--text);
+
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    text-decoration: none;
+
+    transition: background-color 0.1s ease-in-out;
+    &:hover {
+      color: var(--bg-alt);
+      background-color: var(--accent);
+    }
+  }
+
   p > img,
   .kg-card > img {
     max-width: min(100%, 650px);
