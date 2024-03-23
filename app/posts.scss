@@ -184,6 +184,12 @@
     }
   }
 
+  .center {
+    // align self or embedded text to center
+    align-self: center;
+    width: auto;
+  }
+
   p > img,
   .kg-card > img {
     max-width: min(100%, 650px);
