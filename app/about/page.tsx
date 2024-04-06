@@ -47,6 +47,8 @@ export default function Page() {
         If you find my work to be helpful and want to show your support, you can buy me a coffee{' '}
         <Link href="https://www.buymeacoffee.com/shivamsh">here</Link>.
       </p>
-    </div>
+
+      <Link className='center' href="https://socratica.info">⁂</Link>
+      </div>
   );
 }
