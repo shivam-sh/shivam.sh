@@ -1,3 +1,4 @@
+import { Ast } from 'app/components/asterism';
 import Link from 'next/link';
 
 export const metadata = {
@@ -48,7 +49,7 @@ export default function Page() {
         <Link href="https://www.buymeacoffee.com/shivamsh">here</Link>.
       </p>
 
-      <Link className='center' href="https://socratica.info">⁂</Link>
+      <Link className='center' href="https://socratica.info"><Ast/></Link>
       </div>
   );
 }
