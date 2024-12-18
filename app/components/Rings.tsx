@@ -1,8 +1,8 @@
 'use client';
 
+import * as THREE from 'three';
 import { AppContext } from 'app/components/AppContextController';
 import { useContext } from 'react';
-import { MathUtils } from 'three';
 import { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import useWindowSize from 'app/lib/useWindowSize';
@@ -52,7 +52,7 @@ export default function Rings(props) {
 function Ring(props) {
   const window = useWindowSize({ defaultSize: { width: 0, height: 0 } });
   const { incrementAccent } = useContext(AppContext);
-  const mesh = useRef<THREE.Mesh>();
+  const mesh = useRef<THREE.Mesh | null>(null);
   const click = useRef(false);
   const uniforms = useMemo(
     () => ({
@@ -60,7 +60,7 @@ function Ring(props) {
       u_time: { value: props.timeOffset },
       u_opacity: { value: props.opacity }
     }),
-    []
+    [props.intensity, props.timeOffset, props.opacity]
   );
 
   let timeStep = 0.0005;
@@ -80,7 +80,7 @@ function Ring(props) {
     if (mesh.current) {
       const clickMultiplier = click.current ? 1.5 : 1;
 
-      uniforms.u_intensity.value = MathUtils.lerp(
+      uniforms.u_intensity.value = THREE.MathUtils.lerp(
         uniforms.u_intensity.value,
         0.5 * clickMultiplier,
         0.1
