@@ -3,8 +3,15 @@ import { rehypeHTML } from 'app/lib/server/postProcessing';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export default async function Page({ params }) {
-  const project = await fetchProject(params.slug);
+type PageData = {
+  params: Promise<{
+    slug: string
+  }>
+}
+
+export default async function Page({ params }: PageData) {
+  const { slug } = await params;
+  const project = await fetchProject(slug);
   if (project === '') return notFound();
   const source = String(await rehypeHTML(project.html));
 
@@ -13,7 +20,8 @@ export default async function Page({ params }) {
 
 export const revalidate = 60;
 
-export async function generateMetadata({ params: { slug } }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageData): Promise<Metadata> {
+  const { slug } = await params;
   const project = await fetchProject(slug);
 
   return {

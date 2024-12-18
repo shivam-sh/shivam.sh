@@ -6,8 +6,15 @@ import { notFound } from 'next/navigation';
 
 export const revalidate = 1;
 
-export default async function Page({ params }) {
-  const post = await fetchWithID(params.id);
+type PageData = {
+  params: Promise<{
+    id: string
+  }>
+}
+
+export default async function Page({ params }: PageData) {
+const { id } = await params;
+  const post = await fetchWithID(id);
   if (post === '') return notFound();
 
   if (post.inline && post.title != '(Untitled)') {
@@ -23,7 +30,7 @@ export default async function Page({ params }) {
         {toc.map((entry) => {
           return (
             <Link
-              href={`posts/${params.id}/#${entry.id}`}
+              href={`posts/${id}/#${entry.id}`}
               replace={true}
               className="tocLink"
               key={entry.id}
@@ -38,7 +45,8 @@ export default async function Page({ params }) {
   );
 }
 
-export async function generateMetadata({ params: { id } }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageData): Promise<Metadata> {
+  const { id } = await params;
   const post = await fetchWithID(id);
 
   return {
