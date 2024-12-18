@@ -1,9 +1,8 @@
 'use client';
 
+import * as THREE from 'three';
 import { AppContext } from 'app/components/AppContextController';
 import { useContext } from 'react';
-import { MathUtils } from 'three';
-import * as THREE from 'three';
 import { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import useWindowSize from 'app/lib/useWindowSize';
@@ -81,7 +80,7 @@ function Ring(props) {
     if (mesh.current) {
       const clickMultiplier = click.current ? 1.5 : 1;
 
-      uniforms.u_intensity.value = MathUtils.lerp(
+      uniforms.u_intensity.value = THREE.MathUtils.lerp(
         uniforms.u_intensity.value,
         0.5 * clickMultiplier,
         0.1
