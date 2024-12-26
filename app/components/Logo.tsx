@@ -4,8 +4,8 @@ const Logo = (props) => {
 
   return (
     <div {...props}>
-      <S shadowoffset={shadowoffset} shadowsize={shadowsize} />
-      <H shadowoffset={shadowoffset} shadowsize={shadowsize} />
+      <S shadowoffset={shadowoffset} shadowsize={shadowsize} className='inline-block fill-text' />
+      <H shadowoffset={shadowoffset} shadowsize={shadowsize} className='inline-block fill-text' />
     </div>
   );
 };
