@@ -13,13 +13,15 @@ type Props = {
 export default async function Page({ params }: Props) {
   const { id } = await params;
   const post = await fetchWithID(id);
-  if (post === '') return notFound();
+  if (!post) return notFound();
 
+  // post is shared with generateMetadata through cache(), so don't mutate it
+  let html = post.html;
   if (post.inline && post.title != '(Untitled)') {
-    post.html = `<h1 id="${post.title}">${post.title}</h1>` + post.html;
+    html = `<h1 id="${post.title}">${post.title}</h1>` + html;
   }
 
-  const source = String(await rehypeHTML(post.html));
+  const source = String(await rehypeHTML(html));
   const toc = await parseTOC(source);
 
   return (
@@ -48,17 +50,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await fetchWithID(id);
 
   return {
-    title: post.title ?? 'Post not found',
-    description: post.excerpt ?? 'The post you are looking was not found',
+    title: post?.title ?? 'Post not found',
+    description: post?.excerpt ?? 'The post you are looking was not found',
     openGraph: {
       siteName: 'Shivam Sh',
-      title: post.title ?? 'Post not found',
-      description: post.excerpt ?? 'The post you are looking for was not found',
+      title: post?.title ?? 'Post not found',
+      description: post?.excerpt ?? 'The post you are looking for was not found',
       url: `/posts/${id}`,
       images: [
         {
-          url: `${post.featureImage}`,
-          alt: post.title ?? 'Post not found'
+          url: `${post?.featureImage}`,
+          alt: post?.title ?? 'Post not found'
         }
       ]
     }
