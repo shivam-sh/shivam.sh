@@ -29,7 +29,8 @@ export async function fetchPosts() {
           inline: inline,
           html: inline ? post.html : null,
           url: post.canonical_url != null ? post.canonical_url : post.url,
-          externalLink: post.canonical_url != null
+          externalLink: post.canonical_url != null,
+          updatedAt: post.updated_at
         };
 
         posts.push(localPost);
@@ -100,7 +101,9 @@ export async function fetchProjects() {
           title: project.title,
           excerpt: project.excerpt,
           url: project.canonical_url != null ? project.canonical_url : project.url,
-          featureImage: project.feature_image
+          externalLink: project.canonical_url != null,
+          featureImage: project.feature_image,
+          updatedAt: project.updated_at
         };
         projects.push(localProject);
       }
