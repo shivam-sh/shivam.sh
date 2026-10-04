@@ -39,3 +39,8 @@ yarn-error.log*
 # site genration
 /public/assets
 /public/rss
+/public/rss.xml
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
