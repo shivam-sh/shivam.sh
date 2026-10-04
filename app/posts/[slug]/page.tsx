@@ -1,4 +1,4 @@
-import { fetchPost, fetchPosts } from 'app/lib/server/ghostData';
+import { fetchPost, fetchPosts, fetchProject } from 'app/lib/server/ghostData';
 import { parseTOC, rehypeHTML } from 'app/lib/server/postProcessing';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -17,12 +17,15 @@ export default async function Page({ params }: Props) {
   const post = await fetchPost(slug);
   if (!post) return notFound();
 
+  // post is shared with generateMetadata through cache(), so don't mutate it
+  let html = post.html;
   if (post.inline && post.title != '(Untitled)') {
-    post.html = `<h1 id="${post.title}">${post.title}</h1>` + post.html;
+    html = `<h1 id="${post.title}">${post.title}</h1>` + html;
   }
 
-  const source = String(await rehypeHTML(post.html));
+  const source = String(await rehypeHTML(html));
   let toc = await parseTOC(source);
+  const project = post.projectSlug ? await fetchProject(post.projectSlug) : null;
 
   return (
     <>
@@ -40,6 +43,13 @@ export default async function Page({ params }: Props) {
           );
         })}
       </div>
+      {project ? (
+        <div className="postMeta">
+          <p className="caption">
+            Part of <Link href={`/projects/${post.projectSlug}`}>{project.title}</Link>
+          </p>
+        </div>
+      ) : null}
       <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />
     </>
   );

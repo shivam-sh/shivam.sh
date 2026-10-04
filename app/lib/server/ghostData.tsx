@@ -144,8 +144,51 @@ export const fetchPost = cache(async (slug: string) => {
     excerpt: post.excerpt,
     html: post.html,
     inline: post.tags.some((tag) => tag.name === '#inline'),
-    featureImage: post.feature_image
+    featureImage: post.feature_image,
+    projectSlug: linkedProjectSlug(post)
   };
+});
+
+// Posts are linked to a project with an internal tag `#project-<project-slug>`. Ghost slugs
+// internal ('#') tags as `hash-<name>`, so `#project-goose-bot` becomes `hash-project-goose-bot`.
+const PROJECT_LINK_TAG_PREFIX = 'hash-project-';
+
+function linkedProjectSlug(post): string | null {
+  const tag = post.tags.find((tag) => tag.slug.startsWith(PROJECT_LINK_TAG_PREFIX));
+  return tag ? tag.slug.slice(PROJECT_LINK_TAG_PREFIX.length) : null;
+}
+
+function toSitePath(url: string): string {
+  if (process.env.SITE_URL && url.startsWith(process.env.SITE_URL)) {
+    return url.replace(process.env.SITE_URL, '');
+  } else if (process.env.VERCEL_URL && url.startsWith(process.env.VERCEL_URL)) {
+    return url.replace(process.env.VERCEL_URL, '');
+  }
+  return url;
+}
+
+// Published posts tagged `#project-<slug>`, newest first
+export const fetchProjectLog = cache(async (slug: string) => {
+  // slug ends up in an NQL filter, so only allow slug characters
+  if (!/^[a-z0-9-]+$/.test(slug)) return [];
+
+  const posts = await api.posts.browse({
+    limit: 'all',
+    include: 'tags',
+    filter: `tag:${PROJECT_LINK_TAG_PREFIX}${slug}+status:published`,
+    order: 'published_at DESC'
+  });
+
+  return posts
+    .filter((post) => post.tags.some((tag) => tag.name === '#post'))
+    .sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at))
+    .map((post) => ({
+      slug: post.slug,
+      title: post.title,
+      excerpt: post.excerpt,
+      publishedAt: post.published_at,
+      url: toSitePath(post.canonical_url ?? post.url)
+    }));
 });
 
 // Returns null only when the project genuinely doesn't exist; throws if Ghost is unreachable

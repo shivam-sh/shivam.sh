@@ -15,11 +15,13 @@ export default async function Page({ params }: Props) {
   const post = await fetchWithID(id);
   if (!post) return notFound();
 
+  // post is shared with generateMetadata through cache(), so don't mutate it
+  let html = post.html;
   if (post.inline && post.title != '(Untitled)') {
-    post.html = `<h1 id="${post.title}">${post.title}</h1>` + post.html;
+    html = `<h1 id="${post.title}">${post.title}</h1>` + html;
   }
 
-  const source = String(await rehypeHTML(post.html));
+  const source = String(await rehypeHTML(html));
   const toc = await parseTOC(source);
 
   return (

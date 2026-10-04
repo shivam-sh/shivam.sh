@@ -1,3 +1,4 @@
+import ProjectLog from 'app/components/ProjectLog';
 import { fetchProject, fetchProjects } from 'app/lib/server/ghostData';
 import { rehypeHTML } from 'app/lib/server/postProcessing';
 import { Metadata } from 'next';
@@ -13,7 +14,12 @@ export default async function Page({ params }: Props) {
   if (!project) return notFound();
   const source = String(await rehypeHTML(project.html));
 
-  return <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />;
+  return (
+    <>
+      <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />
+      <ProjectLog slug={slug} />
+    </>
+  );
 }
 
 export const revalidate = 60;
