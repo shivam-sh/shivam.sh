@@ -145,6 +145,8 @@ export const fetchPost = cache(async (slug: string) => {
     html: post.html,
     inline: post.tags.some((tag) => tag.name === '#inline'),
     featureImage: post.feature_image,
+    publishedAt: post.published_at,
+    updatedAt: post.updated_at,
     projectSlug: linkedProjectSlug(post)
   };
 });
@@ -200,7 +202,9 @@ export const fetchProject = cache(async (slug: string) => {
     title: project.title,
     excerpt: project.excerpt,
     html: project.html,
-    featureImage: project.feature_image
+    featureImage: project.feature_image,
+    publishedAt: project.published_at,
+    updatedAt: project.updated_at
   };
 });
 

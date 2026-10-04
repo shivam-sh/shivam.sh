@@ -1,3 +1,4 @@
+import { EntryDates } from 'app/components/EntryDate';
 import { fetchPost, fetchPosts, fetchProject } from 'app/lib/server/ghostData';
 import { parseTOC, rehypeHTML } from 'app/lib/server/postProcessing';
 import Link from 'next/link';
@@ -43,13 +44,16 @@ export default async function Page({ params }: Props) {
           );
         })}
       </div>
-      {project ? (
-        <div className="postMeta">
+      <div className="postMeta">
+        <p className="caption">
+          <EntryDates publishedAt={post.publishedAt} updatedAt={post.updatedAt} />
+        </p>
+        {project ? (
           <p className="caption">
             Part of <Link href={`/projects/${post.projectSlug}`}>{project.title}</Link>
           </p>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
       <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />
     </>
   );

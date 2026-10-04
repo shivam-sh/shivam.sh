@@ -1,3 +1,4 @@
+import { EntryDates } from 'app/components/EntryDate';
 import ProjectLog from 'app/components/ProjectLog';
 import { fetchProject, fetchProjects } from 'app/lib/server/ghostData';
 import { rehypeHTML } from 'app/lib/server/postProcessing';
@@ -16,6 +17,11 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
+      <div className="postMeta">
+        <p className="caption">
+          <EntryDates publishedAt={project.publishedAt} updatedAt={project.updatedAt} />
+        </p>
+      </div>
       <div className="postContent" dangerouslySetInnerHTML={{ __html: source }} />
       <ProjectLog slug={slug} />
     </>
