@@ -10,7 +10,7 @@ import rehypeStringify from "rehype-stringify";
 import { unified } from "unified";
 
 export default async function generateRssFeed(postsData) {
-  const site_url = "dev.shivam.sh";
+  const site_url = "shivam.sh";
 
   let posts = [];
 
