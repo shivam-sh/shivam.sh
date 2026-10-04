@@ -50,38 +50,22 @@ export async function fetchPosts() {
 }
 
 export async function fetchRSSPosts() {
-  return await api.posts
-    .browse({ limit: 20, formats: ['html'], include: 'tags' })
-    .then((posts) => {
-      return posts.filter(
-        (post) => post.tags.some((tag) => tag.name === '#post') && post.status === 'published'
-      );
-    })
-    .then((ghostPosts) => {
-      let posts: any[] = [];
-      for (const post of ghostPosts) {
-        const localPost = {
-          title: post.title,
-          excerpt: post.excerpt,
-          date: new Date(post.published_at),
-          url: post.canonical_url != null ? post.canonical_url : post.url,
-          html: post.html
-        };
+  // limit must be 'all': the Admin API returns drafts too (sorted first), so a small page of
+  // results left only a handful of published posts after filtering
+  const posts = await api.posts.browse({ limit: 'all', formats: ['html'], include: 'tags' });
 
-        posts.push(localPost);
-      }
-      return posts;
-    })
-    .then((posts) => {
-      for (const post of posts) {
-        if (post.url.startsWith(process.env.SITE_URL)) {
-          post.url = post.url.replace(process.env.SITE_URL, '');
-        } else if (process.env.VERCEL_URL && post.url.startsWith(process.env.VERCEL_URL)) {
-          post.url = post.url.replace(process.env.VERCEL_URL, '');
-        }
-      }
-      return posts;
-    });
+  return posts
+    .filter((post) => post.tags.some((tag) => tag.name === '#post') && post.status === 'published')
+    .sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at))
+    .map((post) => ({
+      slug: post.slug,
+      title: post.title,
+      excerpt: post.excerpt,
+      date: new Date(post.published_at),
+      // canonical_url means the post lives elsewhere; otherwise it's served at /posts/<slug>
+      externalURL: post.canonical_url,
+      html: post.html
+    }));
 }
 
 export async function fetchProjects() {
