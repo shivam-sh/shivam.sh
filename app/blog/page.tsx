@@ -16,7 +16,7 @@ export default async function Blog() {
         const date = new Date(data.date);
 
         return (
-          <Link href={data.url} key={data.title} legacyBehavior>
+          <Link href={data.url} key={data.title}>
             <div className={styles.post}>
               <h5 className={styles.title}>
                 <span className="accent">//&nbsp;&nbsp;</span>

@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/font": "^13.1.2",
     "date-fns": "^2.29.3",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
