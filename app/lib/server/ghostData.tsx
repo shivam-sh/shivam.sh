@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 import GhostAdminAPI from '@tryghost/admin-api';
+import { cache } from 'react';
 
 const api = new GhostAdminAPI({
   url: process.env.GHOST_URL,
@@ -117,64 +118,66 @@ export async function fetchProjects() {
     });
 }
 
-export async function fetchPost(slug: string) {
-  return await api.posts
-    .read({ slug, formats: ['html'], include: 'tags' })
-    .then((post) => {
-      if (!post.tags.some((tag) => tag.name === '#post')) {
-        throw new Error('Not found');
-      }
-      return post;
-    })
-    .then((post) => {
-      return {
-        title: post.title,
-        excerpt: post.excerpt,
-        html: post.html,
-        inline: post.tags.some((tag) => tag.name === '#inline'),
-        featureImage: post.feature_image
-      };
-    })
-    .catch(() => {
-      return '';
-    });
+// Ghost's Admin API reports a missing resource as a `NotFoundError`. Anything else (network
+// failure, timeout, auth, 5xx) is rethrown so ISR keeps serving the last good page instead of
+// caching a 404 over it, and so builds fail loudly.
+function isNotFound(error): boolean {
+  return error?.name === 'NotFoundError' || error?.type === 'NotFoundError';
 }
 
-export async function fetchProject(slug: string) {
-  return await api.posts
-    .read({ slug, formats: ['html'], include: 'tags' })
-    .then((project) => {
-      if (!project.tags.some((tag) => tag.name === '#project')) {
-        throw new Error('Not found');
-      }
-      return project;
-    })
-    .then((project) => {
-      return {
-        title: project.title,
-        excerpt: project.excerpt,
-        html: project.html,
-        featureImage: project.feature_image
-      };
-    })
-    .catch(() => {
-      return '';
-    });
+async function readPost(slug: string) {
+  try {
+    return await api.posts.read({ slug, formats: ['html'], include: 'tags' });
+  } catch (error) {
+    if (isNotFound(error)) return null;
+    throw error;
+  }
 }
 
-export async function fetchWithID(id: string) {
-  return await api.posts
-    .browse({ formats: ['html'], filter: `uuid:${id}` })
-    .then((post) => post[0])
-    .then((post) => {
-      return {
-        title: post.title,
-        excerpt: post.excerpt,
-        html: post.html,
-        featureImage: post.feature_image
-      };
-    })
-    .catch(() => {
-      return '';
-    });
-}
+// Returns null only when the post genuinely doesn't exist; throws if Ghost is unreachable
+export const fetchPost = cache(async (slug: string) => {
+  const post = await readPost(slug);
+  if (!post || !post.tags.some((tag) => tag.name === '#post')) return null;
+
+  return {
+    title: post.title,
+    excerpt: post.excerpt,
+    html: post.html,
+    inline: post.tags.some((tag) => tag.name === '#inline'),
+    featureImage: post.feature_image
+  };
+});
+
+// Returns null only when the project genuinely doesn't exist; throws if Ghost is unreachable
+export const fetchProject = cache(async (slug: string) => {
+  const project = await readPost(slug);
+  if (!project || !project.tags.some((tag) => tag.name === '#project')) return null;
+
+  return {
+    title: project.title,
+    excerpt: project.excerpt,
+    html: project.html,
+    featureImage: project.feature_image
+  };
+});
+
+export const fetchWithID = cache(async (id: string) => {
+  // ids are Ghost uuids; anything else can't match and shouldn't reach the NQL filter
+  if (!/^[0-9a-f-]+$/i.test(id)) return null;
+
+  const posts = await api.posts.browse({
+    formats: ['html'],
+    include: 'tags',
+    filter: `uuid:${id}`
+  });
+  const post = posts[0];
+  if (!post) return null;
+
+  return {
+    title: post.title,
+    excerpt: post.excerpt,
+    html: post.html,
+    inline: post.tags.some((tag) => tag.name === '#inline'),
+    featureImage: post.feature_image
+  };
+});
