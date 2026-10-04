@@ -15,6 +15,10 @@ module.exports = {
         text: 'var(--text)',
         text_alt: 'var(--text-alt)',
       },
+      // media query sizes
+      screens: {
+        lg: '825px',
+      },
       typography: {
         DEFAULT: {
           css: {

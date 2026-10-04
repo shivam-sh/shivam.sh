@@ -226,6 +226,10 @@ blockquote {
   grid-template-areas: 'sidebar main' 'sidebar footer';
   align-items: start;
 
+  #sidebar {
+    grid-area: sidebar;
+  }
+
   #content {
     min-height: 100vh;
     width: calc(100vw - 8rem);
@@ -307,7 +311,7 @@ blockquote {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 825px) {
   header {
     transition-property: box-shadow;
     transition-duration: 0.2s;
