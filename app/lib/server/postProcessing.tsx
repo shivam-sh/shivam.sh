@@ -4,8 +4,6 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 
-`use server`;
-
 export async function rehypeHTML(htmlString: string) {
   return await rehype()
     .use(rehypeHighlight)

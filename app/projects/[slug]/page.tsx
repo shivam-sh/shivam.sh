@@ -3,8 +3,13 @@ import { rehypeHTML } from 'app/lib/server/postProcessing';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export default async function Page({ params }) {
-  const project = await fetchProject(params.slug);
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  const project = await fetchProject(slug);
   if (project === '') return notFound();
   const source = String(await rehypeHTML(project.html));
 
@@ -13,7 +18,8 @@ export default async function Page({ params }) {
 
 export const revalidate = 60;
 
-export async function generateMetadata({ params: { slug } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
   const project = await fetchProject(slug);
 
   return {
@@ -38,6 +44,6 @@ export async function generateStaticParams() {
   const projects = await fetchProjects();
 
   return projects.map((project) => ({
-    project: project.slug
+    slug: project.slug
   }));
 }

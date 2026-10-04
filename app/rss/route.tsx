@@ -1,10 +1,9 @@
 import { Feed } from 'feed';
 import { fetchRSSPosts } from 'app/lib/server/ghostData';
 
-`use server`;
-
 export async function GET() {
-  const site_url = process.env.SITE_URL || process.env.VERCEL_URL;
+  // feed requires absolute URLs; VERCEL_URL has no protocol
+  const site_url = process.env.SITE_URL || `https://${process.env.VERCEL_URL}/`;
   const postsData = await fetchRSSPosts();
   const rssData = postsData.slice(0, 10);
 
@@ -29,7 +28,7 @@ export async function GET() {
         title: post.title,
         description: post.excerpt,
         date: new Date(post.date),
-        link: `${post.url}`,
+        link: new URL(post.url, site_url).toString(),
         content: String(post.html)
       });
     })
