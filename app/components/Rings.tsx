@@ -1,8 +1,8 @@
 'use client';
 
 import { AppContext } from 'app/components/AppContextController';
-import { useContext } from 'react';
-import { MathUtils } from 'three';
+import { useContext, useState } from 'react';
+import { MathUtils, Mesh, ShaderMaterial } from 'three';
 import { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import useWindowSize from 'app/lib/useWindowSize';
@@ -15,7 +15,7 @@ type RingsProps = {
   timeOffset: number;
 };
 
-export default function Rings(props) {
+function generateRings() {
   let rings: Array<RingsProps> = [];
   for (let i = 0; i < 5; i++) {
     let size = 0.2 * i + 0.1 * (0.5 - Math.random());
@@ -29,6 +29,12 @@ export default function Rings(props) {
       timeOffset: size * 2 + offset
     });
   }
+  return rings;
+}
+
+export default function Rings(props) {
+  // generate the rings once so they stay stable across re-renders
+  const [rings] = useState(generateRings);
 
   return (
     <Canvas {...props}>
@@ -52,7 +58,7 @@ export default function Rings(props) {
 function Ring(props) {
   const window = useWindowSize({ defaultSize: { width: 0, height: 0 } });
   const { incrementAccent } = useContext(AppContext);
-  const mesh = useRef<THREE.Mesh>();
+  const mesh = useRef<Mesh>(null);
   const click = useRef(false);
   const uniforms = useMemo(
     () => ({
@@ -60,10 +66,10 @@ function Ring(props) {
       u_time: { value: props.timeOffset },
       u_opacity: { value: props.opacity }
     }),
-    []
+    [props.intensity, props.timeOffset, props.opacity]
   );
 
-  let timeStep = 0.0005;
+  const timeStep = useRef(0.0005);
 
   useFrame(({ camera }) => {
     if (camera.view === null || camera.view.offsetX !== -window.width * 0.5) {
@@ -79,6 +85,7 @@ function Ring(props) {
 
     if (mesh.current) {
       const clickMultiplier = click.current ? 1.5 : 1;
+      const { uniforms } = mesh.current.material as ShaderMaterial;
 
       uniforms.u_intensity.value = MathUtils.lerp(
         uniforms.u_intensity.value,
@@ -86,7 +93,7 @@ function Ring(props) {
         0.1
       );
 
-      uniforms.u_time.value += timeStep;
+      uniforms.u_time.value += timeStep.current;
     }
   });
 
@@ -97,11 +104,11 @@ function Ring(props) {
       position={[0, 0, 0]}
       onPointerDown={() => {
         click.current = true;
-        timeStep = 0.003;
+        timeStep.current = 0.003;
       }}
       onPointerUp={() => {
         click.current = false;
-        timeStep = 0.001;
+        timeStep.current = 0.001;
 
         incrementAccent();
       }}

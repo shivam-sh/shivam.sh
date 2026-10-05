@@ -6,7 +6,7 @@
 
 const nextConfig = {
   images: {
-    domains: ['shivam.sh', 'images.unsplash.com']
+    remotePatterns: [{ hostname: 'shivam.sh' }, { hostname: 'images.unsplash.com' }]
   },
   reactStrictMode: true,
   typescript: {

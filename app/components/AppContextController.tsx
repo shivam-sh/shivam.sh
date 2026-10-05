@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useRef } from 'react';
 
 export const accentColors = {
   dark: ['#a0c0c0', '#40a3ff', '#fe523c', '#fc80ff', '#21debb', '#8746f0', '#f5c116', '#f5241d'],
@@ -12,10 +12,10 @@ export const AppContext = createContext({
 });
 
 export const AppContextController = ({ children }) => {
-  const [windowExists, setWindowExists] = useState(false);
+  const windowExists = useRef(false);
 
   useEffect(() => {
-    setWindowExists(true);
+    windowExists.current = true;
 
     const lightAccent = window.localStorage.getItem('lightAccent');
     const darkAccent = window.localStorage.getItem('darkAccent');
@@ -48,11 +48,13 @@ export const AppContextController = ({ children }) => {
 
     storeScroll();
 
-    return () => setWindowExists(false);
+    return () => {
+      windowExists.current = false;
+    };
   }, []);
 
   const incrementAccentColor = () => {
-    if (windowExists) {
+    if (windowExists.current) {
       const onThemeChange = (e) => {
         if (e.matches) {
           const lightAccent = window.localStorage.getItem('lightAccent');

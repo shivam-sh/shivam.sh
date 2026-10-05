@@ -1,8 +1,6 @@
 import { format } from 'date-fns';
 import GhostAdminAPI from '@tryghost/admin-api';
 
-`use server`;
-
 const api = new GhostAdminAPI({
   url: process.env.GHOST_URL,
   key: process.env.GHOST_API_KEY,
@@ -23,6 +21,7 @@ export async function fetchPosts() {
         const inline = post.tags.some((tag) => tag.name === '#inline');
 
         const localPost = {
+          slug: post.slug,
           title: post.title,
           excerpt: post.excerpt,
           date: format(new Date(post.published_at), 'dd-MM-yyyy'),
@@ -96,6 +95,7 @@ export async function fetchProjects() {
       let projects: any[] = [];
       for (const project of ghostProjects) {
         const localProject = {
+          slug: project.slug,
           title: project.title,
           excerpt: project.excerpt,
           url: project.canonical_url != null ? project.canonical_url : project.url,
